@@ -9,6 +9,7 @@ import SwiftUI
 
 
 struct MakeGroupModal: View {
+    @Environment(\.dismiss) var dismiss
     @State var groupName: String = ""
     @State var host: String = ""
     @StateObject var groupStore: GroupStore = GroupStore()
@@ -85,6 +86,7 @@ struct MakeGroupModal: View {
                 Button(action: {
                     let codes: String = String(Int.random(in: 100000..<1000000))
                     groupStore.addGroup(newGroup: Group(groupName: groupName, groupImage: "이미지", host: host, code: codes, userList: [], promiseList: []))
+                    dismiss()
                 }){
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color("melon"))
