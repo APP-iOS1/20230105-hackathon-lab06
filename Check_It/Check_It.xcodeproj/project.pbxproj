@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DC2967025300DC35CF /* AttendanceModalView.swift */; };
 		287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DE2967069400DC35CF /* LocationViewModel.swift */; };
+		287680E32967207700DC35CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E22967207700DC35CF /* MapView.swift */; };
 		34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF429666D2B005F19FC /* HomeMainView.swift */; };
 		34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF629666D3D005F19FC /* AttendanceMainView.swift */; };
 		34E66AF929666D53005F19FC /* MyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF829666D53005F19FC /* MyMainView.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		287680DC2967025300DC35CF /* AttendanceModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalView.swift; sourceTree = "<group>"; };
 		287680DE2967069400DC35CF /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		287680E22967207700DC35CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		34E66AF429666D2B005F19FC /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		34E66AF629666D3D005F19FC /* AttendanceMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMainView.swift; sourceTree = "<group>"; };
 		34E66AF829666D53005F19FC /* MyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainView.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				7944E32D2966C54000ADFED6 /* MainDetailView.swift */,
 				7944E32F2966C62100ADFED6 /* DdayFrame.swift */,
 				287680DC2967025300DC35CF /* AttendanceModalView.swift */,
+				287680E22967207700DC35CF /* MapView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				7944E32E2966C54000ADFED6 /* MainDetailView.swift in Sources */,
 				34E66AF929666D53005F19FC /* MyMainView.swift in Sources */,
 				F480D4242966EF2E005CB779 /* Group.swift in Sources */,
+				287680E32967207700DC35CF /* MapView.swift in Sources */,
 				34E66AFB29666D61005F19FC /* User.swift in Sources */,
 				F480D4262966EF97005CB779 /* Promise.swift in Sources */,
 				34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */,
