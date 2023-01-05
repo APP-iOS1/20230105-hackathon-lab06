@@ -12,6 +12,8 @@
 		34E66AF929666D53005F19FC /* MyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF829666D53005F19FC /* MyMainView.swift */; };
 		34E66AFB29666D61005F19FC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AFA29666D61005F19FC /* Model.swift */; };
 		34E66AFD29666D72005F19FC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AFC29666D72005F19FC /* ViewModel.swift */; };
+		34E66B0229669F27005F19FC /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66B0129669F27005F19FC /* LoginView.swift */; };
+		34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66B0329669F3E005F19FC /* SignUpView.swift */; };
 		F480D4162966554E005CB779 /* Check_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D4152966554E005CB779 /* Check_ItApp.swift */; };
 		F480D4182966554E005CB779 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D4172966554E005CB779 /* ContentView.swift */; };
 		F480D41A29665554005CB779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F480D41929665554005CB779 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		34E66AF829666D53005F19FC /* MyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainView.swift; sourceTree = "<group>"; };
 		34E66AFA29666D61005F19FC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		34E66AFC29666D72005F19FC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		34E66B0129669F27005F19FC /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		34E66B0329669F3E005F19FC /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		F480D4122966554E005CB779 /* Check_It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check_It.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F480D4152966554E005CB779 /* Check_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check_ItApp.swift; sourceTree = "<group>"; };
 		F480D4172966554E005CB779 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +71,7 @@
 				34E66AF029666C6F005F19FC /* Home */,
 				34E66AF129666C7C005F19FC /* Attendance */,
 				34E66AF229666C82005F19FC /* My */,
+				34E66AFE29669CFF005F19FC /* LoginSignUp */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,6 +114,31 @@
 				34E66AF829666D53005F19FC /* MyMainView.swift */,
 			);
 			path = My;
+			sourceTree = "<group>";
+		};
+		34E66AFE29669CFF005F19FC /* LoginSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				34E66AFF29669D84005F19FC /* Login */,
+				34E66B0029669D8A005F19FC /* SignUp */,
+			);
+			path = LoginSignUp;
+			sourceTree = "<group>";
+		};
+		34E66AFF29669D84005F19FC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				34E66B0129669F27005F19FC /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		34E66B0029669D8A005F19FC /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				34E66B0329669F3E005F19FC /* SignUpView.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		F480D4092966554E005CB779 = {
@@ -239,6 +269,8 @@
 				34E66AFB29666D61005F19FC /* Model.swift in Sources */,
 				34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */,
 				34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */,
+				34E66B0229669F27005F19FC /* LoginView.swift in Sources */,
+				34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */,
 				34E66AFD29666D72005F19FC /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
