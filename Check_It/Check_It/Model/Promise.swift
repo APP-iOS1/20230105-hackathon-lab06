@@ -17,4 +17,5 @@ struct Promise: Identifiable, Hashable, Codable {
     var date: String // 날짜 -> 문자열 형식으로 등록
     var startTime: String // 약속 시작시간
     var endTime: String // 약속 종료시간
+
 }

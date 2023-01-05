@@ -8,8 +8,55 @@
 import SwiftUI
 
 struct HomeMainView: View {
+    
+    @State var isJoiningParty: Bool = false
+    @State var isAddingParty: Bool = false
+    @State var currentIndex: Int = 0
+    
     var body: some View {
-        Text("Home Main View")
+        VStack {
+            NavigationStack {
+                TabView {
+                    PartyView()
+                    PartyView()
+                    PartyView()
+                }
+                .tabViewStyle(.page)
+                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                .navigationTitle("나의 모임")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            isAddingParty.toggle()
+                        } label: {
+                            Image(systemName: "note.text.badge.plus")
+                                .resizable()
+                                .foregroundColor(Color("myYellow"))
+                                .frame(width:30,height: 30)
+                        }
+                    }
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            isJoiningParty.toggle()
+                        } label: {
+                            Image(systemName: "iphone.and.arrow.forward")
+                                .resizable()
+                                .foregroundColor(Color("myYellow"))
+                                .frame(width:30,height: 30)
+                        }
+                        .sheet(isPresented: $isJoiningParty) {
+                            JoinModalView()
+                                .presentationDetents([.height(220)])
+                        }
+                    }
+                }
+                
+                
+            }
+            Spacer()
+        }
     }
 }
 
