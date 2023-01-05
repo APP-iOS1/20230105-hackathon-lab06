@@ -23,11 +23,12 @@ class PromiseStore: ObservableObject {
     func fetchPromise(){
         database.collection("Promise")
             .getDocuments { (snapshot, error) in
-                self.promise.removeAll()
+//                self.promise.removeAll()
                 
                 if let snapshot {
+                    print("++++", self.promise)
+                    var temp = [Promise]()
                     for document in snapshot.documents {
-                        
                         let docData = document.data()
                         let promiseName: String = docData["promiseName"] as? String ?? ""
                         let limit: String = docData["limit"] as? String ?? ""
@@ -42,8 +43,10 @@ class PromiseStore: ObservableObject {
                         
                         let promise: Promise = Promise(promiseName: promiseName, limit: limit, lateLimit: lateLimit, date: date, startTime: startTime, endTime: endTime)
                         
-                        self.promise.append(promise)
+                        temp.append(promise)
                     }
+                    print("++++", self.promise)
+                    self.promise = temp
                 }
             }
     }

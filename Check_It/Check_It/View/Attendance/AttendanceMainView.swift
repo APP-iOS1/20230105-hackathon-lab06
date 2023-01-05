@@ -17,7 +17,7 @@ struct AttendanceMainView: View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(.lightGray)
-                                .frame(width: .infinity, height:110)
+                                .frame(maxWidth: .infinity, maxHeight:110)
                             HStack {
                                 VStack(alignment:.leading){
                                     Text("허미니의 또구 동아리") // 동아리 이름
@@ -61,6 +61,9 @@ struct AttendanceMainView: View {
             .padding(.horizontal, 30)
         }
         .navigationTitle("출석부")
+        .onAppear{
+            promiseStore.fetchPromise()
+        }
         
     }
 }

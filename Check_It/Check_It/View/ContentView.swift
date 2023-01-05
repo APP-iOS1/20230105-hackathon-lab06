@@ -17,7 +17,7 @@ struct ContentView: View {
         
         TabView(selection: $tabSelection) {
             NavigationStack{
-                MapPinAreaView()
+                HomeMainView()
             }.tabItem{
                     Image(systemName: "house")
                     Text("홈")
