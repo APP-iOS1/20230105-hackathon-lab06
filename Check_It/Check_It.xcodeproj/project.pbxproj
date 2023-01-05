@@ -12,6 +12,9 @@
 		34E66AF929666D53005F19FC /* MyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF829666D53005F19FC /* MyMainView.swift */; };
 		34E66AFB29666D61005F19FC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AFA29666D61005F19FC /* Model.swift */; };
 		34E66AFD29666D72005F19FC /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AFC29666D72005F19FC /* ViewModel.swift */; };
+		A525D9C72966C6D900BC6C53 /* ScanningCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */; };
+		A525D9C92966C7DC00BC6C53 /* ScanningCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */; };
+		A525D9CC2966EEDC00BC6C53 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9CB2966EEDC00BC6C53 /* String.swift */; };
 		7944E32E2966C54000ADFED6 /* MainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E32D2966C54000ADFED6 /* MainDetailView.swift */; };
 		7944E3302966C62100ADFED6 /* DdayFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E32F2966C62100ADFED6 /* DdayFrame.swift */; };
 		7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E3312966EE8D00ADFED6 /* ColorExtension.swift */; };
@@ -39,6 +42,9 @@
 		34E66AF829666D53005F19FC /* MyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainView.swift; sourceTree = "<group>"; };
 		34E66AFA29666D61005F19FC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		34E66AFC29666D72005F19FC /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningCameraViewController.swift; sourceTree = "<group>"; };
+		A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningCamera.swift; sourceTree = "<group>"; };
+		A525D9CB2966EEDC00BC6C53 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		7944E32D2966C54000ADFED6 /* MainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailView.swift; sourceTree = "<group>"; };
 		7944E32F2966C62100ADFED6 /* DdayFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdayFrame.swift; sourceTree = "<group>"; };
 		7944E3312966EE8D00ADFED6 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -104,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				34E66AF429666D2B005F19FC /* HomeMainView.swift */,
+				A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */,
+				A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */,
 				7944E32D2966C54000ADFED6 /* MainDetailView.swift */,
 				7944E32F2966C62100ADFED6 /* DdayFrame.swift */,
 			);
@@ -125,6 +133,14 @@
 			);
 			path = My;
 			sourceTree = "<group>";
+		};
+		A525D9CA2966EECC00BC6C53 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A525D9CB2966EEDC00BC6C53 /* String.swift */,
+			);
+			path = Extensions;
+      sourceTree = "<group>";
 		};
 		34E66AFE29669CFF005F19FC /* LoginSignUp */ = {
 			isa = PBXGroup;
@@ -172,6 +188,7 @@
 		F480D4142966554E005CB779 /* Check_It */ = {
 			isa = PBXGroup;
 			children = (
+				A525D9CA2966EECC00BC6C53 /* Extensions */,
 				F480D4152966554E005CB779 /* Check_ItApp.swift */,
 				34E66AED29666B52005F19FC /* View */,
 				34E66AEE29666B77005F19FC /* Model */,
@@ -278,11 +295,14 @@
 				F480D4182966554E005CB779 /* ContentView.swift in Sources */,
 				7944E3302966C62100ADFED6 /* DdayFrame.swift in Sources */,
 				F480D4162966554E005CB779 /* Check_ItApp.swift in Sources */,
+				A525D9CC2966EEDC00BC6C53 /* String.swift in Sources */,
 				7944E32E2966C54000ADFED6 /* MainDetailView.swift in Sources */,
 				34E66AF929666D53005F19FC /* MyMainView.swift in Sources */,
 				34E66AFB29666D61005F19FC /* Model.swift in Sources */,
 				34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */,
 				34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */,
+				A525D9C92966C7DC00BC6C53 /* ScanningCamera.swift in Sources */,
+				A525D9C72966C6D900BC6C53 /* ScanningCameraViewController.swift in Sources */,
 				34E66B0229669F27005F19FC /* LoginView.swift in Sources */,
 				34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */,
 				34E66AFD29666D72005F19FC /* ViewModel.swift in Sources */,
