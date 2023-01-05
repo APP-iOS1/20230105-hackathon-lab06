@@ -95,6 +95,7 @@ struct MakeGroupModal: View {
             }
             
         }
+        .presentationDragIndicator(.visible)
         .padding(.horizontal, 30)
     }
 }
