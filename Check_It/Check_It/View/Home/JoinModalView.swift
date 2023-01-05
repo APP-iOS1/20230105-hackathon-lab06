@@ -14,6 +14,11 @@ struct JoinModalView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Text("모임 참가하기")
+                    .font(.title.bold())
+                Spacer()
+            }
             TextField(
                 "공유받은 코드를 입력해주세요",
                 text: $sharedCode

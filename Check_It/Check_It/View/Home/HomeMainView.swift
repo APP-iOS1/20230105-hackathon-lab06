@@ -34,6 +34,13 @@ struct HomeMainView: View {
                                 .foregroundColor(Color("myYellow"))
                                 .frame(width:30,height: 30)
                         }
+                        .sheet(isPresented: $isAddingParty) {
+                            NavigationStack {
+                                MakeGroupModal()
+                                    .presentationDetents([.large])
+                                    .navigationTitle("모임 개설하기")
+                            }
+                        }
                     }
                 }
                 .toolbar {
@@ -47,8 +54,9 @@ struct HomeMainView: View {
                                 .frame(width:30,height: 30)
                         }
                         .sheet(isPresented: $isJoiningParty) {
-                            JoinModalView()
-                                .presentationDetents([.height(220)])
+                                JoinModalView()
+                                    .presentationDetents([.medium])
+                                                         
                         }
                     }
                 }
