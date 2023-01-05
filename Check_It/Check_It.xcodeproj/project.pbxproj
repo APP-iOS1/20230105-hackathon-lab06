@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C4296721BC007ABABE /* UseAgreementView.swift */; };
-		287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DC2967025300DC35CF /* AttendanceModalView.swift */; };
-		287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DE2967069400DC35CF /* LocationViewModel.swift */; };
-		287680E32967207700DC35CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E22967207700DC35CF /* MapView.swift */; };
 		1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE538B29671F8F00491CC0 /* PartyView.swift */; };
 		1ACE538F29671FA100491CC0 /* JoinModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE538E29671FA100491CC0 /* JoinModalView.swift */; };
 		1ACE539129671FAA00491CC0 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE539029671FAA00491CC0 /* QRView.swift */; };
+		287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DC2967025300DC35CF /* AttendanceModalView.swift */; };
+		287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DE2967069400DC35CF /* LocationViewModel.swift */; };
+		287680E32967207700DC35CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E22967207700DC35CF /* MapView.swift */; };
+		2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C4296721BC007ABABE /* UseAgreementView.swift */; };
 		34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF429666D2B005F19FC /* HomeMainView.swift */; };
 		34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF629666D3D005F19FC /* AttendanceMainView.swift */; };
 		34E66AF929666D53005F19FC /* MyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF829666D53005F19FC /* MyMainView.swift */; };
@@ -53,16 +53,21 @@
 		FD6A2E1A2966FD67006E1C10 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = FD6A2E192966FD67006E1C10 /* SwiftyJSON */; };
 		FD6A2E1D2966FD96006E1C10 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FD6A2E1C2966FD96006E1C10 /* Alamofire */; };
 		FD6A2E1F2966FDE9006E1C10 /* NaverKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E1E2966FDE9006E1C10 /* NaverKeys.swift */; };
+		FD6A2E3729674748006E1C10 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = FD6A2E3629674748006E1C10 /* GoogleMobileAds */; };
+		FD6A2E3B29674788006E1C10 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E3929674787006E1C10 /* WebView.swift */; };
+		FD6A2E3C29674788006E1C10 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E3A29674787006E1C10 /* WebViewModel.swift */; };
+		FD6A2E3E29674B04006E1C10 /* StorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E3D29674B04006E1C10 /* StorageViewModel.swift */; };
+		FD6A2E4029674B3F006E1C10 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E3F29674B3F006E1C10 /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B8379C4296721BC007ABABE /* UseAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAgreementView.swift; sourceTree = "<group>"; };
-		287680DC2967025300DC35CF /* AttendanceModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalView.swift; sourceTree = "<group>"; };
-		287680DE2967069400DC35CF /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
-		287680E22967207700DC35CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1ACE538B29671F8F00491CC0 /* PartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyView.swift; sourceTree = "<group>"; };
 		1ACE538E29671FA100491CC0 /* JoinModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinModalView.swift; sourceTree = "<group>"; };
 		1ACE539029671FAA00491CC0 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
+		287680DC2967025300DC35CF /* AttendanceModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalView.swift; sourceTree = "<group>"; };
+		287680DE2967069400DC35CF /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		287680E22967207700DC35CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2B8379C4296721BC007ABABE /* UseAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAgreementView.swift; sourceTree = "<group>"; };
 		34E66AF429666D2B005F19FC /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		34E66AF629666D3D005F19FC /* AttendanceMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMainView.swift; sourceTree = "<group>"; };
 		34E66AF829666D53005F19FC /* MyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainView.swift; sourceTree = "<group>"; };
@@ -92,6 +97,10 @@
 		F480D4292967032C005CB779 /* MakeGroupModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeGroupModal.swift; sourceTree = "<group>"; };
 		FD6A2DFF296658A5006E1C10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD6A2E1E2966FDE9006E1C10 /* NaverKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverKeys.swift; sourceTree = "<group>"; };
+		FD6A2E3929674787006E1C10 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		FD6A2E3A29674787006E1C10 /* WebViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		FD6A2E3D29674B04006E1C10 /* StorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewModel.swift; sourceTree = "<group>"; };
+		FD6A2E3F29674B3F006E1C10 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +114,7 @@
 				FD6A2E0929665974006E1C10 /* FirebaseFirestore in Frameworks */,
 				FD6A2E1129665974006E1C10 /* FirebaseStorageCombine-Community in Frameworks */,
 				FD6A2E0729665974006E1C10 /* FirebaseAuthCombine-Community in Frameworks */,
+				FD6A2E3729674748006E1C10 /* GoogleMobileAds in Frameworks */,
 				FD6A2E1D2966FD96006E1C10 /* Alamofire in Frameworks */,
 				FD6A2E0B29665974006E1C10 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				FD6A2E0F29665974006E1C10 /* FirebaseStorage in Frameworks */,
@@ -245,6 +255,8 @@
 				A525D9CA2966EECC00BC6C53 /* Extensions */,
 				F480D4152966554E005CB779 /* Check_ItApp.swift */,
 				7944E3312966EE8D00ADFED6 /* ColorExtension.swift */,
+				FD6A2E3D29674B04006E1C10 /* StorageViewModel.swift */,
+				FD6A2E3F29674B3F006E1C10 /* ImagePicker.swift */,
 				34E66AED29666B52005F19FC /* View */,
 				34E66AEE29666B77005F19FC /* Model */,
 				34E66AEF29666B80005F19FC /* ViewModel */,
@@ -265,10 +277,20 @@
 		FD6A2E202966FEA6006E1C10 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				FD6A2E3829674787006E1C10 /* WebView */,
 				FD6A2E1E2966FDE9006E1C10 /* NaverKeys.swift */,
 				A525D9CD296701CF00BC6C53 /* GeoCodingService.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		FD6A2E3829674787006E1C10 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				FD6A2E3929674787006E1C10 /* WebView.swift */,
+				FD6A2E3A29674787006E1C10 /* WebViewModel.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +320,7 @@
 				FD6A2E1029665974006E1C10 /* FirebaseStorageCombine-Community */,
 				FD6A2E192966FD67006E1C10 /* SwiftyJSON */,
 				FD6A2E1C2966FD96006E1C10 /* Alamofire */,
+				FD6A2E3629674748006E1C10 /* GoogleMobileAds */,
 				34E66B0D2967063A005F19FC /* AlertToast */,
 			);
 			productName = Check_It;
@@ -332,6 +355,7 @@
 				FD6A2E0129665974006E1C10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FD6A2E182966FD67006E1C10 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				FD6A2E1B2966FD96006E1C10 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				FD6A2E3529674748006E1C10 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				34E66B0C2967063A005F19FC /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = F480D4132966554E005CB779 /* Products */;
@@ -364,6 +388,7 @@
 				F480D4182966554E005CB779 /* ContentView.swift in Sources */,
 				2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */,
 				A525D9CE296701CF00BC6C53 /* GeoCodingService.swift in Sources */,
+				FD6A2E3C29674788006E1C10 /* WebViewModel.swift in Sources */,
 				1ACE539129671FAA00491CC0 /* QRView.swift in Sources */,
 				7944E3302966C62100ADFED6 /* DdayFrame.swift in Sources */,
 				1ACE538F29671FA100491CC0 /* JoinModalView.swift in Sources */,
@@ -381,7 +406,9 @@
 				34E66AFB29666D61005F19FC /* User.swift in Sources */,
 				F480D4262966EF97005CB779 /* Promise.swift in Sources */,
 				34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */,
+				FD6A2E4029674B3F006E1C10 /* ImagePicker.swift in Sources */,
 				34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */,
+				FD6A2E3B29674788006E1C10 /* WebView.swift in Sources */,
 				A525D9C92966C7DC00BC6C53 /* ScanningCamera.swift in Sources */,
 				34E66B0B29670085005F19FC /* SignUpViewModel.swift in Sources */,
 				A525D9C72966C6D900BC6C53 /* ScanningCameraViewController.swift in Sources */,
@@ -390,10 +417,11 @@
 				287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */,
 				34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */,
 				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
-				34E66AFD29666D72005F19FC /* ViewModel.swift in Sources */,
+				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
 				1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */,
 				7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */,
 				34E66B072966C38E005F19FC /* SignUpStep2View.swift in Sources */,
+				FD6A2E3E29674B04006E1C10 /* StorageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,6 +666,14 @@
 				kind = branch;
 			};
 		};
+		FD6A2E3529674748006E1C10 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -695,6 +731,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FD6A2E1B2966FD96006E1C10 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		FD6A2E3629674748006E1C10 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FD6A2E3529674748006E1C10 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
