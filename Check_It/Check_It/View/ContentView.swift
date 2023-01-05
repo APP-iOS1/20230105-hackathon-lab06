@@ -17,22 +17,22 @@ struct ContentView: View {
             NavigationStack{
                 Tab1MainView()
             }.tabItem{
-                    Image(systemName: "person")
-                    Text("탭1")
+                    Image(systemName: "house")
+                    Text("홈")
             }.tag(1)
             
             NavigationStack{
                 Tab2MainView()
             }.tabItem{
-                    Image(systemName: "person")
-                    Text("탭2")
+                    Image(systemName: "checklist")
+                    Text("출결 현황")
             }.tag(2)
             
             NavigationStack{
                 Tab3MainView()
             }.tabItem{
                     Image(systemName: "person")
-                    Text("탭3")
+                    Text("마이")
             }.tag(3)
         }
     }
