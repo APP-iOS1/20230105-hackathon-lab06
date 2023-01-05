@@ -41,6 +41,8 @@
 		F480D4262966EF97005CB779 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D4252966EF97005CB779 /* Promise.swift */; };
 		F480D4282966F1D1005CB779 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D4272966F1D1005CB779 /* Location.swift */; };
 		F480D42A2967032C005CB779 /* MakeGroupModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D4292967032C005CB779 /* MakeGroupModal.swift */; };
+		F480D42E29674ADF005CB779 /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D42D29674ADF005CB779 /* AuthStore.swift */; };
+		F480D43029674B71005CB779 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D42F29674B71005CB779 /* UserStore.swift */; };
 		FD6A2E00296658A5006E1C10 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FD6A2DFF296658A5006E1C10 /* GoogleService-Info.plist */; };
 		FD6A2E0329665974006E1C10 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FD6A2E0229665974006E1C10 /* FirebaseAnalytics */; };
 		FD6A2E0529665974006E1C10 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FD6A2E0429665974006E1C10 /* FirebaseAuth */; };
@@ -95,6 +97,8 @@
 		F480D4252966EF97005CB779 /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
 		F480D4272966F1D1005CB779 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		F480D4292967032C005CB779 /* MakeGroupModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeGroupModal.swift; sourceTree = "<group>"; };
+		F480D42D29674ADF005CB779 /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
+		F480D42F29674B71005CB779 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		FD6A2DFF296658A5006E1C10 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FD6A2E1E2966FDE9006E1C10 /* NaverKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverKeys.swift; sourceTree = "<group>"; };
 		FD6A2E3929674787006E1C10 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 				34E66B0A29670085005F19FC /* SignUpViewModel.swift */,
 				287680DE2967069400DC35CF /* LocationViewModel.swift */,
 				34E66AFC29666D72005F19FC /* GroupStore.swift */,
+				F480D42D29674ADF005CB779 /* AuthStore.swift */,
+				F480D42F29674B71005CB779 /* UserStore.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F480D4182966554E005CB779 /* ContentView.swift in Sources */,
+				F480D42E29674ADF005CB779 /* AuthStore.swift in Sources */,
 				2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */,
 				A525D9CE296701CF00BC6C53 /* GeoCodingService.swift in Sources */,
 				FD6A2E3C29674788006E1C10 /* WebViewModel.swift in Sources */,
@@ -418,6 +425,7 @@
 				34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */,
 				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
 				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
+				F480D43029674B71005CB779 /* UserStore.swift in Sources */,
 				1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */,
 				7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */,
 				34E66B072966C38E005F19FC /* SignUpStep2View.swift in Sources */,
