@@ -9,21 +9,19 @@ import SwiftUI
 
 struct MyMainView: View {
     @State private var useAgreementSheet: Bool = false
+    @State private var premiumRateSheet: Bool = false
+    
     var body: some View {
         VStack {
             HStack(alignment: .firstTextBaseline) {
                             // MARK: - 사용자 이름 데이터 받아오기
                             Text("반갑습니다,\n---님")
                                 .font(.largeTitle).bold()
+                                .padding(.bottom, 20)
             
                             Spacer()
-                            
-                            // MARK: - 프로필 사진 데이터 받아오기
-                            Image(systemName: "gearshape.fill")
-                                .resizable()
-                                .frame(width: 33, height: 33)
                         }
-            .padding([.top, .leading, .trailing], 50)
+            .padding([.top, .leading, .trailing], 35)
             
             Spacer()
             
@@ -43,6 +41,7 @@ struct MyMainView: View {
                 Button {
                     print("dd")
                 } label: {
+                        // MARK: - 프로필 사진 데이터 받아오기
                         Text("프로필 편집")
                             .foregroundColor(.white).bold()
                             .frame(width: 260, height: 50)
@@ -51,30 +50,13 @@ struct MyMainView: View {
                 }
                 
             } // VStack
-            .frame(width: 300, height: 250)
+            .frame(width: 330, height: 250)
             .background(Color.lightGray)
             .cornerRadius(15)
             
             Spacer()
             
             List {
-                
-                HStack {
-                    Button {
-                        print("dd")
-                    } label: {
-                        HStack {
-                            Text("공지사항")
-                                .font(.title3).bold()
-                            
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                        }
-                    }
-                }
-                .foregroundColor(.black)
-                .padding(.bottom)
                 
                 HStack {
                     Button {
@@ -97,11 +79,49 @@ struct MyMainView: View {
                 
                 HStack {
                     Button {
-                        print("dd")
+                        premiumRateSheet.toggle()
                     } label: {
                         HStack {
                             Text("프리미엄 요금제 알아보기")
                                 .font(.title3).bold()
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                        }
+                    }.sheet(isPresented: $premiumRateSheet) {
+                        premiumRateView()
+                    }
+                }
+                .foregroundColor(.black)
+                .padding(.bottom)
+                
+                HStack {
+                    Button {
+                        print("dd")
+                    } label: {
+                        HStack {
+                            Text("로그아웃")
+                                .font(.title3).bold()
+                                .foregroundColor(.mediumGray)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                        }
+                    }
+                }
+                .foregroundColor(.black)
+                .padding(.bottom)
+                
+                HStack {
+                    Button {
+                        print("dd")
+                    } label: {
+                        HStack {
+                            Text("회원탈퇴")
+                                .font(.title3).bold()
+                                .foregroundColor(.mediumGray)
                             
                             Spacer()
                             
@@ -114,7 +134,6 @@ struct MyMainView: View {
                 
             }
             .scrollContentBackground(.hidden)
-            .frame(width: 360, height: 250)
             
             Spacer()
         }

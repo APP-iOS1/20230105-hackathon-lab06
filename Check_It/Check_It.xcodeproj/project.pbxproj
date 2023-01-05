@@ -14,6 +14,7 @@
 		287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DE2967069400DC35CF /* LocationViewModel.swift */; };
 		287680E32967207700DC35CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E22967207700DC35CF /* MapView.swift */; };
 		2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C4296721BC007ABABE /* UseAgreementView.swift */; };
+		2B8379C729673775007ABABE /* premiumRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C629673775007ABABE /* premiumRateView.swift */; };
 		34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF429666D2B005F19FC /* HomeMainView.swift */; };
 		34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF629666D3D005F19FC /* AttendanceMainView.swift */; };
 		34E66AF929666D53005F19FC /* MyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF829666D53005F19FC /* MyMainView.swift */; };
@@ -70,6 +71,7 @@
 		287680DE2967069400DC35CF /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		287680E22967207700DC35CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2B8379C4296721BC007ABABE /* UseAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAgreementView.swift; sourceTree = "<group>"; };
+		2B8379C629673775007ABABE /* premiumRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = premiumRateView.swift; sourceTree = "<group>"; };
 		34E66AF429666D2B005F19FC /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		34E66AF629666D3D005F19FC /* AttendanceMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMainView.swift; sourceTree = "<group>"; };
 		34E66AF829666D53005F19FC /* MyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainView.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			children = (
 				34E66AF829666D53005F19FC /* MyMainView.swift */,
 				2B8379C4296721BC007ABABE /* UseAgreementView.swift */,
+				2B8379C629673775007ABABE /* premiumRateView.swift */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				287680E32967207700DC35CF /* MapView.swift in Sources */,
 				34E66AFB29666D61005F19FC /* User.swift in Sources */,
 				F480D4262966EF97005CB779 /* Promise.swift in Sources */,
+				2B8379C729673775007ABABE /* premiumRateView.swift in Sources */,
 				34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */,
 				FD6A2E4029674B3F006E1C10 /* ImagePicker.swift in Sources */,
 				34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */,
