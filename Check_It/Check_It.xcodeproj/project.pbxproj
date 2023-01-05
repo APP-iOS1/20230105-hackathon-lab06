@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DC2967025300DC35CF /* AttendanceModalView.swift */; };
+		287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DE2967069400DC35CF /* LocationViewModel.swift */; };
+		287680E32967207700DC35CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E22967207700DC35CF /* MapView.swift */; };
 		1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE538B29671F8F00491CC0 /* PartyView.swift */; };
 		1ACE538F29671FA100491CC0 /* JoinModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE538E29671FA100491CC0 /* JoinModalView.swift */; };
 		1ACE539129671FAA00491CC0 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE539029671FAA00491CC0 /* QRView.swift */; };
@@ -47,6 +50,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		287680DC2967025300DC35CF /* AttendanceModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalView.swift; sourceTree = "<group>"; };
+		287680DE2967069400DC35CF /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		287680E22967207700DC35CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1ACE538B29671F8F00491CC0 /* PartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyView.swift; sourceTree = "<group>"; };
 		1ACE538E29671FA100491CC0 /* JoinModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinModalView.swift; sourceTree = "<group>"; };
 		1ACE539029671FAA00491CC0 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
@@ -124,6 +130,8 @@
 		34E66AEF29666B80005F19FC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				34E66AFC29666D72005F19FC /* ViewModel.swift */,
+				287680DE2967069400DC35CF /* LocationViewModel.swift */,
 				34E66AFC29666D72005F19FC /* GroupStore.swift */,
 			);
 			path = ViewModel;
@@ -141,6 +149,8 @@
 				A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */,
 				7944E32D2966C54000ADFED6 /* MainDetailView.swift */,
 				7944E32F2966C62100ADFED6 /* DdayFrame.swift */,
+				287680DC2967025300DC35CF /* AttendanceModalView.swift */,
+				287680E22967207700DC35CF /* MapView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -339,10 +349,12 @@
 				F480D4162966554E005CB779 /* Check_ItApp.swift in Sources */,
 				F480D4282966F1D1005CB779 /* Location.swift in Sources */,
 				A525D9CC2966EEDC00BC6C53 /* String.swift in Sources */,
+				287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */,
 				7944E32E2966C54000ADFED6 /* MainDetailView.swift in Sources */,
 				34E66AF929666D53005F19FC /* MyMainView.swift in Sources */,
 				F480D42A2967032C005CB779 /* MakeGroupModal.swift in Sources */,
 				F480D4242966EF2E005CB779 /* Group.swift in Sources */,
+				287680E32967207700DC35CF /* MapView.swift in Sources */,
 				34E66AFB29666D61005F19FC /* User.swift in Sources */,
 				F480D4262966EF97005CB779 /* Promise.swift in Sources */,
 				34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */,
@@ -351,6 +363,7 @@
 				A525D9C72966C6D900BC6C53 /* ScanningCameraViewController.swift in Sources */,
 				FD6A2E1F2966FDE9006E1C10 /* NaverKeys.swift in Sources */,
 				34E66B0229669F27005F19FC /* LoginView.swift in Sources */,
+				287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */,
 				34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */,
 				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
 				34E66AFD29666D72005F19FC /* ViewModel.swift in Sources */,
