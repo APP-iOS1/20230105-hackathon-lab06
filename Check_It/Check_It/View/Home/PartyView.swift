@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PartyView: View {
+    @State var isChecked: Bool = false
     var body: some View {
         NavigationLink(destination: MainDetailView()) {
             VStack(alignment: .leading) {
@@ -62,9 +63,7 @@ struct PartyView: View {
                     .frame(width: 250,height: 150)
                     .padding(.bottom, 20)
                 
-                Button {
-                    
-                } label: {
+                NavigationLink(destination: AttendanceModalView()){
                     ZStack {
                         Rectangle()
                             .foregroundColor(Color("melon"))
@@ -74,7 +73,6 @@ struct PartyView: View {
                             .foregroundColor(.white)
                             .bold()
                     }
-                    
                 }
                 
             }
