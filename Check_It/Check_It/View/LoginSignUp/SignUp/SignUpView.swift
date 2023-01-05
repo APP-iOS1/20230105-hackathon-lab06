@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct SignUpView: View {
+    
+    @Binding var navStack: NavigationPath
+    
     var body: some View {
         VStack {
             
             VStack {
-                Image(systemName: "checkmark")
-
-                
-                Text("Check It !")
+                Text("회원가입")
             }
             .font(.largeTitle)
             .bold()
@@ -26,6 +26,8 @@ struct SignUpView: View {
 
 struct SignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        SignUpView()
+        NavigationStack {
+            SignUpView(navStack: .constant(NavigationPath()))
+        }
     }
 }
