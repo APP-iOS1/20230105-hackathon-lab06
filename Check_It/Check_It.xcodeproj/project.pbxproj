@@ -16,6 +16,7 @@
 		34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66B0329669F3E005F19FC /* SignUpView.swift */; };
 		34E66B072966C38E005F19FC /* SignUpStep2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66B062966C38E005F19FC /* SignUpStep2View.swift */; };
 		34E66B0B29670085005F19FC /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66B0A29670085005F19FC /* SignUpViewModel.swift */; };
+		34E66B0E2967063A005F19FC /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 34E66B0D2967063A005F19FC /* AlertToast */; };
 		7944E32E2966C54000ADFED6 /* MainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E32D2966C54000ADFED6 /* MainDetailView.swift */; };
 		7944E3302966C62100ADFED6 /* DdayFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E32F2966C62100ADFED6 /* DdayFrame.swift */; };
 		7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E3312966EE8D00ADFED6 /* ColorExtension.swift */; };
@@ -77,6 +78,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD6A2E1A2966FD67006E1C10 /* SwiftyJSON in Frameworks */,
+				34E66B0E2967063A005F19FC /* AlertToast in Frameworks */,
 				FD6A2E0329665974006E1C10 /* FirebaseAnalytics in Frameworks */,
 				FD6A2E0929665974006E1C10 /* FirebaseFirestore in Frameworks */,
 				FD6A2E1129665974006E1C10 /* FirebaseStorageCombine-Community in Frameworks */,
@@ -262,6 +264,7 @@
 				FD6A2E1029665974006E1C10 /* FirebaseStorageCombine-Community */,
 				FD6A2E192966FD67006E1C10 /* SwiftyJSON */,
 				FD6A2E1C2966FD96006E1C10 /* Alamofire */,
+				34E66B0D2967063A005F19FC /* AlertToast */,
 			);
 			productName = Check_It;
 			productReference = F480D4122966554E005CB779 /* Check_It.app */;
@@ -295,6 +298,7 @@
 				FD6A2E0129665974006E1C10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				FD6A2E182966FD67006E1C10 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				FD6A2E1B2966FD96006E1C10 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				34E66B0C2967063A005F19FC /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = F480D4132966554E005CB779 /* Products */;
 			projectDirPath = "";
@@ -556,6 +560,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		34E66B0C2967063A005F19FC /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		FD6A2E0129665974006E1C10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -583,6 +595,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		34E66B0D2967063A005F19FC /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 34E66B0C2967063A005F19FC /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
+		};
 		FD6A2E0229665974006E1C10 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FD6A2E0129665974006E1C10 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
