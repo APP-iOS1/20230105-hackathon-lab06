@@ -9,10 +9,10 @@ import Foundation
 
 struct Group: Identifiable, Hashable, Codable {
     var id = UUID().uuidString
-    var groupName: String
-    var groupImage: String
-    var host: String
-    var code: String
-    var userList: [User]
-    var promiseList: [Promise]
+    var groupName: String //모임 이름
+    var groupImage: String //모임 이미지
+    var host: String //모임 주인
+    var code: String //모임 참가 코드
+    var userList: [User] //모임 구성원 목록
+    var promiseList: [Promise] //모임 약속 목록
 }

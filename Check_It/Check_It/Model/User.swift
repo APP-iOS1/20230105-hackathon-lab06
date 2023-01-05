@@ -9,7 +9,7 @@ import Foundation
 
 struct User: Identifiable, Hashable, Codable {
     var id = UUID().uuidString
-    var userImg: String
-    var userName: String
-    var groups: [Group]
+    var userImg: String //유저 이미지
+    var userName: String //유저 이름
+    var groups: [Group] //유저가 속한 그룹명
 }
