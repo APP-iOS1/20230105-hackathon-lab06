@@ -36,10 +36,10 @@ class GroupStore: ObservableObject {
     //그룹 목록 Fetch --> 현호님 예정 - R
     
     //그룹 이름 수정 - U
-    func updateGroupName(groupName: String) async {
+    func updateGroupName(groupId: String, groupName: String) async {
         do {
             try await database.collection("Group")
-                .document(groupName)
+                .document("\(groupId)")
                 .updateData([
                     "groupName" : groupName
                 ])
@@ -49,10 +49,10 @@ class GroupStore: ObservableObject {
     }
     
     //그룹 호스트 수정 - U
-    func updateHost(host: String) async {
+    func updateHost(host: String, groupId: String) async {
         do {
             try await database.collection("Group")
-                .document(groupName)
+                .document("\(groupId)")
                 .updateData([
                     "host" : host
                 ])
@@ -65,7 +65,7 @@ class GroupStore: ObservableObject {
     func deleteGroup(groupId: String) async {
         do {
             try await database.collection("Group")
-                .document(groupId)
+                .document("\(groupId)")
                 .delete()
         } catch {
             print(error)
