@@ -182,6 +182,24 @@ class SignUpViewModel: ObservableObject {
         })
     }
     
+    // MARK: - request userID
+    /// uid 값을 통해 database의 특정 uid에 저장된 id(유저의 uid)를 요청합니다.
+    ///  - Parameter uid : currentUser의 UID
+    ///  - Returns : currentUser의 id
+    private func requestUserId(uid: String) async -> String {
+        var retValue = ""
+        
+        return await withCheckedContinuation({ continuation in
+            database.collection("User").document(uid).getDocument { (document, error) in
+                retValue = document.get("id") as! String
+                continuation.resume(returning: retValue)
+            } else {
+                print("3-")
+                continuation.resume(throwing: error as! Never)
+            }
+        })
+    }
+    
     // MARK: - 회원정보 업데이트 (이름)
     ///  - Parameter user : 로그인한 유저의 객체 (User)
     ///  - firestore 반영: updateData 메소드를 이용하여 firestore에 정보를 업데이트한다.
