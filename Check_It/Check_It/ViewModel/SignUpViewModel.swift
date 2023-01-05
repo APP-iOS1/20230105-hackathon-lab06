@@ -26,7 +26,7 @@ enum EmailDuplicationState {
     case notDuplicated
 }
 
-enum NickNamelDuplicationState {
+enum NamelDuplicationState {
     case checking
     case duplicated
     case notDuplicated
@@ -37,8 +37,8 @@ class SignUpViewModel: ObservableObject {
     @Published var authenticationState: AuthenticationState = .unauthenticated
     @Published var loginRequestState: LoginRequestState = .notLoggedIn
     @Published var emailDuplicationState: EmailDuplicationState = .duplicated // 중복한다고 전제
-    @Published var nickNameDuplicationState: NickNamelDuplicationState = .duplicated // 중복한다고 전제
-    @Published var currentUser: CustomerInfo?
+    @Published var nameDuplicationState: NamelDuplicationState = .duplicated // 중복한다고 전제
+    @Published var currentUser: User?
 //    var credential: AuthCredential
 
     let database = Firestore.firestore()
@@ -49,9 +49,9 @@ class SignUpViewModel: ObservableObject {
     /// Auth에 새로운 사용자를 생성합니다.
     /// - Parameter email: 입력받은 사용자의 email
     /// - Parameter password: 입력받은 사용자의 password
-    /// - Parameter nickname: 입력받은 사용자의 nickname
+    /// - Parameter name: 입력받은 사용자의 name
     @MainActor
-    func createUser(email: String, password: String, nickname: String) async -> Bool {
+    func createUser(email: String, password: String, name: String) async -> Bool {
         authenticationState = .authenticating
         do  {
             try await authentification.createUser(withEmail: email, password: password)
@@ -60,7 +60,7 @@ class SignUpViewModel: ObservableObject {
             authenticationState = .authenticated
             // firestore에 user 등록
             let currentUserId = authentification.currentUser?.uid ?? ""
-            registerUser(uid: currentUserId, email: email, nickname: nickname)
+            registerUser(uid: currentUserId, email: email, name: name)
             return true
         }
         catch {
@@ -75,14 +75,14 @@ class SignUpViewModel: ObservableObject {
     /// Auth에 새롭게 만든 사용자 정보를 Firestore에 등록합니다.
     /// - Parameter uid: 현재 사용자의 Auth uid
     /// - Parameter email: 현재 사용자의 email
-    /// - Parameter nickname: 현재 사용자의 nickname
-    func registerUser(uid: String, email: String, nickname: String) {
+    /// - Parameter name: 현재 사용자의 name
+    func registerUser(uid: String, email: String, name: String) {
         database.collection("\(appCategory.rawValue)")
             .document(uid)
             .setData([
                 "id" : uid,
                 "userEmail" : email,
-                "userNickname" : nickname
+                "userName" : name
             ])
     }
     
@@ -109,16 +109,16 @@ class SignUpViewModel: ObservableObject {
     // MARK: - 닉네임 중복 검사
     /// 사용자가 입력한 닉네임이 이미 사용하고 있는지 검사합니다.
     /// 입력받은 닉네임이 DB에 이미 있다면 false를, 그렇지 않다면 true를 반환합니다.
-    /// - Parameter currentUserNickname: 입력받은 사용자 닉네임
+    /// - Parameter currentUserName: 입력받은 사용자 이름
     /// - Returns: 중복된 닉네임이 있는지에 대한 Boolean 값
     @MainActor
-    func isNicknameDuplicated(currentUserNickname: String) async -> Bool {
-        nickNameDuplicationState = .checking
+    func isNameDuplicated(currentUserName: String) async -> Bool {
+        nameDuplicationState = .checking
         do {
             let document = try await database.collection("\(appCategory.rawValue)")
-                .whereField("userNickname", isEqualTo: currentUserNickname)
+                .whereField("userName", isEqualTo: currentUserName)
                 .getDocuments()
-            nickNameDuplicationState = document.isEmpty ? .notDuplicated : .duplicated
+            nameDuplicationState = document.isEmpty ? .notDuplicated : .duplicated
             return !(document.isEmpty)
         } catch {
             print(error.localizedDescription)
@@ -135,9 +135,9 @@ class SignUpViewModel: ObservableObject {
             try await authentification.signIn(withEmail: email, password: password)
             // 현재 로그인 한 유저의 정보 담아주는 코드
             // 변경이 필요함!
-            let userNickname = await requestUserNickname(uid: authentification.currentUser?.uid ?? "")
-            self.currentUser = CustomerInfo(id: self.authentification.currentUser?.uid ?? "", userEmail: email, userNickname: userNickname )
-            print("userNickname: \(userNickname)")
+            let userName = await requestUserName(uid: authentification.currentUser?.uid ?? "")
+            self.currentUser = User(id: self.authentification.User?.uid ?? "", userEmail: email, userName: userName )
+            print("userName: \(userName)")
         } catch {
             loginRequestState = .notLoggedIn
             dump("DEBUG : LOGIN FAILED \(error.localizedDescription)")
@@ -159,18 +159,18 @@ class SignUpViewModel: ObservableObject {
         }
     }
     
-    // MARK: - request Nickname
-    /// uid 값을 통해 database의 특정 uid에 저장된 userNickname을 요청합니다.
+    // MARK: - request Name
+    /// uid 값을 통해 database의 특정 uid에 저장된 userName을 요청합니다.
     ///  - Parameter uid : currentUser의 UID
-    ///  - Returns : currentUser의 userNickname
-    private func requestUserNickname(uid: String) async -> String {
+    ///  - Returns : currentUser의 userName
+    private func requestUserName(uid: String) async -> String {
         var retValue = ""
-//        print("requestUserNickname 1")
+//        print("requestUserName 1")
         return await withCheckedContinuation({ continuation in
             database.collection(appCategory.rawValue).document(uid).getDocument { (document, error) in
                 if let document = document, document.exists {
-                    retValue = document.get("userNickname") as! String
-//                    print("requestUserNickname 2: \(retValue)")
+                    retValue = document.get("userName") as! String
+//                    print("requestUserName 2: \(retValue)")
                     continuation.resume(returning: retValue)
                 } else {
                     print("2-")
@@ -180,23 +180,20 @@ class SignUpViewModel: ObservableObject {
         })
     }
     
-    // MARK: - 회원정보 업데이트 (주소, 연락처)
-    ///  - Parameter userAddress : 새로 입력한 주소
-    ///  - Parameter phoneNumber : 새로 입력한 연락처
-    ///  - Parameter user : 로그인한 유저의 객체 (CustomerInfo)
+    // MARK: - 회원정보 업데이트 (이름)
+    ///  - Parameter user : 로그인한 유저의 객체 (User)
     ///  - firestore 반영: updateData 메소드를 이용하여 firestore에 정보를 업데이트한다.
     ///  - 로컬반영: 로컬에 있는 currentUser 객체를 재생성(초기화)하여 정보를 업데이트함
-    func updateUserInfo(userAddress: String, phoneNumber: String, user: CustomerInfo) {
+    func updateUserInfo(userName: String, user: User) {
         database.collection("\(appCategory.rawValue)")
             .document(user.id).updateData([
-                "userAddress" : userAddress,
-                "phoneNumber" : phoneNumber
+                "userName" : userName
             ]) { err in
                 if let err = err {
                     print("회원정보 수정 오류: \(err)")
                 } else {
                     print("회원정보 수정 완료")
-                    self.currentUser = CustomerInfo(id: self.authentification.currentUser?.uid ?? "", userEmail: user.userEmail, userNickname: user.userNickname, userAddress: userAddress, phoneNumber: phoneNumber )
+                    self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: user.userEmail, userName: user.userName)
                 }
             }
     }
@@ -204,7 +201,7 @@ class SignUpViewModel: ObservableObject {
     // MARK: - FireStore의 유저정보 fetch
     ///  - Parameter user : 로그인한 유저의 객체 (CustomerInfo)
     ///  - 로그인 시 firestore에 저장된 유저 정보를 currentUser에 할당한다.
-    func fetchUserInfo(user: CustomerInfo) {
+    func fetchUserInfo(user: User) {
         database.collection("\(appCategory.rawValue)").getDocuments { snapshot, error in
             if let snapshot {
                 
@@ -214,12 +211,10 @@ class SignUpViewModel: ObservableObject {
 
                     if id == user.id {
                         
-                        let userAddress: String = docData["userAddress"] as? String ?? ""
-                        let phoneNumber: String = docData["phoneNumber"] as? String ?? ""
-                        let userNickname: String = docData["userNickname"] as? String ?? ""
+                        let userName: String = docData["userNickname"] as? String ?? ""
                         let userEmail: String = docData["userEmail"] as? String ?? ""
                        
-                        self.currentUser = CustomerInfo(id: id, userEmail: userEmail, userNickname: userNickname, userAddress: userAddress, phoneNumber: phoneNumber)
+                        self.currentUser = User(id: id, userEmail: userEmail, userName: userName)
                         print(self.currentUser!)
                     }
                 }
