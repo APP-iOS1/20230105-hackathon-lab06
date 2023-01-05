@@ -17,44 +17,44 @@ struct HomeMainView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text("나의 모임")
-                    .font(.largeTitle)
-                    .bold()
-                Spacer()
-                Button {
-                    isAddingParty.toggle()
-                } label: {
-                    Image(systemName: "note.text.badge.plus")
-                        .resizable()
-                        .foregroundColor(Color("myYellow"))
-                        .frame(width:30,height: 30)
-                }
-                .sheet(isPresented: $isAddingParty) {
-                    NavigationStack {
-                        MakeGroupModal()
-                            .presentationDetents([.large])
-                            .navigationTitle("모임 개설하기")
-                    }
-                }
-                Button {
-                    isJoiningParty.toggle()
-                } label: {
-                    Image(systemName: "iphone.and.arrow.forward")
-                        .resizable()
-                        .foregroundColor(Color("myYellow"))
-                        .frame(width:30,height: 30)
-                }
-                .sheet(isPresented: $isJoiningParty) {
-                    JoinModalView()
-                        .presentationDetents([.height(300)])
-                    
-                }
-                .padding(.leading, 10)
-            }
-            .padding(.top, 30)
-            .padding(.horizontal, 50)
-            .offset(y:20)
+//            HStack {
+//                Text("나의 모임")
+//                    .font(.largeTitle)
+//                    .bold()
+//                Spacer()
+//                Button {
+//                    isAddingParty.toggle()
+//                } label: {
+//                    Image(systemName: "note.text.badge.plus")
+//                        .resizable()
+//                        .foregroundColor(Color("myYellow"))
+//                        .frame(width:30,height: 30)
+//                }
+//                .sheet(isPresented: $isAddingParty) {
+//                    NavigationStack {
+//                        MakeGroupModal()
+//                            .presentationDetents([.large])
+//                            .navigationTitle("모임 개설하기")
+//                    }
+//                }
+//                Button {
+//                    isJoiningParty.toggle()
+//                } label: {
+//                    Image(systemName: "iphone.and.arrow.forward")
+//                        .resizable()
+//                        .foregroundColor(Color("myYellow"))
+//                        .frame(width:30,height: 30)
+//                }
+//                .sheet(isPresented: $isJoiningParty) {
+//                    JoinModalView()
+//                        .presentationDetents([.height(300)])
+//                    
+//                }
+//                .padding(.leading, 10)
+//            }
+//            .padding(.top, 30)
+//            .padding(.horizontal, 50)
+//            .offset(y:20)
             
             NavigationStack {
                 TabView {
@@ -64,41 +64,41 @@ struct HomeMainView: View {
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                //                .navigationTitle("나의 모임")
-                //                .toolbar {
-                //                    ToolbarItem(placement: .navigationBarTrailing) {
-                //                        Button {
-                //                            isAddingParty.toggle()
-                //                        } label: {
-                //                            Image(systemName: "note.text.badge.plus")
-                //                                .resizable()
-                //                                .foregroundColor(Color("myYellow"))
-                //                                .frame(width:30,height: 30)
-                //                        }
-                //                        .sheet(isPresented: $isAddingParty) {
-                //                            NavigationStack {
-                //                                MakeGroupModal()
-                //                                    .presentationDetents([.large])
-                //                                    .navigationTitle("모임 개설하기")
-                //                            }
-                //                        }
-                //                    }
-                //                    ToolbarItem(placement: .navigationBarTrailing) {
-                //                        Button {
-                //                            isJoiningParty.toggle()
-                //                        } label: {
-                //                            Image(systemName: "iphone.and.arrow.forward")
-                //                                .resizable()
-                //                                .foregroundColor(Color("myYellow"))
-                //                                .frame(width:30,height: 30)
-                //                        }
-                //                        .sheet(isPresented: $isJoiningParty) {
-                //                            JoinModalView()
-                //                                .presentationDetents([.height(300)])
-                //
-                //                        }
-                //                    }
-                //                }
+                .navigationTitle("나의 모임")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            isAddingParty.toggle()
+                        } label: {
+                            Image(systemName: "note.text.badge.plus")
+                                .resizable()
+                                .foregroundColor(Color("myYellow"))
+                                .frame(width:30,height: 30)
+                        }
+                        .sheet(isPresented: $isAddingParty) {
+                            NavigationStack {
+                                MakeGroupModal()
+                                    .presentationDetents([.large])
+                                    .navigationTitle("모임 개설하기")
+                            }
+                        }
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            isJoiningParty.toggle()
+                        } label: {
+                            Image(systemName: "iphone.and.arrow.forward")
+                                .resizable()
+                                .foregroundColor(Color("myYellow"))
+                                .frame(width:30,height: 30)
+                        }
+                        .sheet(isPresented: $isJoiningParty) {
+                            JoinModalView()
+                                .presentationDetents([.height(300)])
+                            
+                        }
+                    }
+                }
                 
                 
             }

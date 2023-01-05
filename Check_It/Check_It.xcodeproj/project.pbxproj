@@ -163,7 +163,6 @@
 		34E66AEF29666B80005F19FC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				34E66AFC29666D72005F19FC /* ViewModel.swift */,
 				34E66B0A29670085005F19FC /* SignUpViewModel.swift */,
 				287680DE2967069400DC35CF /* LocationViewModel.swift */,
 				7944E337296736F100ADFED6 /* PromiseStore.swift */,
@@ -570,7 +569,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Check_It/Preview Content\"";
-				DEVELOPMENT_TEAM = 856Q6QA7Z9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근하려고 합니다.";
@@ -604,7 +603,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Check_It/Preview Content\"";
-				DEVELOPMENT_TEAM = 856Q6QA7Z9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근하려고 합니다.";

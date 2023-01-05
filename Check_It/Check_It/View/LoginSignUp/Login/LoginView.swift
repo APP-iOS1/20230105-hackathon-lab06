@@ -38,6 +38,7 @@ struct LoginView: View {
                 isLoggedInFailed = false
                 dismiss()
                 signupViewModel.fetchUserInfo(user: signupViewModel.currentUser!)
+                isFirstLaunching.toggle()
                 
                 print("로그인 성공 - 이메일: \(signUpViewModel.currentUser?.userEmail ?? "???")")
             } else {
@@ -154,7 +155,7 @@ struct LoginView: View {
                 
                 Button {
                     logInWithEmailPassword()
-                    isFirstLaunching.toggle()
+                    
                 } label: {
                     Text("로그인")
                         .font(.title2)

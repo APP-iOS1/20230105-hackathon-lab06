@@ -39,8 +39,8 @@ class SignUpViewModel: ObservableObject {
     @Published var emailDuplicationState: EmailDuplicationState = .duplicated // 중복한다고 전제
     @Published var nameDuplicationState: NamelDuplicationState = .duplicated // 중복한다고 전제
     @Published var currentUser: User?
-//    var credential: AuthCredential
-
+    //    var credential: AuthCredential
+    
     let database = Firestore.firestore()
     let authentification = Auth.auth()
     
@@ -129,7 +129,7 @@ class SignUpViewModel: ObservableObject {
     @MainActor
     public func requestUserLogin(withEmail email: String, withPassword password: String) async -> Void {
         loginRequestState = .loggingIn
-
+        
         do {
             loginRequestState = .loggedIn
             try await authentification.signIn(withEmail: email, password: password)
@@ -146,7 +146,7 @@ class SignUpViewModel: ObservableObject {
         }
         authenticationState = .authenticated
     }
-
+    
     // MARK: - User Logout
     /// 로그인한 사용자의 로그아웃을 요청합니다.
     public func requestUserSignOut() {
@@ -167,12 +167,12 @@ class SignUpViewModel: ObservableObject {
     ///  - Returns : currentUser의 userName
     private func requestUserName(uid: String) async -> String {
         var retValue = ""
-//        print("requestUserName 1")
+        //        print("requestUserName 1")
         return await withCheckedContinuation({ continuation in
             database.collection("User").document(uid).getDocument { (document, error) in
                 if let document = document, document.exists {
                     retValue = document.get("userName") as! String
-//                    print("requestUserName 2: \(retValue)")
+                    //                    print("requestUserName 2: \(retValue)")
                     continuation.resume(returning: retValue)
                 } else {
                     print("2-")
@@ -191,76 +191,80 @@ class SignUpViewModel: ObservableObject {
         
         return await withCheckedContinuation({ continuation in
             database.collection("User").document(uid).getDocument { (document, error) in
-                retValue = document.get("id") as! String
-                continuation.resume(returning: retValue)
-            } else {
-                print("3-")
-                continuation.resume(throwing: error as! Never)
+                if let document = document, document.exists {
+                    retValue = document.get("id") as! String
+                    continuation.resume(returning: retValue)
+                } else {
+                    print("3-")
+                    continuation.resume(throwing: error as! Never)
+                }
             }
         })
     }
     
-    // MARK: - 회원정보 업데이트 (이름)
-    ///  - Parameter user : 로그인한 유저의 객체 (User)
-    ///  - firestore 반영: updateData 메소드를 이용하여 firestore에 정보를 업데이트한다.
-    ///  - 로컬반영: 로컬에 있는 currentUser 객체를 재생성(초기화)하여 정보를 업데이트함
-    func updateUserInfo(userName: String, user: User) {
-        database.collection("User")
-            .document(user.id).updateData([
-                "userName" : userName
-            ]) { err in
-                if let err = err {
-                    print("회원정보 수정 오류: \(err)")
-                } else {
-                    print("회원정보 수정 완료")
-                    self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: user.userEmail, userImg: user.userImg, userName: user.userName, groups: user.groups)
-                }
-            }
-    }
-    
-    
-    
-    // MARK: - FireStore의 유저정보 fetch
-    ///  - Parameter user : 로그인한 유저의 객체 (CustomerInfo)
-    ///  - 로그인 시 firestore에 저장된 유저 정보를 currentUser에 할당한다.
-    func fetchUserInfo(user: User) {
-        database.collection("User").getDocuments { snapshot, error in
-            if let snapshot {
-                
-                for document in snapshot.documents {
-                    let id : String = document.documentID
-                    let docData = document.data()
 
-                    if id == user.id {
-                        
-                        let userName: String = docData["userNickname"] as? String ?? ""
-                        let userEmail: String = docData["userEmail"] as? String ?? ""
-                        let userImg: String = docData["userImg"] as? String ?? ""
-                        let groups: [String] = docData["groups"] as? [String] ?? []
-                        
-                       
-                        self.currentUser = User(id: id, userEmail: userEmail, userImg: userImg, userName: userName, groups: groups)
-                        print(self.currentUser!)
-                    }
-                }
-                
-            }
-        }
-    }
-    // MARK: - 비밀번호 업데이트
-    ///  - Parameter password : 변경하려는 비밀번호
-    ///  - Auth에 접근하여 비밀번호를 업데이트한다
-    func updatePassword(password: String) {
-        authentification.currentUser?.updatePassword(to: password) { err in
+
+// MARK: - 회원정보 업데이트 (이름)
+///  - Parameter user : 로그인한 유저의 객체 (User)
+///  - firestore 반영: updateData 메소드를 이용하여 firestore에 정보를 업데이트한다.
+///  - 로컬반영: 로컬에 있는 currentUser 객체를 재생성(초기화)하여 정보를 업데이트함
+func updateUserInfo(userName: String, user: User) {
+    database.collection("User")
+        .document(user.id).updateData([
+            "userName" : userName
+        ]) { err in
             if let err = err {
-                print("password update error: \(err)")
+                print("회원정보 수정 오류: \(err)")
             } else {
-                print("password update")
+                print("회원정보 수정 완료")
+                self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: user.userEmail, userImg: user.userImg, userName: user.userName, groups: user.groups)
             }
         }
-    }
+}
 
-    // MARK: - 이메일 업데이트
+
+
+// MARK: - FireStore의 유저정보 fetch
+///  - Parameter user : 로그인한 유저의 객체 (CustomerInfo)
+///  - 로그인 시 firestore에 저장된 유저 정보를 currentUser에 할당한다.
+func fetchUserInfo(user: User) {
+    database.collection("User").getDocuments { snapshot, error in
+        if let snapshot {
+            
+            for document in snapshot.documents {
+                let id : String = document.documentID
+                let docData = document.data()
+                
+                if id == user.id {
+                    
+                    let userName: String = docData["userNickname"] as? String ?? ""
+                    let userEmail: String = docData["userEmail"] as? String ?? ""
+                    let userImg: String = docData["userImg"] as? String ?? ""
+                    let groups: [String] = docData["groups"] as? [String] ?? []
+                    
+                    
+                    self.currentUser = User(id: id, userEmail: userEmail, userImg: userImg, userName: userName, groups: groups)
+                    print(self.currentUser!)
+                }
+            }
+            
+        }
+    }
+}
+// MARK: - 비밀번호 업데이트
+///  - Parameter password : 변경하려는 비밀번호
+///  - Auth에 접근하여 비밀번호를 업데이트한다
+func updatePassword(password: String) {
+    authentification.currentUser?.updatePassword(to: password) { err in
+        if let err = err {
+            print("password update error: \(err)")
+        } else {
+            print("password update")
+        }
+    }
+}
+
+// MARK: - 이메일 업데이트
 //    func updateEmail(email: String) {
 //        authentification.currentUser?.updateEmail(to: email) { err in
 //            if let err = err {
@@ -270,24 +274,24 @@ class SignUpViewModel: ObservableObject {
 //            }
 //        }
 //    }
-    
-    // MARK: - 로그인 메소드를 사용하여 비밀번호 체크
-    ///  - Parameter email : 로그인 시 사용하는 이메일
-    ///  - Parameter password : 로그인 시 사용하는 비밀번호
-    ///  - Returns : 로그인 성공 유무에 따라 Bool값을 return
-    public func reAuthLoginIn(withEmail email: String, withPassword password: String) async -> Bool {
-        print("email: \(email), pw: \(password)")
-        
-        do {
-            try await authentification.signIn(withEmail: email, password: password)
-            
-            return true
-        } catch(let error) {
-            dump("error: \(error)")
-            
-            return false
-        }
-    }
 
+// MARK: - 로그인 메소드를 사용하여 비밀번호 체크
+///  - Parameter email : 로그인 시 사용하는 이메일
+///  - Parameter password : 로그인 시 사용하는 비밀번호
+///  - Returns : 로그인 성공 유무에 따라 Bool값을 return
+public func reAuthLoginIn(withEmail email: String, withPassword password: String) async -> Bool {
+    print("email: \(email), pw: \(password)")
     
+    do {
+        try await authentification.signIn(withEmail: email, password: password)
+        
+        return true
+    } catch(let error) {
+        dump("error: \(error)")
+        
+        return false
     }
+}
+
+
+}
