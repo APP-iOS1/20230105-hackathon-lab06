@@ -24,6 +24,7 @@
 		7944E32E2966C54000ADFED6 /* MainDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E32D2966C54000ADFED6 /* MainDetailView.swift */; };
 		7944E3302966C62100ADFED6 /* DdayFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E32F2966C62100ADFED6 /* DdayFrame.swift */; };
 		7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E3312966EE8D00ADFED6 /* ColorExtension.swift */; };
+		7944E3362967022B00ADFED6 /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E3352967022B00ADFED6 /* AddScheduleView.swift */; };
 		A525D9C72966C6D900BC6C53 /* ScanningCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */; };
 		A525D9C92966C7DC00BC6C53 /* ScanningCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */; };
 		A525D9CC2966EEDC00BC6C53 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9CB2966EEDC00BC6C53 /* String.swift */; };
@@ -67,6 +68,7 @@
 		7944E32D2966C54000ADFED6 /* MainDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDetailView.swift; sourceTree = "<group>"; };
 		7944E32F2966C62100ADFED6 /* DdayFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdayFrame.swift; sourceTree = "<group>"; };
 		7944E3312966EE8D00ADFED6 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		7944E3352967022B00ADFED6 /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
 		A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningCameraViewController.swift; sourceTree = "<group>"; };
 		A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningCamera.swift; sourceTree = "<group>"; };
 		A525D9CB2966EEDC00BC6C53 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				1ACE538E29671FA100491CC0 /* JoinModalView.swift */,
 				1ACE539029671FAA00491CC0 /* QRView.swift */,
 				A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */,
+				7944E3352967022B00ADFED6 /* AddScheduleView.swift */,
 				A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */,
 				7944E32D2966C54000ADFED6 /* MainDetailView.swift */,
 				7944E32F2966C62100ADFED6 /* DdayFrame.swift */,
@@ -228,11 +231,11 @@
 				FD6A2E202966FEA6006E1C10 /* API */,
 				A525D9CA2966EECC00BC6C53 /* Extensions */,
 				F480D4152966554E005CB779 /* Check_ItApp.swift */,
+				7944E3312966EE8D00ADFED6 /* ColorExtension.swift */,
 				34E66AED29666B52005F19FC /* View */,
 				34E66AEE29666B77005F19FC /* Model */,
 				34E66AEF29666B80005F19FC /* ViewModel */,
 				F480D41929665554005CB779 /* Assets.xcassets */,
-				7944E3312966EE8D00ADFED6 /* ColorExtension.swift */,
 				F480D41B29665554005CB779 /* Preview Content */,
 			);
 			path = Check_It;
@@ -354,6 +357,7 @@
 				34E66AF929666D53005F19FC /* MyMainView.swift in Sources */,
 				F480D42A2967032C005CB779 /* MakeGroupModal.swift in Sources */,
 				F480D4242966EF2E005CB779 /* Group.swift in Sources */,
+				7944E3362967022B00ADFED6 /* AddScheduleView.swift in Sources */,
 				287680E32967207700DC35CF /* MapView.swift in Sources */,
 				34E66AFB29666D61005F19FC /* User.swift in Sources */,
 				F480D4262966EF97005CB779 /* Promise.swift in Sources */,
