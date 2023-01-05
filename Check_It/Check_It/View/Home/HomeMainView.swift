@@ -13,57 +13,99 @@ struct HomeMainView: View {
     @State var isAddingParty: Bool = false
     @State var currentIndex: Int = 0
     
+    @StateObject var promiseStore: PromiseStore = PromiseStore()
+
     var body: some View {
         VStack {
+            HStack {
+                Text("나의 모임")
+                    .font(.largeTitle)
+                    .bold()
+                Spacer()
+                Button {
+                    isAddingParty.toggle()
+                } label: {
+                    Image(systemName: "note.text.badge.plus")
+                        .resizable()
+                        .foregroundColor(Color("myYellow"))
+                        .frame(width:30,height: 30)
+                }
+                .sheet(isPresented: $isAddingParty) {
+                    NavigationStack {
+                        MakeGroupModal()
+                            .presentationDetents([.large])
+                            .navigationTitle("모임 개설하기")
+                    }
+                }
+                Button {
+                    isJoiningParty.toggle()
+                } label: {
+                    Image(systemName: "iphone.and.arrow.forward")
+                        .resizable()
+                        .foregroundColor(Color("myYellow"))
+                        .frame(width:30,height: 30)
+                }
+                .sheet(isPresented: $isJoiningParty) {
+                    JoinModalView()
+                        .presentationDetents([.height(300)])
+                    
+                }
+                .padding(.leading, 10)
+            }
+            .padding(.top, 30)
+            .padding(.horizontal, 50)
+            .offset(y:20)
+            
             NavigationStack {
                 TabView {
-                    PartyView()
-                    PartyView()
-                    PartyView()
+                    ForEach (promiseStore.promise) { promise in
+                        PartyView(promise: promise)
+                    }
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                .navigationTitle("나의 모임")
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            isAddingParty.toggle()
-                        } label: {
-                            Image(systemName: "note.text.badge.plus")
-                                .resizable()
-                                .foregroundColor(Color("myYellow"))
-                                .frame(width:30,height: 30)
-                        }
-                        .sheet(isPresented: $isAddingParty) {
-                            NavigationStack {
-                                MakeGroupModal()
-                                    .presentationDetents([.large])
-                                    .navigationTitle("모임 개설하기")
-                            }
-                        }
-                    }
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            isJoiningParty.toggle()
-                        } label: {
-                            Image(systemName: "iphone.and.arrow.forward")
-                                .resizable()
-                                .foregroundColor(Color("myYellow"))
-                                .frame(width:30,height: 30)
-                        }
-                        .sheet(isPresented: $isJoiningParty) {
-                                JoinModalView()
-                                    .presentationDetents([.medium])
-                                                         
-                        }
-                    }
-                }
+                //                .navigationTitle("나의 모임")
+                //                .toolbar {
+                //                    ToolbarItem(placement: .navigationBarTrailing) {
+                //                        Button {
+                //                            isAddingParty.toggle()
+                //                        } label: {
+                //                            Image(systemName: "note.text.badge.plus")
+                //                                .resizable()
+                //                                .foregroundColor(Color("myYellow"))
+                //                                .frame(width:30,height: 30)
+                //                        }
+                //                        .sheet(isPresented: $isAddingParty) {
+                //                            NavigationStack {
+                //                                MakeGroupModal()
+                //                                    .presentationDetents([.large])
+                //                                    .navigationTitle("모임 개설하기")
+                //                            }
+                //                        }
+                //                    }
+                //                    ToolbarItem(placement: .navigationBarTrailing) {
+                //                        Button {
+                //                            isJoiningParty.toggle()
+                //                        } label: {
+                //                            Image(systemName: "iphone.and.arrow.forward")
+                //                                .resizable()
+                //                                .foregroundColor(Color("myYellow"))
+                //                                .frame(width:30,height: 30)
+                //                        }
+                //                        .sheet(isPresented: $isJoiningParty) {
+                //                            JoinModalView()
+                //                                .presentationDetents([.height(300)])
+                //
+                //                        }
+                //                    }
+                //                }
                 
                 
             }
             Spacer()
+        }
+        .onAppear{
+            promiseStore.fetchPromise()
         }
     }
 }

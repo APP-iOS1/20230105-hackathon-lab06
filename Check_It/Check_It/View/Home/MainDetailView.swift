@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainDetailView: View {
+    @StateObject var promiseStore: PromiseStore = PromiseStore()
+    var promise: Promise
+
     var body: some View {
         ScrollView {
             VStack{
@@ -17,7 +20,7 @@ struct MainDetailView: View {
                         ddayFrame(day: "D-day") // 디데이 라벨
                             .padding(.bottom)
                         //notTodayFrame(day: "D-32")
-                        Text("허미니의 또구 동아리") // 동아리 이름
+                        Text("\(promise.promiseName)") // 동아리 이름
                             .font(.title3.bold())
                             .padding(.bottom)
                         Image("")               // 동아리 이미지
@@ -44,7 +47,7 @@ struct MainDetailView: View {
                    
                 }
                 
-                ForEach(0..<6) { i in
+                ForEach(promiseStore.promise) { promise in
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(.lightGray)
@@ -64,13 +67,13 @@ struct MainDetailView: View {
                                     }
                                 HStack{
                                     Image(systemName: "calendar")
-                                    Text("3월 24일")              //날짜
+                                    Text("\(promise.date)")              //날짜
                                 }
                                 .padding(.top, 5)
 
                                 HStack{
                                     Image(systemName: "clock")
-                                    Text("오후 3:00 - 오후 7:00")  //시간
+                                    Text("\(promise.startTime) ~ \(promise.endTime)")  //시간
                                 }
                                 .padding(.vertical, 5)
 
@@ -90,7 +93,9 @@ struct MainDetailView: View {
             }
             .padding(.horizontal, 30)
         }
-        
+        .onAppear{
+            promiseStore.fetchPromise()
+        }
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -108,8 +113,7 @@ struct MainDetailView: View {
 struct MainDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            MainDetailView()
-            
+            MainDetailView(promise: Promise(promiseName: "허미니의 또구 동아리", limit: "", lateLimit: "", date: "", startTime: "", endTime: ""))
         }
     }
 }
