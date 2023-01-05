@@ -9,8 +9,10 @@ import SwiftUI
 
 struct PartyView: View {
     @State var isChecked: Bool = false
+    var promise: Promise
+    
     var body: some View {
-        NavigationLink(destination: MainDetailView()) {
+        NavigationLink(destination: MainDetailView(promise: promise)) {
             VStack(alignment: .leading) {
                 ddayFrame(day: "D-day")
                     .padding(.bottom, 10)
@@ -71,6 +73,6 @@ struct PartyView: View {
 
 struct PartyView_Previews: PreviewProvider {
     static var previews: some View {
-        PartyView()
+        PartyView(promise: Promise(promiseName: "", limit: "", lateLimit: "", date: "", startTime: "", endTime: ""))
     }
 }

@@ -29,6 +29,7 @@
 		7944E3302966C62100ADFED6 /* DdayFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E32F2966C62100ADFED6 /* DdayFrame.swift */; };
 		7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E3312966EE8D00ADFED6 /* ColorExtension.swift */; };
 		7944E3362967022B00ADFED6 /* AddScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E3352967022B00ADFED6 /* AddScheduleView.swift */; };
+		7944E338296736F100ADFED6 /* PromiseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944E337296736F100ADFED6 /* PromiseStore.swift */; };
 		A525D9C72966C6D900BC6C53 /* ScanningCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */; };
 		A525D9C92966C7DC00BC6C53 /* ScanningCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */; };
 		A525D9CC2966EEDC00BC6C53 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9CB2966EEDC00BC6C53 /* String.swift */; };
@@ -85,6 +86,7 @@
 		7944E32F2966C62100ADFED6 /* DdayFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DdayFrame.swift; sourceTree = "<group>"; };
 		7944E3312966EE8D00ADFED6 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		7944E3352967022B00ADFED6 /* AddScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScheduleView.swift; sourceTree = "<group>"; };
+		7944E337296736F100ADFED6 /* PromiseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseStore.swift; sourceTree = "<group>"; };
 		A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningCameraViewController.swift; sourceTree = "<group>"; };
 		A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningCamera.swift; sourceTree = "<group>"; };
 		A525D9CB2966EEDC00BC6C53 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				34E66AFC29666D72005F19FC /* ViewModel.swift */,
 				34E66B0A29670085005F19FC /* SignUpViewModel.swift */,
 				287680DE2967069400DC35CF /* LocationViewModel.swift */,
+				7944E337296736F100ADFED6 /* PromiseStore.swift */,
 				34E66AFC29666D72005F19FC /* GroupStore.swift */,
 				F480D42D29674ADF005CB779 /* AuthStore.swift */,
 				F480D42F29674B71005CB779 /* UserStore.swift */,
@@ -429,6 +432,7 @@
 				34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */,
 				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
 				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
+				7944E338296736F100ADFED6 /* PromiseStore.swift in Sources */,
 				F480D43029674B71005CB779 /* UserStore.swift in Sources */,
 				1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */,
 				7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */,

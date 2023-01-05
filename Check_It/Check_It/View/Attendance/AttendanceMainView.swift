@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct AttendanceMainView: View {
+    @StateObject var promiseStore: PromiseStore = PromiseStore()
     var body: some View {
         ScrollView {
             VStack{
-                ForEach (0..<5) { i in
-                    NavigationLink(destination: MainDetailView()) {
+                ForEach (promiseStore.promise) { promise in
+                    NavigationLink(destination: MainDetailView(promise: promise)) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(.lightGray)

@@ -13,6 +13,8 @@ struct HomeMainView: View {
     @State var isAddingParty: Bool = false
     @State var currentIndex: Int = 0
     
+    @StateObject var promiseStore: PromiseStore = PromiseStore()
+
     var body: some View {
         VStack {
             HStack {
@@ -56,9 +58,9 @@ struct HomeMainView: View {
             
             NavigationStack {
                 TabView {
-                    PartyView()
-                    PartyView()
-                    PartyView()
+                    ForEach (promiseStore.promise) { promise in
+                        PartyView(promise: promise)
+                    }
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
@@ -101,6 +103,9 @@ struct HomeMainView: View {
                 
             }
             Spacer()
+        }
+        .onAppear{
+            promiseStore.fetchPromise()
         }
     }
 }
