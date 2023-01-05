@@ -28,9 +28,7 @@ struct Check_ItApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
                 ContentView()
-            }
         }
     }
 }
