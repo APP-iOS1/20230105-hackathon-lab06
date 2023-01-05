@@ -33,35 +33,28 @@ class GroupStore: ObservableObject {
             ])
     }
     
-    //그룹 목록 Fetch --> 현호님 예정 - R
-    func fetchGroup(){
+    //그룹 목록 Fetch --> R
+    func fetchGroup() {
         database.collection("Group")
             .getDocuments { (snapshot, error) in
-//                self.promise.removeAll()
                 
                 if let snapshot {
-                    print("++++", self.groups)
-                    var temp = [Group]()
                     for document in snapshot.documents {
-                        let docData = document.data()
-                        let groupName: String = docData["groupName"] as? String ?? ""
-                        let groupImage: String = docData["groupImage"] as? String ?? ""
-                        let host: String = docData["host"] as? String ?? ""
-                        let code: String = docData["code"] as? String ?? ""
-//                        let userList: [String] = docData["userList"] as? [String] ?? []
-//                        let promiseList: [String] = docData["promiseList"] as? [String] ?? []
+                        let id = document["id"] as? String ?? ""
+                        let groupName = document["groupName"] as? String ?? ""
+                        let groupImage = document["groupImage"] as? String ?? ""
+                        let host = document["host"] as? String ?? ""
+                        let code = document["code"] as? String ?? ""
+                        let userList = document["userList"] as? [String] ?? []
+                        let promiseList = document["promiseList"] as? [String] ?? []
                         
-                        let group: Group = Group(groupName: groupName, groupImage: groupImage, host: host, code: code, userList: [], promiseList: [])
-                        
-                        temp.append(group)
+                        self.groups.append(Group(id: id, groupName: groupName, groupImage: groupImage, host: host, code: code, userList: userList, promiseList: promiseList))
                     }
-                    print("++++", self.groups)
-                    self.groups = temp
-                }
+                } 
             }
     }
     
-    //그룹 이름 수정 - U
+    //그룹 이름 수정 - U --> ok
     func updateGroupName(groupId: String, groupName: String) async {
         do {
             try await database.collection("Group")
@@ -74,7 +67,7 @@ class GroupStore: ObservableObject {
         }
     }
     
-    //그룹 호스트 수정 - U
+    //그룹 호스트 수정 - U ---> ok 
     func updateHost(host: String, groupId: String) async {
         do {
             try await database.collection("Group")
@@ -87,7 +80,7 @@ class GroupStore: ObservableObject {
         }
     }
     
-    //그룹 삭제 - D
+    //그룹 삭제 - D ---> ok
     func deleteGroup(groupId: String) async {
         do {
             try await database.collection("Group")
