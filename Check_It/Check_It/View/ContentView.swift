@@ -15,21 +15,21 @@ struct ContentView: View {
         
         TabView(selection: $tabSelection) {
             NavigationStack{
-                Tab1MainView()
+                HomeMainView()
             }.tabItem{
                     Image(systemName: "house")
                     Text("홈")
             }.tag(1)
             
             NavigationStack{
-                Tab2MainView()
+                AttendanceMainView()
             }.tabItem{
                     Image(systemName: "checklist")
                     Text("출결 현황")
             }.tag(2)
             
             NavigationStack{
-                Tab3MainView()
+                MyMainView()
             }.tabItem{
                     Image(systemName: "person")
                     Text("마이")
