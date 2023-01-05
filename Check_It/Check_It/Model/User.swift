@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct User: Identifiable {
-    var userId: UUID().uuidString
+struct User: Identifiable, Hashable, Codable {
+    var id = UUID().uuidString
     var userImg: String
-    var userName:
+    var userName: String
+    var groups: [Group]
 }
