@@ -10,12 +10,14 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var tabSelection = 1
+    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+
     
     var body: some View {
         
         TabView(selection: $tabSelection) {
             NavigationStack{
-                HomeMainView()
+                MapPinAreaView()
             }.tabItem{
                     Image(systemName: "house")
                     Text("홈")
@@ -35,6 +37,9 @@ struct ContentView: View {
                     Text("마이")
             }.tag(3)
         }
+        .fullScreenCover(isPresented: $isFirstLaunching) {
+                        LoginView(isFirstLaunching: $isFirstLaunching)
+                    }
     }
 }
 

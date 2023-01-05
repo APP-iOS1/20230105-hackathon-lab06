@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 
 class GeoCodingService {
-    func getCoding(address : String, completion : @escaping ([String : String]) -> ()) {
+    func getCoding(address : String, completion : @escaping ([String]) -> ()) {
         let url = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode"
         let headers : HTTPHeaders = [
             "X-NCP-APIGW-API-KEY-ID" : "653hfg2t7w",
@@ -31,12 +31,13 @@ class GeoCodingService {
                 for location in response.addresses {
                     print(location.x, "x값")
                     print(location.y, "y값")
-                    completion(["x" : location.x, "y" : location.y])
+//                    completion(["x" : location.x, "y" : location.y])
+                    completion([location.x, location.y])
                 }
             case .failure(let error):
                 print(error.localizedDescription)
                 print(response.response?.statusCode)
-                completion(["x" : "오류", "y" : "오류"])
+                completion(["오류", "오류"])
             }
         }
     }

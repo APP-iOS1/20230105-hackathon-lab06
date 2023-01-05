@@ -22,6 +22,13 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var preRegion = CLLocationCoordinate2D(latitude: 37.478846, longitude: -102.0079053)
     
     //@Published var preRegion: CLLocationCoordinate2D?
+    @Published var groupRegion : [GroupAnootationItems] = []
+    
+    //창휘
+    func getPinLocation(x: Double, y: Double) {
+        groupRegion.append(GroupAnootationItems(coordinate: CLLocationCoordinate2D(latitude: y, longitude: x)))
+    }
+    
     
     private let locationManager: CLLocationManager
     

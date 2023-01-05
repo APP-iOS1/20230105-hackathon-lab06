@@ -32,6 +32,7 @@ struct Check_ItApp: App {
                 ContentView()
                 .environmentObject(LocationViewModel())
 //            LoginView()
+                .environmentObject(SignUpViewModel())
         }
     }
 }
