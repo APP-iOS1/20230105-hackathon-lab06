@@ -31,6 +31,7 @@ struct Check_ItApp: App {
         WindowGroup {
                 ContentView()
 //            LoginView()
+                .environmentObject(SignUpViewModel())
         }
     }
 }

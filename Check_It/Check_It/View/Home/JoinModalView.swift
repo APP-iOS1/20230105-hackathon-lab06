@@ -19,6 +19,8 @@ struct JoinModalView: View {
                     .font(.title.bold())
                 Spacer()
             }
+            .padding(.leading,50)
+            
             TextField(
                 "공유받은 코드를 입력해주세요",
                 text: $sharedCode
