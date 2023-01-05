@@ -19,10 +19,21 @@ class GroupStore: ObservableObject {
         self.groups = groups
     }
     
-//    func addGroup(newGroup: Group) {
-//        database.collection("Group")
-//            .document("\(newGroup.id)")
-//            .setData(["id": newGroup.id,
-//                     ])
-//    }
+    //그룹추가하기
+    func addGroup(newGroup: Group) {
+        database.collection("Group")
+            .document("\(newGroup.id)")
+            .setData(["id": newGroup.id,
+                      "groupName" : newGroup.groupName,
+                      "groupImage" : newGroup.groupImage,
+                      "host" : newGroup.host,
+                      "code" : newGroup.code,
+                      "userList" : newGroup.userList,
+                      "promiseList" : newGroup.promiseList
+            ])
+    }
+    
+    //그룹 목록 Fetch --> 현호님 예정
+    
+    //
 }
