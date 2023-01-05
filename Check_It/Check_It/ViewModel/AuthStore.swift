@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import FirebaseAuth
+import FirebaseFirestore
+
+@MainActor
+class AuthStore: ObservableObject {
+    
+}
