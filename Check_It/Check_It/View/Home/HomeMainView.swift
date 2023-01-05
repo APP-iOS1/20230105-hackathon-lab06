@@ -8,8 +8,22 @@
 import SwiftUI
 
 struct HomeMainView: View {
+    @State var showModal: Bool = false
     var body: some View {
-        Text("Home Main View")
+        NavigationStack {
+            Button(action: {
+                showModal.toggle()
+            }){
+                Image(systemName: "globe")
+                    .sheet(isPresented: $showModal) {
+                        NavigationStack {
+                            MakeGroupModal()
+                                .presentationDetents([.large])
+                                .navigationTitle("모임 개설하기")
+                        }
+                    }
+            }
+        }
     }
 }
 

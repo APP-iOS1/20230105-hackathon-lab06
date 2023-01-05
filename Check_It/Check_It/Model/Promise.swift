@@ -15,4 +15,5 @@ struct Promise: Identifiable, Hashable, Codable {
     var rangeLimit: Int // 출석확인 가능 거리범위
     var location: Location // 위치
     var date: String // 날짜 -> 문자열 형식으로 등록
+    var startTime: String
 }
