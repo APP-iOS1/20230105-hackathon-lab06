@@ -34,6 +34,32 @@ class GroupStore: ObservableObject {
     }
     
     //그룹 목록 Fetch --> 현호님 예정 - R
+    func fetchGroup(){
+        database.collection("Group")
+            .getDocuments { (snapshot, error) in
+//                self.promise.removeAll()
+                
+                if let snapshot {
+                    print("++++", self.groups)
+                    var temp = [Group]()
+                    for document in snapshot.documents {
+                        let docData = document.data()
+                        let groupName: String = docData["groupName"] as? String ?? ""
+                        let groupImage: String = docData["groupImage"] as? String ?? ""
+                        let host: String = docData["host"] as? String ?? ""
+                        let code: String = docData["code"] as? String ?? ""
+//                        let userList: [String] = docData["userList"] as? [String] ?? []
+//                        let promiseList: [String] = docData["promiseList"] as? [String] ?? []
+                        
+                        let group: Group = Group(groupName: groupName, groupImage: groupImage, host: host, code: code, userList: [], promiseList: [])
+                        
+                        temp.append(group)
+                    }
+                    print("++++", self.groups)
+                    self.groups = temp
+                }
+            }
+    }
     
     //그룹 이름 수정 - U
     func updateGroupName(groupId: String, groupName: String) async {
