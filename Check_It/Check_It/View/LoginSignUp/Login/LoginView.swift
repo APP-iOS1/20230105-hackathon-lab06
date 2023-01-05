@@ -11,6 +11,8 @@ import Firebase
 
 struct LoginView: View {
     
+    @Binding var isFirstLaunching: Bool
+    
     @EnvironmentObject private var signupViewModel: SignUpViewModel
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var signUpViewModel: SignUpViewModel
@@ -152,6 +154,7 @@ struct LoginView: View {
                 
                 Button {
                     logInWithEmailPassword()
+                    isFirstLaunching.toggle()
                 } label: {
                     Text("로그인")
                         .font(.title2)
@@ -177,8 +180,11 @@ struct LoginView: View {
 }
 
 struct LoginView_Previews: PreviewProvider {
+    
+    @Binding var isFirstLaunching: Bool
+    
     static var previews: some View {
-        LoginView()
+        LoginView(isFirstLaunching: .constant(false))
             .environmentObject(SignUpViewModel())
     }
 }
