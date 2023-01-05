@@ -25,7 +25,7 @@ struct ContentView: View {
                 AttendanceMainView()
             }.tabItem{
                     Image(systemName: "checklist")
-                    Text("출결 현황")
+                    Text("출석부")
             }.tag(2)
             
             NavigationStack{
