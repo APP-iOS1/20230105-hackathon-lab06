@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct MyMainView: View {
+    @State private var useAgreementSheet: Bool = false
     var body: some View {
-        
         VStack {
             HStack(alignment: .firstTextBaseline) {
                             // MARK: - 사용자 이름 데이터 받아오기
@@ -78,7 +78,7 @@ struct MyMainView: View {
                 
                 HStack {
                     Button {
-                        print("dd")
+                        useAgreementSheet.toggle()
                     } label: {
                         HStack {
                             Text("약관 및 정책")
@@ -87,6 +87,8 @@ struct MyMainView: View {
                             Spacer()
                             
                             Image(systemName: "chevron.right")
+                        }.sheet(isPresented: $useAgreementSheet) {
+                            useAgreementView()
                         }
                     }
                 }

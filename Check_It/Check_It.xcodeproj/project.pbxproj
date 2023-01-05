@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B8379C5296721BC007ABABE /* UseAgreementView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C4296721BC007ABABE /* UseAgreementView .swift */; };
+		2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C4296721BC007ABABE /* UseAgreementView.swift */; };
 		34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF429666D2B005F19FC /* HomeMainView.swift */; };
 		34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF629666D3D005F19FC /* AttendanceMainView.swift */; };
 		34E66AF929666D53005F19FC /* MyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF829666D53005F19FC /* MyMainView.swift */; };
@@ -44,7 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B8379C4296721BC007ABABE /* UseAgreementView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseAgreementView .swift"; sourceTree = "<group>"; };
+		2B8379C4296721BC007ABABE /* UseAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAgreementView.swift; sourceTree = "<group>"; };
 		34E66AF429666D2B005F19FC /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		34E66AF629666D3D005F19FC /* AttendanceMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMainView.swift; sourceTree = "<group>"; };
 		34E66AF829666D53005F19FC /* MyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainView.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				34E66AF829666D53005F19FC /* MyMainView.swift */,
-				2B8379C4296721BC007ABABE /* UseAgreementView .swift */,
+				2B8379C4296721BC007ABABE /* UseAgreementView.swift */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -324,7 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F480D4182966554E005CB779 /* ContentView.swift in Sources */,
-				2B8379C5296721BC007ABABE /* UseAgreementView .swift in Sources */,
+				2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */,
 				7944E3302966C62100ADFED6 /* DdayFrame.swift in Sources */,
 				F480D4162966554E005CB779 /* Check_ItApp.swift in Sources */,
 				F480D4282966F1D1005CB779 /* Location.swift in Sources */,
