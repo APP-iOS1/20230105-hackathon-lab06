@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C4296721BC007ABABE /* UseAgreementView.swift */; };
-		287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DC2967025300DC35CF /* AttendanceModalView.swift */; };
-		287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DE2967069400DC35CF /* LocationViewModel.swift */; };
-		287680E32967207700DC35CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E22967207700DC35CF /* MapView.swift */; };
 		1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE538B29671F8F00491CC0 /* PartyView.swift */; };
 		1ACE538F29671FA100491CC0 /* JoinModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE538E29671FA100491CC0 /* JoinModalView.swift */; };
 		1ACE539129671FAA00491CC0 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE539029671FAA00491CC0 /* QRView.swift */; };
+		287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DC2967025300DC35CF /* AttendanceModalView.swift */; };
+		287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DE2967069400DC35CF /* LocationViewModel.swift */; };
+		287680E32967207700DC35CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E22967207700DC35CF /* MapView.swift */; };
+		2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C4296721BC007ABABE /* UseAgreementView.swift */; };
 		34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF429666D2B005F19FC /* HomeMainView.swift */; };
 		34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF629666D3D005F19FC /* AttendanceMainView.swift */; };
 		34E66AF929666D53005F19FC /* MyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF829666D53005F19FC /* MyMainView.swift */; };
@@ -31,6 +31,7 @@
 		A525D9CC2966EEDC00BC6C53 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9CB2966EEDC00BC6C53 /* String.swift */; };
 		A525D9CE296701CF00BC6C53 /* GeoCodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9CD296701CF00BC6C53 /* GeoCodingService.swift */; };
 		A525D9D02967075400BC6C53 /* GeoCodingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9CF2967075400BC6C53 /* GeoCodingResponse.swift */; };
+		A525D9D2296732E000BC6C53 /* MapPinAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9D1296732E000BC6C53 /* MapPinAreaView.swift */; };
 		F480D4162966554E005CB779 /* Check_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D4152966554E005CB779 /* Check_ItApp.swift */; };
 		F480D4182966554E005CB779 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D4172966554E005CB779 /* ContentView.swift */; };
 		F480D41A29665554005CB779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F480D41929665554005CB779 /* Assets.xcassets */; };
@@ -54,13 +55,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B8379C4296721BC007ABABE /* UseAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAgreementView.swift; sourceTree = "<group>"; };
-		287680DC2967025300DC35CF /* AttendanceModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalView.swift; sourceTree = "<group>"; };
-		287680DE2967069400DC35CF /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
-		287680E22967207700DC35CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1ACE538B29671F8F00491CC0 /* PartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyView.swift; sourceTree = "<group>"; };
 		1ACE538E29671FA100491CC0 /* JoinModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinModalView.swift; sourceTree = "<group>"; };
 		1ACE539029671FAA00491CC0 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
+		287680DC2967025300DC35CF /* AttendanceModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalView.swift; sourceTree = "<group>"; };
+		287680DE2967069400DC35CF /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		287680E22967207700DC35CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2B8379C4296721BC007ABABE /* UseAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAgreementView.swift; sourceTree = "<group>"; };
 		34E66AF429666D2B005F19FC /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		34E66AF629666D3D005F19FC /* AttendanceMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMainView.swift; sourceTree = "<group>"; };
 		34E66AF829666D53005F19FC /* MyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainView.swift; sourceTree = "<group>"; };
@@ -78,6 +79,7 @@
 		A525D9CB2966EEDC00BC6C53 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		A525D9CD296701CF00BC6C53 /* GeoCodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCodingService.swift; sourceTree = "<group>"; };
 		A525D9CF2967075400BC6C53 /* GeoCodingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCodingResponse.swift; sourceTree = "<group>"; };
+		A525D9D1296732E000BC6C53 /* MapPinAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPinAreaView.swift; sourceTree = "<group>"; };
 		F480D4122966554E005CB779 /* Check_It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check_It.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F480D4152966554E005CB779 /* Check_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check_ItApp.swift; sourceTree = "<group>"; };
 		F480D4172966554E005CB779 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,7 +141,6 @@
 		34E66AEF29666B80005F19FC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				34E66AFC29666D72005F19FC /* ViewModel.swift */,
 				287680DE2967069400DC35CF /* LocationViewModel.swift */,
 				34E66AFC29666D72005F19FC /* GroupStore.swift */,
 			);
@@ -161,6 +162,7 @@
 				7944E32F2966C62100ADFED6 /* DdayFrame.swift */,
 				287680DC2967025300DC35CF /* AttendanceModalView.swift */,
 				287680E22967207700DC35CF /* MapView.swift */,
+				A525D9D1296732E000BC6C53 /* MapPinAreaView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -364,6 +366,7 @@
 				F480D4282966F1D1005CB779 /* Location.swift in Sources */,
 				A525D9CC2966EEDC00BC6C53 /* String.swift in Sources */,
 				A525D9D02967075400BC6C53 /* GeoCodingResponse.swift in Sources */,
+				A525D9D2296732E000BC6C53 /* MapPinAreaView.swift in Sources */,
 				287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */,
 				7944E32E2966C54000ADFED6 /* MainDetailView.swift in Sources */,
 				34E66AF929666D53005F19FC /* MyMainView.swift in Sources */,
@@ -382,7 +385,7 @@
 				287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */,
 				34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */,
 				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
-				34E66AFD29666D72005F19FC /* ViewModel.swift in Sources */,
+				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
 				1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */,
 				7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */,
 				34E66B072966C38E005F19FC /* SignUpStep2View.swift in Sources */,

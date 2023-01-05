@@ -18,6 +18,14 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         center: CLLocationCoordinate2D(latitude: 42.0422448, longitude: -102.0079053),
         span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
     
+    @Published var groupRegion : [GroupAnootationItems] = []
+    
+    //창휘
+    func getPinLocation(x: Double, y: Double) {
+        groupRegion.append(GroupAnootationItems(coordinate: CLLocationCoordinate2D(latitude: y, longitude: x)))
+    }
+    
+    
     private let locationManager: CLLocationManager
     
     override init() {
