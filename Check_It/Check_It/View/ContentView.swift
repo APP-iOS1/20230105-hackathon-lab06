@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var tabSelection = 1
-    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
-
+    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = false
+    //여기
     
     var body: some View {
         
@@ -24,7 +24,8 @@ struct ContentView: View {
             }.tag(1)
             
             NavigationStack{
-                AttendanceMainView()
+                //AttendanceMainView()
+                TestView()
             }.tabItem{
                     Image(systemName: "checklist")
                     Text("출석부")

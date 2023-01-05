@@ -11,5 +11,12 @@ import FirebaseFirestore
 
 @MainActor
 class AuthStore: ObservableObject {
+    let firebaseAuth = Auth.auth()
+    let currentUser = Auth.auth().currentUser ?? nil
+    
+    let database = Firestore.firestore()
+    
+//    // 모임에 참가하는 함수
+//    func joinGroup(
     
 }
