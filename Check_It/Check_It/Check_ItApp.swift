@@ -9,6 +9,7 @@ import SwiftUI
 
 import SwiftUI
 import FirebaseCore
+import Firebase
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -28,8 +29,8 @@ struct Check_ItApp: App {
     
     var body: some Scene {
         WindowGroup {
-                //ContentView()
-            LoginView()
+                ContentView()
+//            LoginView()
         }
     }
 }
