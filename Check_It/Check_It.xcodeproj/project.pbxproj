@@ -28,6 +28,8 @@
 		A525D9C72966C6D900BC6C53 /* ScanningCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */; };
 		A525D9C92966C7DC00BC6C53 /* ScanningCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */; };
 		A525D9CC2966EEDC00BC6C53 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9CB2966EEDC00BC6C53 /* String.swift */; };
+		A525D9CE296701CF00BC6C53 /* GeoCodingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9CD296701CF00BC6C53 /* GeoCodingService.swift */; };
+		A525D9D02967075400BC6C53 /* GeoCodingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A525D9CF2967075400BC6C53 /* GeoCodingResponse.swift */; };
 		F480D4162966554E005CB779 /* Check_ItApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D4152966554E005CB779 /* Check_ItApp.swift */; };
 		F480D4182966554E005CB779 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F480D4172966554E005CB779 /* ContentView.swift */; };
 		F480D41A29665554005CB779 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F480D41929665554005CB779 /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningCameraViewController.swift; sourceTree = "<group>"; };
 		A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanningCamera.swift; sourceTree = "<group>"; };
 		A525D9CB2966EEDC00BC6C53 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		A525D9CD296701CF00BC6C53 /* GeoCodingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCodingService.swift; sourceTree = "<group>"; };
+		A525D9CF2967075400BC6C53 /* GeoCodingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCodingResponse.swift; sourceTree = "<group>"; };
 		F480D4122966554E005CB779 /* Check_It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check_It.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F480D4152966554E005CB779 /* Check_ItApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check_ItApp.swift; sourceTree = "<group>"; };
 		F480D4172966554E005CB779 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 				F480D4232966EF2E005CB779 /* Group.swift */,
 				F480D4252966EF97005CB779 /* Promise.swift */,
 				F480D4272966F1D1005CB779 /* Location.swift */,
+				A525D9CF2967075400BC6C53 /* GeoCodingResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				FD6A2E1E2966FDE9006E1C10 /* NaverKeys.swift */,
+				A525D9CD296701CF00BC6C53 /* GeoCodingService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -346,12 +352,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F480D4182966554E005CB779 /* ContentView.swift in Sources */,
+				A525D9CE296701CF00BC6C53 /* GeoCodingService.swift in Sources */,
 				1ACE539129671FAA00491CC0 /* QRView.swift in Sources */,
 				7944E3302966C62100ADFED6 /* DdayFrame.swift in Sources */,
 				1ACE538F29671FA100491CC0 /* JoinModalView.swift in Sources */,
 				F480D4162966554E005CB779 /* Check_ItApp.swift in Sources */,
 				F480D4282966F1D1005CB779 /* Location.swift in Sources */,
 				A525D9CC2966EEDC00BC6C53 /* String.swift in Sources */,
+				A525D9D02967075400BC6C53 /* GeoCodingResponse.swift in Sources */,
 				287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */,
 				7944E32E2966C54000ADFED6 /* MainDetailView.swift in Sources */,
 				34E66AF929666D53005F19FC /* MyMainView.swift in Sources */,
