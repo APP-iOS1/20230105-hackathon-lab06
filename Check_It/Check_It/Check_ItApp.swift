@@ -28,8 +28,8 @@ struct Check_ItApp: App {
     
     var body: some Scene {
         WindowGroup {
-                //ContentView()
-            LoginView()
+                ContentView()
+//            LoginView()
         }
     }
 }
