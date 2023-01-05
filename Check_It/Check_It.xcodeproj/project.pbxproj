@@ -63,6 +63,7 @@
 		FD6A2E3C29674788006E1C10 /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E3A29674787006E1C10 /* WebViewModel.swift */; };
 		FD6A2E3E29674B04006E1C10 /* StorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E3D29674B04006E1C10 /* StorageViewModel.swift */; };
 		FD6A2E4029674B3F006E1C10 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E3F29674B3F006E1C10 /* ImagePicker.swift */; };
+		FD6A2E42296760D4006E1C10 /* TestDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E41296760D4006E1C10 /* TestDevice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		FD6A2E3A29674787006E1C10 /* WebViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		FD6A2E3D29674B04006E1C10 /* StorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewModel.swift; sourceTree = "<group>"; };
 		FD6A2E3F29674B3F006E1C10 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		FD6A2E41296760D4006E1C10 /* TestDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDevice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,12 +165,12 @@
 		34E66AEF29666B80005F19FC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				34E66AFC29666D72005F19FC /* ViewModel.swift */,
 				34E66B0A29670085005F19FC /* SignUpViewModel.swift */,
 				287680DE2967069400DC35CF /* LocationViewModel.swift */,
 				7944E337296736F100ADFED6 /* PromiseStore.swift */,
 				34E66AFC29666D72005F19FC /* GroupStore.swift */,
 				F480D42D29674ADF005CB779 /* AuthStore.swift */,
+				FD6A2E41296760D4006E1C10 /* TestDevice.swift */,
 				F480D42F29674B71005CB779 /* UserStore.swift */,
 			);
 			path = ViewModel;
@@ -441,6 +443,7 @@
 				1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */,
 				7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */,
 				34E66B072966C38E005F19FC /* SignUpStep2View.swift in Sources */,
+				FD6A2E42296760D4006E1C10 /* TestDevice.swift in Sources */,
 				FD6A2E3E29674B04006E1C10 /* StorageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
