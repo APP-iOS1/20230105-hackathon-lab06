@@ -25,7 +25,6 @@ struct MainDetailView: View {
                     }
                     Spacer()
                 }
-                .padding(.horizontal, 50)
                 
                 Divider()   // 동아리 이미지 넣어보고 이상하면 빼기
                     .padding(.bottom)
@@ -34,20 +33,22 @@ struct MainDetailView: View {
                     Text("일정 정보")
                         .font(.title3)
                     Spacer()
-                    Button {
-                        // 일정 추가하는 뷰
+                    // 일정 추가하는 뷰
+                    NavigationLink {
+                        AddScheduleView()
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(.black)
                     }
+
+                   
                 }
-                .padding(.horizontal, 50)
                 
                 ForEach(0..<6) { i in
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(.lightGray)
-                            .frame(width: 300, height:160)
+                            .frame(width: .infinity, height:160)
                         HStack {
                             VStack(alignment: .leading){
                                 RoundedRectangle(cornerRadius: 10)
@@ -82,12 +83,14 @@ struct MainDetailView: View {
                             }
                             Spacer()
                         }
-                        .padding(.horizontal,70)
+                        .padding(.leading, 20)
                     }
                 }
                 
             }
+            .padding(.horizontal, 30)
         }
+        
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
