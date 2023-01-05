@@ -10,6 +10,7 @@ import SwiftUI
 struct PartyView: View {
     @State var isChecked: Bool = false
     var promise: Promise
+//    var group: Group
     
     var body: some View {
         NavigationLink(destination: MainDetailView(promise: promise)) {
@@ -17,7 +18,7 @@ struct PartyView: View {
                 ddayFrame(day: "D-day")
                     .padding(.bottom, 10)
                 
-                Text("허니미니의 또구 동아리")
+                Text("group.groupName")
                     .foregroundColor(.black)
                     .font(.title)
                     .bold()
@@ -26,21 +27,21 @@ struct PartyView: View {
                 HStack {
                     Image(systemName: "mappin.and.ellipse")
                         .foregroundColor(.black)
-                    Text("신촌 베이스볼클럽")
+                    Text("location.address")
                         .foregroundColor(.black)
                 }
                 .padding(.bottom, 5)
                 HStack {
                     Image(systemName: "calendar")
                         .foregroundColor(.black)
-                    Text("3월 24일")
+                    Text(promise.date)
                         .foregroundColor(.black)
                 }
                 .padding(.bottom, 5)
                 HStack {
                     Image(systemName: "clock")
                         .foregroundColor(.black)
-                    Text("오후 3:00 ~ 오후 7:00")
+                    Text("\(promise.startTime) ~ \(promise.endTime)")
                         .foregroundColor(.black)
                 }
                 .padding(.bottom, 10)
