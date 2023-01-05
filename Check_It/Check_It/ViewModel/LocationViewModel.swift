@@ -18,7 +18,10 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         center: CLLocationCoordinate2D(latitude: 42.0422448, longitude: -102.0079053),
         span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
     
-    @Published var preRegion = CLLocationCoordinate2D(latitude: 42.0522448, longitude: -102.0079053)
+    // 현재 10m이상 처음이랑 움직일
+    @Published var preRegion = CLLocationCoordinate2D(latitude: 37.478846, longitude: -102.0079053)
+    
+    //@Published var preRegion: CLLocationCoordinate2D?
     
     private let locationManager: CLLocationManager
     
@@ -29,7 +32,6 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         super.init()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        //locationManager.desiredAccuracy = kCLLocationAccuracyReduced
         locationManager.startUpdatingLocation()
     }
     

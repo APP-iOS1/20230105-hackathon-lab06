@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C4296721BC007ABABE /* UseAgreementView.swift */; };
-		287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DC2967025300DC35CF /* AttendanceModalView.swift */; };
-		287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DE2967069400DC35CF /* LocationViewModel.swift */; };
-		287680E32967207700DC35CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E22967207700DC35CF /* MapView.swift */; };
 		1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE538B29671F8F00491CC0 /* PartyView.swift */; };
 		1ACE538F29671FA100491CC0 /* JoinModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE538E29671FA100491CC0 /* JoinModalView.swift */; };
 		1ACE539129671FAA00491CC0 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE539029671FAA00491CC0 /* QRView.swift */; };
+		287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DC2967025300DC35CF /* AttendanceModalView.swift */; };
+		287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DE2967069400DC35CF /* LocationViewModel.swift */; };
+		287680E32967207700DC35CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E22967207700DC35CF /* MapView.swift */; };
+		2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C4296721BC007ABABE /* UseAgreementView.swift */; };
 		34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF429666D2B005F19FC /* HomeMainView.swift */; };
 		34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF629666D3D005F19FC /* AttendanceMainView.swift */; };
 		34E66AF929666D53005F19FC /* MyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF829666D53005F19FC /* MyMainView.swift */; };
@@ -54,13 +54,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B8379C4296721BC007ABABE /* UseAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAgreementView.swift; sourceTree = "<group>"; };
-		287680DC2967025300DC35CF /* AttendanceModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalView.swift; sourceTree = "<group>"; };
-		287680DE2967069400DC35CF /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
-		287680E22967207700DC35CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		1ACE538B29671F8F00491CC0 /* PartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyView.swift; sourceTree = "<group>"; };
 		1ACE538E29671FA100491CC0 /* JoinModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinModalView.swift; sourceTree = "<group>"; };
 		1ACE539029671FAA00491CC0 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
+		287680DC2967025300DC35CF /* AttendanceModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalView.swift; sourceTree = "<group>"; };
+		287680DE2967069400DC35CF /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		287680E22967207700DC35CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2B8379C4296721BC007ABABE /* UseAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAgreementView.swift; sourceTree = "<group>"; };
 		34E66AF429666D2B005F19FC /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		34E66AF629666D3D005F19FC /* AttendanceMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMainView.swift; sourceTree = "<group>"; };
 		34E66AF829666D53005F19FC /* MyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainView.swift; sourceTree = "<group>"; };
@@ -139,7 +139,6 @@
 		34E66AEF29666B80005F19FC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				34E66AFC29666D72005F19FC /* ViewModel.swift */,
 				287680DE2967069400DC35CF /* LocationViewModel.swift */,
 				34E66AFC29666D72005F19FC /* GroupStore.swift */,
 			);
@@ -382,7 +381,7 @@
 				287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */,
 				34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */,
 				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
-				34E66AFD29666D72005F19FC /* ViewModel.swift in Sources */,
+				34E66AFD29666D72005F19FC /* GroupStore.swift in Sources */,
 				1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */,
 				7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */,
 				34E66B072966C38E005F19FC /* SignUpStep2View.swift in Sources */,
@@ -514,7 +513,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Check_It/Preview Content\"";
-				DEVELOPMENT_TEAM = P3B6XK5BAQ;
+				DEVELOPMENT_TEAM = 856Q6QA7Z9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근하려고 합니다.";
@@ -548,7 +547,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Check_It/Preview Content\"";
-				DEVELOPMENT_TEAM = P3B6XK5BAQ;
+				DEVELOPMENT_TEAM = 856Q6QA7Z9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근하려고 합니다.";
