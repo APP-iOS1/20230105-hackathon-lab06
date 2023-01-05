@@ -18,6 +18,10 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         center: CLLocationCoordinate2D(latitude: 42.0422448, longitude: -102.0079053),
         span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
     
+    // 현재 10m이상 처음이랑 움직일
+    @Published var preRegion = CLLocationCoordinate2D(latitude: 37.478846, longitude: -102.0079053)
+    
+    //@Published var preRegion: CLLocationCoordinate2D?
     @Published var groupRegion : [GroupAnootationItems] = []
     
     //창휘
@@ -49,14 +53,25 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {return }
         
-        //FIXME: - 맵 줌 에러 발생중
-        /// 현재 매초마다 locationManger가 호출됨
-        /// 지금 줌을 변경해도 줌이 0.02으로 고정되서 줌 변경이 안됨 수정이 필요함
+        if location.coordinate.latitude == preRegion.latitude && location.coordinate.longitude == preRegion.longitude {
+            return
+        }
+        // 거리가 10m 이상 떨어지면 위치 업데이트
+        if calcDistance(lan1:location.coordinate.latitude,
+                        lng1: location.coordinate.longitude,
+                        lan2: preRegion.latitude,
+                        lng2: preRegion.longitude) < 10 {
+            return
+        }
+        
+        preRegion = location.coordinate
+        
         DispatchQueue.main.async {
             self.lastSeenLocation = location
+            
             self.region = MKCoordinateRegion(
                 center: location.coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         }
         fetchCountryAndCity(for: locations.first)
     }
@@ -69,7 +84,7 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    func calcDistance(lan1: Double, lng1: Double, lan2: Double, lng2: Double) -> String{
+    func calcDistance(lan1: Double, lng1: Double, lan2: Double, lng2: Double) -> Double {
         var distance: Double
         var radius: Double = 6371.0
         var radin = Double.pi / 180
@@ -86,21 +101,23 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         /// distance 결과는 km단위로 나옴
         distance = 2.0 * radius * asin(squareRoot)
         
-        if distance > 1 {
-            let strings = String(distance)
-            let distanceStr = strings.components(separatedBy: ".")
-            let km = distanceStr.first ?? "0"
-            print("km: \(km)")
-            
-            return "\(km)km"
-            
-        } else {
-            let newDistance = Int(round(distance * 1000))
-            let strings = "\(newDistance)m"
-            print("m: \(strings)")
-            
-            return strings
-        }
+        return distance * 1000
+        
+//        if distance > 1 {
+//            let strings = String(distance)
+//            let distanceStr = strings.components(separatedBy: ".")
+//            let km = distanceStr.first ?? "0"
+//            print("km: \(km)")
+//
+//            return "\(km)km"
+//
+//        } else {
+//            let newDistance = Int(round(distance * 1000))
+//            let strings = "\(newDistance)m"
+//            print("m: \(strings)")
+//
+//            return strings
+//        }
     }
 }
 

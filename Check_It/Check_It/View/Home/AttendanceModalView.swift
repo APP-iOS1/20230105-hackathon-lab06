@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 struct AttendanceModalView: View {
-    @StateObject var locationViewModel = LocationViewModel()
+    @EnvironmentObject var locationViewModel: LocationViewModel
     
     var body: some View {
         makeView()
