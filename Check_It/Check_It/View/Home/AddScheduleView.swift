@@ -98,14 +98,14 @@ struct AddScheduleView: View {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
                     .foregroundColor(.white)
-                    .frame(width: .infinity, height:130)
+                    .frame(width: .infinity, height:180)
                     .overlay{
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.myYellow, lineWidth: 1)
                     }
                 HStack {
                     VStack(alignment:.leading){
-                        Text("결석 기준 시간 정하기")
+                        Text("지각 / 결석 기준 시간 정하기")
                             .font(.title3)
                             .padding(.top,7)
                         HStack {
@@ -115,7 +115,22 @@ struct AddScheduleView: View {
                                 TextField("", text: $min)
                                     .frame(width: 68)
                                     .textFieldStyle(.roundedBorder)
-                                Text("분 지나면 결석 처리하기!")
+                                Text("분 지나면")
+                                Text("지각").bold()
+                                Text("처리하기!")
+                            }
+                            .padding(.vertical, 7)
+                        }
+                        HStack {
+                            Image(systemName: "clock")
+                                .foregroundColor(.melon)
+                            HStack {
+                                TextField("", text: $min)
+                                    .frame(width: 68)
+                                    .textFieldStyle(.roundedBorder)
+                                Text("분 지나면")
+                                Text("결석").bold()
+                                Text("처리하기!")
                             }
                             .padding(.vertical, 7)
                         }
