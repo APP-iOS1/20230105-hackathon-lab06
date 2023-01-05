@@ -61,6 +61,15 @@ class GroupStore: ObservableObject {
         }
     }
     
-    
+    //그룹 삭제 - D
+    func deleteGroup(groupId: String) async {
+        do {
+            try await database.collection("Group")
+                .document(groupId)
+                .delete()
+        } catch {
+            print(error)
+        }
+    }
     
 }
