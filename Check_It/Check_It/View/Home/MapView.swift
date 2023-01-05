@@ -17,8 +17,18 @@ struct MapView: View {
         VStack {
             Map(coordinateRegion: $locationViewModel.region, showsUserLocation: true)
                 .frame(minWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height * 0.7)
+            
             Spacer()
+            
+            Button(action: {
+                //
+            }, label: {
+                Text("출석하기")
+                    .foregroundColor(.white)
+                    .bold()
+            })
         }
+        
         .edgesIgnoringSafeArea([.top, .leading, .trailing])
         
         .toolbar {
@@ -27,10 +37,17 @@ struct MapView: View {
                     isQrcode.toggle()
                     print("큐알코드 클릭함")
                 }, label: {
-                    Image(systemName: "qrcode.viewfinder")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 44, height: 44)
+                    ZStack {
+                        Rectangle()
+                            .fill(Color.white)
+                            .cornerRadius(10)
+                        
+                        Image(systemName: "qrcode.viewfinder")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 44, height: 44)
+                            .foregroundColor(Color.black)
+                    }
                 })
                 .sheet(isPresented: $isQrcode) {
                     QRView()
