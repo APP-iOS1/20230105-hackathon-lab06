@@ -14,6 +14,10 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var lastSeenLocation: CLLocation?
     @Published var currentPlacemark: CLPlacemark?
     
+    @Published var region =  MKCoordinateRegion(
+        center: CLLocationCoordinate2D(latitude: 42.0422448, longitude: -102.0079053),
+        span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+    
     private let locationManager: CLLocationManager
     
     override init() {
@@ -35,7 +39,19 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        lastSeenLocation = locations.first
+        guard let location = locations.first else {return }
+        
+        DispatchQueue.main.async {
+            self.lastSeenLocation = location
+            self.region = MKCoordinateRegion(
+                center: location.coordinate,
+                span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        }
+//        lastSeenLocation = location
+//        region = MKCoordinateRegion(
+//            center: location.coordinate,
+//            span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        
         fetchCountryAndCity(for: locations.first)
     }
 
@@ -47,3 +63,39 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
 }
+
+
+func calcDistance(lan1: Double, lng1: Double, lan2: Double, lng2: Double) -> String{
+    var distance: Double
+    var radius: Double = 6371.0
+    var radin = Double.pi / 180
+    
+    var deltaLatitude = abs(lan1 - lan2) * radin
+    var deltaLongtitude = abs(lng1 - lng2) * radin
+    
+    var signDeltaLat = sin(deltaLatitude / 2)
+    var signDeltaLng = sin(deltaLongtitude / 2)
+    
+    var squareRoot = sqrt(
+        signDeltaLat * signDeltaLat + cos(lan1 * radin) * cos(lan2 * radin) * signDeltaLng * signDeltaLng
+    )
+    /// distance 결과는 km단위로 나옴
+    distance = 2.0 * radius * asin(squareRoot)
+    
+    if distance > 1 {
+        let strings = String(distance)
+        let distanceStr = strings.components(separatedBy: ".")
+        let km = distanceStr.first ?? "0"
+        print("km: \(km)")
+        
+        return "\(km)km"
+        
+    } else {
+        let newDistance = Int(round(distance * 1000))
+        let strings = "\(newDistance)m"
+        print("m: \(strings)")
+        
+        return strings
+    }
+}
+
