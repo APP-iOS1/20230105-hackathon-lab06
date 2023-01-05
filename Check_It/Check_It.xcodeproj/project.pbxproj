@@ -50,6 +50,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34E66AED29666B52005F19FC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F480D4172966554E005CB779 /* ContentView.swift */,
+				34E66AF029666C6F005F19FC /* Tab1 */,
+				34E66AF129666C7C005F19FC /* Tab2 */,
+				34E66AF229666C82005F19FC /* Tab3 */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		34E66AEE29666B77005F19FC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		34E66AEF29666B80005F19FC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		34E66AF029666C6F005F19FC /* Tab1 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tab1;
+			sourceTree = "<group>";
+		};
+		34E66AF129666C7C005F19FC /* Tab2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tab2;
+			sourceTree = "<group>";
+		};
+		34E66AF229666C82005F19FC /* Tab3 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tab3;
+			sourceTree = "<group>";
+		};
 		F480D4092966554E005CB779 = {
 			isa = PBXGroup;
 			children = (
@@ -71,7 +117,9 @@
 			isa = PBXGroup;
 			children = (
 				F480D4152966554E005CB779 /* Check_ItApp.swift */,
-				F480D4172966554E005CB779 /* ContentView.swift */,
+				34E66AED29666B52005F19FC /* View */,
+				34E66AEE29666B77005F19FC /* Model */,
+				34E66AEF29666B80005F19FC /* ViewModel */,
 				F480D41929665554005CB779 /* Assets.xcassets */,
 				F480D41B29665554005CB779 /* Preview Content */,
 			);
