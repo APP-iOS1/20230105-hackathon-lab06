@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct Tab2MainView: View {
+struct AttendanceMainView: View {
     var body: some View {
-        Text("Tab 2")
+        Text("Attendance Main View")
     }
 }
 
-struct Tab2MainView_Previews: PreviewProvider {
+struct AttendanceMainView_Previews: PreviewProvider {
     static var previews: some View {
-        Tab2MainView()
+        AttendanceMainView()
     }
 }
