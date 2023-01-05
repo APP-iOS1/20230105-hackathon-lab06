@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE538B29671F8F00491CC0 /* PartyView.swift */; };
+		1ACE538F29671FA100491CC0 /* JoinModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE538E29671FA100491CC0 /* JoinModalView.swift */; };
+		1ACE539129671FAA00491CC0 /* QRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACE539029671FAA00491CC0 /* QRView.swift */; };
 		34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF429666D2B005F19FC /* HomeMainView.swift */; };
 		34E66AF729666D3D005F19FC /* AttendanceMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF629666D3D005F19FC /* AttendanceMainView.swift */; };
 		34E66AF929666D53005F19FC /* MyMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF829666D53005F19FC /* MyMainView.swift */; };
@@ -43,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1ACE538B29671F8F00491CC0 /* PartyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyView.swift; sourceTree = "<group>"; };
+		1ACE538E29671FA100491CC0 /* JoinModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinModalView.swift; sourceTree = "<group>"; };
+		1ACE539029671FAA00491CC0 /* QRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRView.swift; sourceTree = "<group>"; };
 		34E66AF429666D2B005F19FC /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
 		34E66AF629666D3D005F19FC /* AttendanceMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMainView.swift; sourceTree = "<group>"; };
 		34E66AF829666D53005F19FC /* MyMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMainView.swift; sourceTree = "<group>"; };
@@ -125,6 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				34E66AF429666D2B005F19FC /* HomeMainView.swift */,
+				1ACE538B29671F8F00491CC0 /* PartyView.swift */,
+				1ACE538E29671FA100491CC0 /* JoinModalView.swift */,
+				1ACE539029671FAA00491CC0 /* QRView.swift */,
 				A525D9C62966C6D900BC6C53 /* ScanningCameraViewController.swift */,
 				A525D9C82966C7DC00BC6C53 /* ScanningCamera.swift */,
 				7944E32D2966C54000ADFED6 /* MainDetailView.swift */,
@@ -321,7 +330,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F480D4182966554E005CB779 /* ContentView.swift in Sources */,
+				1ACE539129671FAA00491CC0 /* QRView.swift in Sources */,
 				7944E3302966C62100ADFED6 /* DdayFrame.swift in Sources */,
+				1ACE538F29671FA100491CC0 /* JoinModalView.swift in Sources */,
 				F480D4162966554E005CB779 /* Check_ItApp.swift in Sources */,
 				F480D4282966F1D1005CB779 /* Location.swift in Sources */,
 				A525D9CC2966EEDC00BC6C53 /* String.swift in Sources */,
@@ -338,6 +349,7 @@
 				34E66B0229669F27005F19FC /* LoginView.swift in Sources */,
 				34E66B0429669F3E005F19FC /* SignUpView.swift in Sources */,
 				34E66AFD29666D72005F19FC /* ViewModel.swift in Sources */,
+				1ACE538C29671F8F00491CC0 /* PartyView.swift in Sources */,
 				7944E3322966EE8D00ADFED6 /* ColorExtension.swift in Sources */,
 				34E66B072966C38E005F19FC /* SignUpStep2View.swift in Sources */,
 			);
@@ -468,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Check_It/Preview Content\"";
-				DEVELOPMENT_TEAM = 856Q6QA7Z9;
+				DEVELOPMENT_TEAM = P3B6XK5BAQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근하려고 합니다.";
@@ -486,7 +498,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codelion.Check-It";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hackaton.Check-It";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -502,7 +514,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Check_It/Preview Content\"";
-				DEVELOPMENT_TEAM = 856Q6QA7Z9;
+				DEVELOPMENT_TEAM = P3B6XK5BAQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근하려고 합니다.";
@@ -520,7 +532,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codelion.Check-It";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hackaton.Check-It";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
