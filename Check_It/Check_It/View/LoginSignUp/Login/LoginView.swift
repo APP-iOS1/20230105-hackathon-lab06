@@ -37,7 +37,11 @@ struct LoginView: View {
                 VStack {
                     
                     HStack {
-                        Text("이메일을 입력해주세요")
+                        Text("이메일")
+                            .bold()
+                            .padding(.trailing, -8)
+                        
+                        Text("을 입력해주세요")
                         Spacer()
                     }
                     .padding(.leading, 35)
@@ -65,7 +69,11 @@ struct LoginView: View {
                 VStack {
                     
                     HStack {
-                        Text("비밀번호를 입력해주세요")
+                        Text("비밀번호")
+                            .bold()
+                            .padding(.trailing, -8)
+                        
+                        Text("를 입력해주세요")
                         Spacer()
                     }
                     .padding(.leading, 35)
