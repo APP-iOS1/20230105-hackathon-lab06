@@ -77,7 +77,7 @@ class SignUpViewModel: ObservableObject {
     /// - Parameter email: 현재 사용자의 email
     /// - Parameter name: 현재 사용자의 name
     func registerUser(uid: String, email: String, name: String) {
-        database.collection("\(appCategory.rawValue)")
+        database.collection("User")
             .document(uid)
             .setData([
                 "id" : uid,
@@ -95,7 +95,7 @@ class SignUpViewModel: ObservableObject {
     func isEmailDuplicated(currentUserEmail: String) async -> Bool {
         emailDuplicationState = .checking
         do {
-            let document = try await database.collection("\(appCategory.rawValue)")
+            let document = try await database.collection("User")
                 .whereField("userEmail", isEqualTo: currentUserEmail)
                 .getDocuments()
             emailDuplicationState = document.isEmpty ? .notDuplicated : .duplicated
@@ -115,7 +115,7 @@ class SignUpViewModel: ObservableObject {
     func isNameDuplicated(currentUserName: String) async -> Bool {
         nameDuplicationState = .checking
         do {
-            let document = try await database.collection("\(appCategory.rawValue)")
+            let document = try await database.collection("User")
                 .whereField("userName", isEqualTo: currentUserName)
                 .getDocuments()
             nameDuplicationState = document.isEmpty ? .notDuplicated : .duplicated
@@ -134,9 +134,11 @@ class SignUpViewModel: ObservableObject {
             loginRequestState = .loggedIn
             try await authentification.signIn(withEmail: email, password: password)
             // 현재 로그인 한 유저의 정보 담아주는 코드
-            // 변경이 필요함!
             let userName = await requestUserName(uid: authentification.currentUser?.uid ?? "")
-            self.currentUser = User(id: self.authentification.User?.uid ?? "", userEmail: email, userName: userName )
+            let userImg = ""
+            let groups = [""]
+            
+            self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: email, userImg: userImg, userName: userName, groups: groups )
             print("userName: \(userName)")
         } catch {
             loginRequestState = .notLoggedIn
@@ -144,7 +146,7 @@ class SignUpViewModel: ObservableObject {
         }
         authenticationState = .authenticated
     }
-    
+
     // MARK: - User Logout
     /// 로그인한 사용자의 로그아웃을 요청합니다.
     public func requestUserSignOut() {
@@ -167,7 +169,7 @@ class SignUpViewModel: ObservableObject {
         var retValue = ""
 //        print("requestUserName 1")
         return await withCheckedContinuation({ continuation in
-            database.collection(appCategory.rawValue).document(uid).getDocument { (document, error) in
+            database.collection("User").document(uid).getDocument { (document, error) in
                 if let document = document, document.exists {
                     retValue = document.get("userName") as! String
 //                    print("requestUserName 2: \(retValue)")
@@ -185,7 +187,7 @@ class SignUpViewModel: ObservableObject {
     ///  - firestore 반영: updateData 메소드를 이용하여 firestore에 정보를 업데이트한다.
     ///  - 로컬반영: 로컬에 있는 currentUser 객체를 재생성(초기화)하여 정보를 업데이트함
     func updateUserInfo(userName: String, user: User) {
-        database.collection("\(appCategory.rawValue)")
+        database.collection("User")
             .document(user.id).updateData([
                 "userName" : userName
             ]) { err in
@@ -193,16 +195,18 @@ class SignUpViewModel: ObservableObject {
                     print("회원정보 수정 오류: \(err)")
                 } else {
                     print("회원정보 수정 완료")
-                    self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: user.userEmail, userName: user.userName)
+                    self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: user.userEmail, userImg: user.userImg, userName: user.userName, groups: user.groups)
                 }
             }
     }
+    
+    
     
     // MARK: - FireStore의 유저정보 fetch
     ///  - Parameter user : 로그인한 유저의 객체 (CustomerInfo)
     ///  - 로그인 시 firestore에 저장된 유저 정보를 currentUser에 할당한다.
     func fetchUserInfo(user: User) {
-        database.collection("\(appCategory.rawValue)").getDocuments { snapshot, error in
+        database.collection("User").getDocuments { snapshot, error in
             if let snapshot {
                 
                 for document in snapshot.documents {
@@ -213,8 +217,11 @@ class SignUpViewModel: ObservableObject {
                         
                         let userName: String = docData["userNickname"] as? String ?? ""
                         let userEmail: String = docData["userEmail"] as? String ?? ""
+                        let userImg: String = docData["userImg"] as? String ?? ""
+                        let groups: [String] = docData["groups"] as? [String] ?? []
+                        
                        
-                        self.currentUser = User(id: id, userEmail: userEmail, userName: userName)
+                        self.currentUser = User(id: id, userEmail: userEmail, userImg: userImg, userName: userName, groups: groups)
                         print(self.currentUser!)
                     }
                 }
