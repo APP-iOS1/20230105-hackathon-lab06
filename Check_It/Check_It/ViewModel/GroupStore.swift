@@ -19,7 +19,7 @@ class GroupStore: ObservableObject {
         self.groups = groups
     }
     
-    //그룹추가하기
+    //그룹추가하기 - C
     func addGroup(newGroup: Group) {
         database.collection("Group")
             .document("\(newGroup.id)")
@@ -33,7 +33,34 @@ class GroupStore: ObservableObject {
             ])
     }
     
-    //그룹 목록 Fetch --> 현호님 예정
+    //그룹 목록 Fetch --> 현호님 예정 - R
     
-    //
+    //그룹 이름 수정 - U
+    func updateGroupName(groupName: String) async {
+        do {
+            try await database.collection("Group")
+                .document(groupName)
+                .updateData([
+                    "groupName" : groupName
+                ])
+        } catch {
+            print(error)
+        }
+    }
+    
+    //그룹 호스트 수정 - U
+    func updateHost(host: String) async {
+        do {
+            try await database.collection("Group")
+                .document(groupName)
+                .updateData([
+                    "host" : host
+                ])
+        } catch {
+            print(error)
+        }
+    }
+    
+    
+    
 }
