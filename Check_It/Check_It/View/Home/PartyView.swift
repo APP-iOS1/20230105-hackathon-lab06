@@ -14,51 +14,36 @@ struct PartyView: View {
     var body: some View {
         NavigationLink(destination: MainDetailView(promise: promise)) {
             VStack(alignment: .leading) {
-                HStack {
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.white)
-                            .frame(width: 70, height: 40)
-                            .cornerRadius(10)
-                        Text("D-day")
-                            .bold()
-                            .foregroundColor(Color("myYellow"))
-                    }
-                    ZStack {
-                        Rectangle()
-                            .foregroundColor(.white)
-                            .frame(width: 70, height: 40)
-                            .cornerRadius(10)
-                        Text("D-23")
-                            .bold()
-                            .foregroundColor(Color("mediumGray"))
-                    }
-                }
-                
-                .padding(.bottom, 10)
-                
-                
+                ddayFrame(day: "D-day")
+                    .padding(.bottom, 10)
                 
                 Text("허니미니의 또구 동아리")
+                    .foregroundColor(.black)
                     .font(.title)
                     .bold()
                     .padding(.bottom, 10)
                 
                 HStack {
                     Image(systemName: "mappin.and.ellipse")
+                        .foregroundColor(.black)
                     Text("신촌 베이스볼클럽")
+                        .foregroundColor(.black)
                 }
                 .padding(.bottom, 5)
                 HStack {
                     Image(systemName: "calendar")
+                        .foregroundColor(.black)
                     Text("3월 24일")
+                        .foregroundColor(.black)
                 }
                 .padding(.bottom, 5)
                 HStack {
                     Image(systemName: "clock")
+                        .foregroundColor(.black)
                     Text("오후 3:00 ~ 오후 7:00")
+                        .foregroundColor(.black)
                 }
-                .padding(.bottom, 5)
+                .padding(.bottom, 10)
                 
                 Image("baseball")
                     .resizable()
@@ -81,6 +66,7 @@ struct PartyView: View {
             .padding(30)
             .background(Color("lightGray"))
             .cornerRadius(10)
+            .padding(.bottom, 40)
         }
     }
 }

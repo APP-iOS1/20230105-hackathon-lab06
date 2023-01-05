@@ -9,8 +9,10 @@ import SwiftUI
 
 
 struct MakeGroupModal: View {
+    @Environment(\.dismiss) var dismiss
     @State var groupName: String = ""
     @State var host: String = ""
+    @StateObject var groupStore: GroupStore = GroupStore()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -81,7 +83,11 @@ struct MakeGroupModal: View {
                 
                 Spacer().frame(height: 30)
                 
-                Button(action: {}){
+                Button(action: {
+                    let codes: String = String(Int.random(in: 100000..<1000000))
+                    groupStore.addGroup(newGroup: Group(groupName: groupName, groupImage: "이미지", host: host, code: codes, userList: [], promiseList: []))
+                    dismiss()
+                }){
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color("melon"))
                         .frame(width: .infinity, height: 60)
@@ -102,6 +108,6 @@ struct MakeGroupModal: View {
 
 struct MakeGroupModal_Previews: PreviewProvider {
     static var previews: some View {
-        MakeGroupModal(groupName: "")
+        MakeGroupModal(groupName: "", groupStore: GroupStore())
     }
 }
