@@ -209,11 +209,11 @@
 				FD6A2E202966FEA6006E1C10 /* API */,
 				A525D9CA2966EECC00BC6C53 /* Extensions */,
 				F480D4152966554E005CB779 /* Check_ItApp.swift */,
+				7944E3312966EE8D00ADFED6 /* ColorExtension.swift */,
 				34E66AED29666B52005F19FC /* View */,
 				34E66AEE29666B77005F19FC /* Model */,
 				34E66AEF29666B80005F19FC /* ViewModel */,
 				F480D41929665554005CB779 /* Assets.xcassets */,
-				7944E3312966EE8D00ADFED6 /* ColorExtension.swift */,
 				F480D41B29665554005CB779 /* Preview Content */,
 			);
 			path = Check_It;
