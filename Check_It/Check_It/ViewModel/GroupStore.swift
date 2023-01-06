@@ -33,9 +33,28 @@ class GroupStore: ObservableObject {
             ])
     }
     
-    //그룹 목록 Fetch --> 현호님 예정 - R
+    //그룹 목록 Fetch --> R
+    func fetchGroup() {
+        database.collection("Group")
+            .getDocuments { (snapshot, error) in
+                
+                if let snapshot {
+                    for document in snapshot.documents {
+                        let id = document["id"] as? String ?? ""
+                        let groupName = document["groupName"] as? String ?? ""
+                        let groupImage = document["groupImage"] as? String ?? ""
+                        let host = document["host"] as? String ?? ""
+                        let code = document["code"] as? String ?? ""
+                        let userList = document["userList"] as? [User] ?? []
+                        let promiseList = document["promiseList"] as? [Promise] ?? []
+                        
+                        self.groups.append(Group(id: id, groupName: groupName, groupImage: groupImage, host: host, code: code, userList: userList, promiseList: promiseList))
+                    }
+                } 
+            }
+    }
     
-    //그룹 이름 수정 - U
+    //그룹 이름 수정 - U --> ok
     func updateGroupName(groupId: String, groupName: String) async {
         do {
             try await database.collection("Group")
@@ -48,7 +67,7 @@ class GroupStore: ObservableObject {
         }
     }
     
-    //그룹 호스트 수정 - U
+    //그룹 호스트 수정 - U ---> ok 
     func updateHost(host: String, groupId: String) async {
         do {
             try await database.collection("Group")
@@ -61,7 +80,7 @@ class GroupStore: ObservableObject {
         }
     }
     
-    //그룹 삭제 - D
+    //그룹 삭제 - D ---> ok
     func deleteGroup(groupId: String) async {
         do {
             try await database.collection("Group")
