@@ -45,8 +45,8 @@ class GroupStore: ObservableObject {
                         let groupImage = document["groupImage"] as? String ?? ""
                         let host = document["host"] as? String ?? ""
                         let code = document["code"] as? String ?? ""
-                        let userList = document["userList"] as? [String] ?? []
-                        let promiseList = document["promiseList"] as? [String] ?? []
+                        let userList = document["userList"] as? [User] ?? []
+                        let promiseList = document["promiseList"] as? [Promise] ?? []
                         
                         self.groups.append(Group(id: id, groupName: groupName, groupImage: groupImage, host: host, code: code, userList: userList, promiseList: promiseList))
                     }

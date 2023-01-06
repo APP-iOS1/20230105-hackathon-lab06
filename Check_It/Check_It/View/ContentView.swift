@@ -24,8 +24,7 @@ struct ContentView: View {
             }.tag(1)
             
             NavigationStack{
-                //AttendanceMainView()
-                TestView()
+                AttendanceMainView()
             }.tabItem{
                     Image(systemName: "checklist")
                     Text("출석부")
