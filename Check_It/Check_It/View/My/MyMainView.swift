@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MyMainView: View {
+    
+    @EnvironmentObject var signUpViewModel: SignUpViewModel
+    @EnvironmentObject private var signupViewModel: SignUpViewModel
     @State private var useAgreementSheet: Bool = false
     @State private var premiumRateSheet: Bool = false
     
@@ -15,7 +18,7 @@ struct MyMainView: View {
         VStack {
             HStack(alignment: .firstTextBaseline) {
                             // MARK: - 사용자 이름 데이터 받아오기
-                            Text("반갑습니다,\n---님")
+                Text("반갑습니다,\n허니부리 님")
                                 .font(.largeTitle).bold()
                                 .padding(.bottom, 20)
             
@@ -34,7 +37,7 @@ struct MyMainView: View {
                     .padding(.bottom, 10)
                 
                 // MARK: - 사용자 이메일 데이터 받아오기
-                Text("\("text@naver.com")")
+                Text("\("honeyburi@naver.com")")
                     .font(.body)
                     .foregroundColor(.black)
                 
@@ -137,6 +140,9 @@ struct MyMainView: View {
             
             Spacer()
         }
+//        .onAppear {
+//            signupViewModel.fetchUserInfo(user: signupViewModel.currentUser!)
+//        }
         
     }
 }
