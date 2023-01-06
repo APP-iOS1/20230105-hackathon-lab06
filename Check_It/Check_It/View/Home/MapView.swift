@@ -4,36 +4,43 @@
 //
 //  Created by 이학진 on 2023/01/06.
 //
-
 import SwiftUI
 import MapKit
+import VisionKit
 
 struct MapView: View {
     @EnvironmentObject var locationViewModel: LocationViewModel
+    @EnvironmentObject var signUpViewModel: SignUpViewModel
+    
+    @StateObject var locationStores = LocationStores()
     
     @State private var isQrcode: Bool = false // 바코드 유무
-    // promisse안에 location id들이 존재한다.
-    // 그래서 promisse location을 fetch를 해야함
-//    var promisse: Promise = Promise(promiseName: "혀미니의 또구",
-//                                    limit: "30",
-//                                    lateLimit: "5",
-//                                    date: "1월6일",
-//                                    startTime: "오후 1시",
-//                                    endTime: "오후 5시")
     
-//    var locationData: Location = Location(id: <#T##arg#>, locationName: <#T##String#>, address: <#T##String#>, detailAddress: <#T##String#>, geoPoint: <#T##Coordinates#>)
+    @State private var showCameraScannerView = false
+    @State private var isDeviceCapacity = false
+    @State private var showDeviceNotCapacityAlert = false
+    
+    var promisse: Promise = Promise(promiseName: "",
+                                    limit: "",
+                                    lateLimit: "",
+                                    rangeLimit: 100,
+                                    location: "UXr8dT6TP9YTYw1UCn65",
+                                    date: "",
+                                    startTime: "",
+                                    endTime: "")
+    // var promise: Promise
+    
+    // var group: Group
     
     // 임시로 만든 위치(실제로는 모임장소의 위도 경도가 들어감)
     var sampleLocation: CLLocationCoordinate2D =  CLLocationCoordinate2D(latitude: 37.478846, longitude: 126.620930)
     
-    var sampleLimitDis: Int = 10 // 임시로 만든 제한 거리 단위는 m
-    
     var distance: Int { // 두 지점사이의 거리를 나타냄
         let dis = locationViewModel.calcDistance(
-            lan1: sampleLocation.latitude,
-            lng1: sampleLocation.longitude,
-            lan2: locationViewModel.region.center.latitude,
-            lng2: locationViewModel.region.center.longitude)
+            lan1: locationStores.location.latitude,
+            lng1: locationStores.location.longitude,
+            lan2: locationViewModel.currentLat,
+            lng2: locationViewModel.currentLng)
         return dis
     }
     
@@ -50,12 +57,26 @@ struct MapView: View {
     
     var body: some View {
         VStack {
-            Map(coordinateRegion: $locationViewModel.region, showsUserLocation: true)
-                .frame(minWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height * 0.7)
+            GeometryReader { geo in
+                Map(coordinateRegion: $locationViewModel.region, showsUserLocation: true, annotationItems: locationViewModel.groupRegion) { item in
+                    MapAnnotation(coordinate: item.coordinate) {
+                        //Size per kilometer or any unit, just change the converted unit.
+                        let kilometerSize = (geo.size.height/locationViewModel.region.spanLatitude.converted(to: .kilometers).value)
+                        ZStack {
+                            Circle()
+                                .fill(Color.red.opacity(0.5))
+                            //Keep it a circle
+                                .frame(width: kilometerSize * 0.1, height: kilometerSize * 0.1)
+                        }
+                    }
+                }
+            }
+            .frame(minWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height * 0.7)
             
             Spacer()
             
-            if sampleLimitDis < distance {
+            
+            if promisse.rangeLimit < distance {
                 notPossibleButton
             } else {
                 possibleButton
@@ -63,14 +84,42 @@ struct MapView: View {
             
             Spacer()
         }
+        .onAppear {
+            Task {
+                await locationStores.fetchLocation(promisse.location)
+                print("위치들: \(locationStores.location.latitude)")
+                locationViewModel.getPinLocation(
+                    x: locationStores.location.latitude,
+                    y: locationStores.location.longitude
+                )
+                isDeviceCapacity = (DataScannerViewController.isSupported && DataScannerViewController.isAvailable)
+            }
+        }
         
         .edgesIgnoringSafeArea([.top, .leading, .trailing])
         
         .toolbar {
             ToolbarItem {
                 Button(action: {
-                    isQrcode.toggle()
-                    print("큐알코드 클릭함")
+//                    if isDeviceCapacity {
+//                        self.showCameraScannerView = true
+//                    } else {
+//                        self.showDeviceNotCapacityAlert = true
+//                    }
+//                    print(signUpViewModel.currentUser?.id)
+                    if "txyMw3YmQaQbqP31dtKXsojfmKm2" == signUpViewModel.currentUser?.id ?? "" {
+                        print("호스트")
+                        if isDeviceCapacity {
+                            self.showCameraScannerView = true
+                        } else {
+                            self.showDeviceNotCapacityAlert = true
+                        }
+
+                    } else {
+                        print("호스트 아님")
+                        isQrcode.toggle()
+                    }
+                    
                 }, label: {
                     ZStack {
                         Rectangle()
@@ -88,6 +137,9 @@ struct MapView: View {
                     QRView()
                         .presentationDetents([.medium])
                 }
+                .sheet(isPresented: $showCameraScannerView) {
+                    ScanningCamera(startScanning: $showCameraScannerView)
+                }
             }
         }
     }
@@ -98,7 +150,7 @@ struct MapView: View {
         }, label: {
             ZStack {
                 Rectangle()
-                    .foregroundColor(Color.lightGray)
+                    .foregroundColor(Color.mediumGray)
                     .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 50)
                     .cornerRadius(10)
                 Text("\(distance)m 떨어져 있습니다.")
