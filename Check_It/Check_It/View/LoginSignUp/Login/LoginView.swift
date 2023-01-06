@@ -4,10 +4,18 @@
 //
 //  Created by 최한호 on 2023/01/05.
 //
-
 import SwiftUI
 import AlertToast
 import Firebase
+
+
+// MARK: - Extension View
+/// 키보드 밖 화면 터치 시 키보드 사라지는 함수를 선언하기 위한 extension 입니다.
+extension View {
+    func endEditing() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
 
 struct LoginView: View {
     
@@ -22,8 +30,11 @@ struct LoginView: View {
     @FocusState var isInFocusEmail: Bool
     @FocusState var isInFocusPassword: Bool
     @State private var isLoggedInFailed = false
-    
+    @State private var isLoggedInSucceed = false
     @State private var showBlankAlert: Bool = false
+    
+    //@State private var showBlankAlert: Bool = false
+    @State private var showLoggingAlert: Bool = false
 
 
     
@@ -35,12 +46,13 @@ struct LoginView: View {
             await signUpViewModel.requestUserLogin(withEmail: email, withPassword: password)
             
             if signUpViewModel.currentUser?.userEmail != nil {
+                isLoggedInSucceed = true
                 isLoggedInFailed = false
+                showBlankAlert = true
+//                showLoggingAlert = true
                 dismiss()
                 signupViewModel.fetchUserInfo(user: signupViewModel.currentUser!)
                 
-//                isFirstLaunching.toggle()
-//                print("\(isFirstLaunching)")
                 
                 print("로그인 성공 - 이메일: \(signUpViewModel.currentUser?.userEmail ?? "???")")
             } else {
@@ -92,6 +104,8 @@ struct LoginView: View {
                             .overlay(
                                 HStack {
                                     TextField("이메일", text: $email)
+                                        .disableAutocorrection(true)
+                                        .textInputAutocapitalization(.never)
                                         .padding()
                                 }
                             )
@@ -124,6 +138,8 @@ struct LoginView: View {
                             .overlay(
                                 HStack {
                                     SecureField("비밀번호", text: $password)
+                                        .disableAutocorrection(true)
+                                        .textInputAutocapitalization(.never)
                                         .padding()
                                 }
                             )
@@ -157,8 +173,23 @@ struct LoginView: View {
                 
                 Button {
                     logInWithEmailPassword()
-                    isFirstLaunching.toggle()
-                    print("\(isFirstLaunching)")
+                    
+                    if signUpViewModel.loginRequestState == .loggingIn {
+//                        showLoggingAlert = true
+                    } else {
+                        
+                        if isLoggedInSucceed {
+                            
+//                            showBlankAlert = true
+                            showLoggingAlert = true
+                            
+                            print("로그인 버튼 \(isFirstLaunching)")
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+                                isFirstLaunching.toggle()
+                            })
+                        }
+                    }
+
                 } label: {
                     Text("로그인")
                         .font(.title2)
@@ -170,15 +201,20 @@ struct LoginView: View {
                         .padding(EdgeInsets(top: 5, leading: 20, bottom: 0, trailing: 20))
                 }
                 .padding()
+                .disabled(email.isEmpty || password.isEmpty)
                 
             } // VStack
-            .onTapGesture() {
-                
-            }
-            .toast(isPresenting: $showBlankAlert) {
-                AlertToast(type: .image("Signed"
-                                        , .white), title: "로그인 완료", subTitle: "환영합니다")
-            }
+        } // NavigationStack
+        .toast(isPresenting: $isLoggedInSucceed) {
+            AlertToast(type: .loading, title: "로그인 하는 중", subTitle: "잠시만 기다려 주세요")
+        }
+        .toast(isPresenting: $isLoggedInSucceed) {
+            AlertToast(type: .image("Signed"
+                                    , .white), title: "로그인 완료", subTitle: "환영합니다")
+        }
+        .toast(isPresenting: $isLoggedInFailed) {
+            AlertToast(type: .image("Signed"
+                                    , .white), title: "로그인 실패", subTitle: "아이디와 비밀번호를 확인해 주세요")
         }
     }
 }
