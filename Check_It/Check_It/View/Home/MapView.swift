@@ -13,13 +13,11 @@ struct MapView: View {
     @StateObject var locationStores = LocationStores()
     
     @State private var isQrcode: Bool = false // 바코드 유무
-    // promisse안에 location id들이 존재한다.
-    // 그래서 promisse location을 fetch를 해야함
     
     var promisse: Promise = Promise(promiseName: "",
                                     limit: "",
                                     lateLimit: "",
-                                    rangeLimit: 0,
+                                    rangeLimit: 100,
                                     location: "UXr8dT6TP9YTYw1UCn65",
                                     date: "",
                                     startTime: "",
@@ -28,14 +26,12 @@ struct MapView: View {
     // 임시로 만든 위치(실제로는 모임장소의 위도 경도가 들어감)
     var sampleLocation: CLLocationCoordinate2D =  CLLocationCoordinate2D(latitude: 37.478846, longitude: 126.620930)
     
-    var sampleLimitDis: Int = 10 // 임시로 만든 제한 거리 단위는 m
-    
     var distance: Int { // 두 지점사이의 거리를 나타냄
         let dis = locationViewModel.calcDistance(
-            lan1: sampleLocation.latitude,
-            lng1: sampleLocation.longitude,
-            lan2: locationViewModel.region.center.latitude,
-            lng2: locationViewModel.region.center.longitude)
+            lan1: locationStores.location.latitude,
+            lng1: locationStores.location.longitude,
+            lan2: locationViewModel.currentLat,
+            lng2: locationViewModel.currentLng)
         return dis
     }
     
@@ -52,12 +48,25 @@ struct MapView: View {
     
     var body: some View {
         VStack {
-            Map(coordinateRegion: $locationViewModel.region, showsUserLocation: true)
-                .frame(minWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height * 0.7)
+            GeometryReader { geo in
+                Map(coordinateRegion: $locationViewModel.region, showsUserLocation: true, annotationItems: locationViewModel.groupRegion) { item in
+                    MapAnnotation(coordinate: item.coordinate) {
+                        //Size per kilometer or any unit, just change the converted unit.
+                        let kilometerSize = (geo.size.height/locationViewModel.region.spanLatitude.converted(to: .kilometers).value)
+                        ZStack {
+                            Circle()
+                                .fill(Color.red.opacity(0.5))
+                            //Keep it a circle
+                                .frame(width: kilometerSize * 0.1, height: kilometerSize * 0.1)
+                        }
+                    }
+                }
+            }
+            .frame(minWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height * 0.7)
             
             Spacer()
             
-            if sampleLimitDis < distance {
+            if promisse.rangeLimit < distance {
                 notPossibleButton
             } else {
                 possibleButton
@@ -68,6 +77,11 @@ struct MapView: View {
         .onAppear {
             Task {
                 await locationStores.fetchLocation(promisse.location)
+                print("위치들: \(locationStores.location.latitude)")
+                locationViewModel.getPinLocation(
+                    x: locationStores.location.latitude,
+                    y: locationStores.location.longitude
+                )
             }
         }
         

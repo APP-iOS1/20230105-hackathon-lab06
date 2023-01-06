@@ -16,17 +16,20 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     @Published var region =  MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 42.0422448, longitude: -102.0079053),
-        span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
     
     // 현재 10m이상 처음이랑 움직일
-    @Published var preRegion = CLLocationCoordinate2D(latitude: 37.478846, longitude: -102.0079053)
+    @Published var preRegion = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     
     //@Published var preRegion: CLLocationCoordinate2D?
     @Published var groupRegion : [GroupAnootationItems] = []
     
+    @Published var currentLat: Double = 0.0
+    @Published var currentLng: Double = 0.0
+    
     //창휘
     func getPinLocation(x: Double, y: Double) {
-        groupRegion.append(GroupAnootationItems(coordinate: CLLocationCoordinate2D(latitude: y, longitude: x)))
+        groupRegion.append(GroupAnootationItems(coordinate: CLLocationCoordinate2D(latitude: x, longitude: y)))
     }
     
     
@@ -53,9 +56,8 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {return }
         
-        if location.coordinate.latitude == preRegion.latitude && location.coordinate.longitude == preRegion.longitude {
-            return
-        }
+        print("위치: \(location.coordinate)")
+        
         // 거리가 10m 이상 떨어지면 위치 업데이트
         if calcDistance(lan1:location.coordinate.latitude,
                         lng1: location.coordinate.longitude,
@@ -63,6 +65,8 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
                         lng2: preRegion.longitude) < 10 {
             return
         }
+        currentLat = location.coordinate.latitude
+        currentLng = location.coordinate.longitude
         
         preRegion = location.coordinate
         
@@ -71,7 +75,7 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             
             self.region = MKCoordinateRegion(
                 center: location.coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+                span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         }
         fetchCountryAndCity(for: locations.first)
     }
