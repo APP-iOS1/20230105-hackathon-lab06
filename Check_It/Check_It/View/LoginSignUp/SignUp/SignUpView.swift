@@ -105,7 +105,7 @@ struct SignUpView: View {
                     }
                     .padding(.bottom, 3)
                     
-                    HStack() {
+                    HStack {
                         
                         Rectangle()
                             .foregroundColor(.gray)
@@ -124,35 +124,56 @@ struct SignUpView: View {
                         if !email.isEmpty && verifyEmailType(string: email) {
                             
                             if signUpViewModel.emailDuplicationState == .duplicated {
-                                Button {
-                                    verifyEmailDuplicated()
-                                } label: {
-                                    Text("중복 확인")
-                                        .font(.footnote)
-                                        .foregroundColor(.accentColor)
-                                        .padding(5)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 5)
-                                                .stroke(Color.accentColor, lineWidth: 1)
-                                        )
-                                        .background(Color.white)
+                                
+                                HStack {
+                                    
+                                    Button {
+                                        verifyEmailDuplicated()
+                                    } label: {
+                                        Text("중복 확인")
+                                            .font(.footnote)
+                                            .foregroundColor(.accentColor)
+                                            .padding(5)
+                                            .overlay(
+                                                RoundedRectangle(cornerRadius: 5)
+                                                    .stroke(Color.accentColor, lineWidth: 1)
+                                            )
+                                            .background(Color.white)
+                                    }
+                                    .frame(minWidth: 53, minHeight: 50)
+                                    
+                                    
+
                                 }
-                                .frame(width: 30, height: 50)
                             } else if signUpViewModel.emailDuplicationState == .checking {
-                                ProgressView()
-                                    .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                                    .frame(height: 50)
-                                    .padding(.leading, 5)
+                                
+                                HStack {
+                                    
+                                    ProgressView()
+                                        .progressViewStyle(CircularProgressViewStyle(tint: .black))
+                                        .frame(height: 50)
+                                        .padding(.leading, 5)
+                                    
+                                    Spacer()
+                                }
                             } else {
-                                Image(systemName: "checkmark")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 25)
-                                    .foregroundColor(.accentColor)
+                                
+                                HStack {
+                                    
+                                    Image(systemName: "checkmark")
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 25)
+                                        .foregroundColor(.accentColor)
+                                    
+                                    Spacer()
+                                }
                             } // else
-                        } // if
+                        } else {
+                            Spacer()
+                        }// else
                         
-                        Spacer()
+                        // Spacer()
                     } // HStack
                     //.frame(height: 30)
                     //.padding(.trailing, 20)
@@ -249,9 +270,10 @@ struct SignUpView: View {
                     } else {
                         
                         HStack {
-                            Text("")
-                                .font(.caption)
+                            Text(" ")
+                            Spacer()
                         }
+                        .font(.caption)
                         .padding(.top, 3)
                     }
                     
@@ -311,10 +333,18 @@ struct SignUpView: View {
                         .foregroundColor(.red)
                         .font(.caption)
                         .padding(.top, 3)
+                    } else {
+                        HStack(alignment: .center, spacing: 5) {
+                            Text(" ")
+                            Spacer()
+                        }
+                        .foregroundColor(.red)
+                        .font(.caption)
+                        .padding(.top, 3)
                     }
                     
                 } // VStack : 비밀번호 입력
-                .padding()
+                .padding(.horizontal)
                 
                 // MARK: - 이름 입력
                 VStack {
