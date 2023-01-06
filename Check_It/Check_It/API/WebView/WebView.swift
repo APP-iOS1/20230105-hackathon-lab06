@@ -37,8 +37,11 @@ struct Test: View {
 
 @MainActor
 struct WebView: UIViewRepresentable, WebViewHandlerDelegate {
+    var result: String?
+    
     func receivedJsonValueFromWebView(value: [String : Any?]) {
 //        print("JSON 데이터가 웹으로부터 옴: \(value)")
+//        return value
     }
     
     func receivedStringValueFromWebView(value: String) {
@@ -173,12 +176,14 @@ protocol WebViewHandlerDelegate {
 
 // Coordinator 클래스에 WKScriptMessageHandler 프로토콜 추가 적용
 extension WebView.Coordinator: WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController,
-                                 didReceive message: WKScriptMessage) {
+    @MainActor func userContentController(_ userContentController: WKUserContentController,
+                               didReceive message: WKScriptMessage) {
         if message.name == "callBackHandler" {
             delegate?.receivedJsonValueFromWebView(value: message.body as? [String : Any?] ?? [:])
+            
 //            print("\(message.body)")
             let a = JSON(message.body)
+            self.parent.viewModel.result = "\(a["roadAddress"] ?? "값이 없음")"
             print("\(a["roadAddress"] ?? "값이 없음")")
         } else if let body = message.body as? String {
             delegate?.receivedStringValueFromWebView(value: body)
@@ -186,7 +191,6 @@ extension WebView.Coordinator: WKScriptMessageHandler {
         }
     }
 }
-
 
 
 
