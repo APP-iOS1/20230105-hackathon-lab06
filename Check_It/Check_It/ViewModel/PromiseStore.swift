@@ -33,15 +33,16 @@ class PromiseStore: ObservableObject {
                         let promiseName: String = docData["promiseName"] as? String ?? ""
                         let limit: String = docData["limit"] as? String ?? ""
                         let lateLimit: String = docData["lateLimit"] as? String ?? ""
-//                        let rangeLimit: Int = docData["rangeLimit"] as? Int ?? 0
-//                        let location: Location = docData["location"] as? Location ?? Location(from: )//?
+                        let rangeLimit: Int = docData["rangeLimit"] as? Int ?? 0
+                        let location: String = docData["location"] as? String ?? ""
+                        
                         let date: String = docData["date"] as? String ?? ""
                         let startTime: String = docData["startTime"] as? String ?? ""
                         let endTime: String = docData["endTime"] as? String ?? ""
                         
                         
                         
-                        let promise: Promise = Promise(promiseName: promiseName, limit: limit, lateLimit: lateLimit, date: date, startTime: startTime, endTime: endTime)
+                        let promise: Promise = Promise(promiseName: promiseName, limit: limit, lateLimit: lateLimit, rangeLimit: rangeLimit, location: location, date: date, startTime: startTime, endTime: endTime)
                         
                         temp.append(promise)
                     }

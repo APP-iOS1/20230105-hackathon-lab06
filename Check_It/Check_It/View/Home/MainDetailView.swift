@@ -118,7 +118,7 @@ struct MainDetailView: View {
 struct MainDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            MainDetailView(promise: Promise(promiseName: "허미니의 또구 동아리", limit: "", lateLimit: "", date: "", startTime: "", endTime: ""))
+//            MainDetailView(promise: Promise(promiseName: "허미니의 또구 동아리", limit: "", lateLimit: "", date: "", startTime: "", endTime: ""))
         }
     }
 }
