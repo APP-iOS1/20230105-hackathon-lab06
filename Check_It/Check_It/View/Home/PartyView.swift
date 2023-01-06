@@ -29,7 +29,7 @@ struct PartyView: View {
                 }
             
                 
-                Text("group.groupName")
+                Text("허미니의 또구 동아리")
                     .foregroundColor(.black)
                     .font(.title)
                     .bold()
@@ -38,7 +38,7 @@ struct PartyView: View {
                 HStack {
                     Image(systemName: "mappin.and.ellipse")
                         .foregroundColor(.black)
-                    Text("location.address")
+                    Text("신촌 야구연습장")
                         .foregroundColor(.black)
                 }
                 .padding(.bottom, 5)
