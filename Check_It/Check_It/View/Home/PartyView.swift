@@ -11,7 +11,8 @@ struct PartyView: View {
     @State var isChecked: Bool = false
 //    var promise: Promise
     var group: Group
-    
+    @StateObject var promise: PromiseStore = PromiseStore()
+    @State var promiseID: String = ""
     var body: some View {
         NavigationLink(destination: MainDetailView(group: group)) {
             VStack(alignment: .leading) {
@@ -24,27 +25,30 @@ struct PartyView: View {
                     .bold()
                     .padding(.bottom, 10)
                 
-                HStack {
-                    Image(systemName: "mappin.and.ellipse")
-                        .foregroundColor(.black)
-                    Text("location.address")
-                        .foregroundColor(.black)
+                if group.promiseList.count > 0 {
+                    HStack {
+                        Image(systemName: "mappin.and.ellipse")
+                            .foregroundColor(.black)
+                        Text("location.address")
+                            .foregroundColor(.black)
+                    }
+                    .padding(.bottom, 5)
+                    HStack {
+                        Image(systemName: "calendar")
+                            .foregroundColor(.black)
+                        
+                        Text("\(promise.promise?.date ?? "오류")")
+                            .foregroundColor(.black)
+                    }
+                    .padding(.bottom, 5)
+                    HStack {
+                        Image(systemName: "clock")
+                            .foregroundColor(.black)
+//                        Text("\(group.promiseList[0].startTime) ~ \(group.promiseList[0].endTime)")
+                            .foregroundColor(.black)
+                    }
+                    .padding(.bottom, 10)
                 }
-                .padding(.bottom, 5)
-                HStack {
-                    Image(systemName: "calendar")
-                        .foregroundColor(.black)
-                    Text(group.promiseList[0].date)
-                        .foregroundColor(.black)
-                }
-                .padding(.bottom, 5)
-                HStack {
-                    Image(systemName: "clock")
-                        .foregroundColor(.black)
-                    Text("\(group.promiseList[0].startTime) ~ \(group.promiseList[0].endTime)")
-                        .foregroundColor(.black)
-                }
-                .padding(.bottom, 10)
                 
                 Image("baseball")
                     .resizable()
@@ -68,6 +72,9 @@ struct PartyView: View {
             .background(Color("lightGray"))
             .cornerRadius(10)
             .padding(.bottom, 40)
+        }
+        .onAppear {
+            promise.fetchPromiseDocument(promiseID: "\(promiseID)")
         }
     }
 }

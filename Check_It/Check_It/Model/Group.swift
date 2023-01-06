@@ -14,5 +14,5 @@ struct Group: Identifiable, Hashable, Codable {
     var host: String //모임 주인
     var code: String //모임 참가 코드
     var userList: [User] //모임 구성원 목록
-    var promiseList: [Promise] //모임 약속 목록
+    var promiseList: [String] //모임 약속 목록
 }

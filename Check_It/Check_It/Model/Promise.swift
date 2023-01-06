@@ -8,7 +8,7 @@
 import Foundation
 
 struct Promise: Identifiable, Hashable, Codable {
-    var id = UUID().uuidString
+    var id: String
     var promiseName: String // 약속이름
     var limit: String// 결석 구분(30분)
     var lateLimit: String //지각 구분(5분)

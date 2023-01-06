@@ -40,7 +40,7 @@ struct MainDetailView: View {
                     Spacer()
                     // 일정 추가하는 뷰
                     NavigationLink {
-                        AddScheduleView()
+                        AddScheduleView(group: group)
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(.black)
@@ -49,7 +49,7 @@ struct MainDetailView: View {
                    
                 }
                 
-                ForEach(promiseStore.promise) { promise in
+                ForEach(promiseStore.promises) { promise in
                     ZStack{
                         RoundedRectangle(cornerRadius: 10)
                             .foregroundColor(.lightGray)

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddScheduleView: View {
+    var group: Group
     @State var promiseName: String = ""
     @State var date: String = ""
     @State var startTime: String = ""
@@ -186,7 +187,7 @@ struct AddScheduleView: View {
                 // 일정 만들기 버튼
                 Button {
                     // 일정 만들기
-                    promiseStore.addPromise(Promise(promiseName: promiseName, limit: absentMin, lateLimit: lateMin, rangeLimit: rangeLimit, location: location, date: date, startTime: startTime, endTime: endTime))
+                    promiseStore.addPromise(Promise(id: UUID().uuidString, promiseName: promiseName, limit: absentMin, lateLimit: lateMin, rangeLimit: rangeLimit, location: location, date: date, startTime: startTime, endTime: endTime), group: group)
                     
                 } label: {
                     ZStack{
@@ -206,10 +207,10 @@ struct AddScheduleView: View {
     }
 }
 
-struct AddScheduleView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack{
-            AddScheduleView()
-        }
-    }
-}
+//struct AddScheduleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack{
+//            AddScheduleView()
+//        }
+//    }
+//}

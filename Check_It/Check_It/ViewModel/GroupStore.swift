@@ -35,6 +35,7 @@ class GroupStore: ObservableObject {
     
     //그룹 목록 Fetch --> R
     func fetchGroup() {
+        self.groups = []
         database.collection("Group")
             .getDocuments { (snapshot, error) in
                 
@@ -46,7 +47,7 @@ class GroupStore: ObservableObject {
                         let host = document["host"] as? String ?? ""
                         let code = document["code"] as? String ?? ""
                         let userList = document["userList"] as? [User] ?? []
-                        let promiseList = document["promiseList"] as? [Promise] ?? []
+                        let promiseList = document["promiseList"] as? [String] ?? []
                         
                         self.groups.append(Group(id: id, groupName: groupName, groupImage: groupImage, host: host, code: code, userList: userList, promiseList: promiseList))
                     }
