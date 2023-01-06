@@ -9,16 +9,16 @@ import SwiftUI
 
 struct PartyView: View {
     @State var isChecked: Bool = false
-    var promise: Promise
-//    var group: Group
+//    var promise: Promise
+    var group: Group
     
     var body: some View {
-        NavigationLink(destination: MainDetailView(promise: promise)) {
+        NavigationLink(destination: MainDetailView(group: group)) {
             VStack(alignment: .leading) {
                 ddayFrame(day: "D-day")
                     .padding(.bottom, 10)
                 
-                Text("group.groupName")
+                Text(group.groupName)
                     .foregroundColor(.black)
                     .font(.title)
                     .bold()
@@ -34,14 +34,14 @@ struct PartyView: View {
                 HStack {
                     Image(systemName: "calendar")
                         .foregroundColor(.black)
-                    Text(promise.date)
+                    Text(group.promiseList[0].date)
                         .foregroundColor(.black)
                 }
                 .padding(.bottom, 5)
                 HStack {
                     Image(systemName: "clock")
                         .foregroundColor(.black)
-                    Text("\(promise.startTime) ~ \(promise.endTime)")
+                    Text("\(group.promiseList[0].startTime) ~ \(group.promiseList[0].endTime)")
                         .foregroundColor(.black)
                 }
                 .padding(.bottom, 10)
@@ -74,6 +74,6 @@ struct PartyView: View {
 
 struct PartyView_Previews: PreviewProvider {
     static var previews: some View {
-        PartyView(promise: Promise(promiseName: "", limit: "", lateLimit: "", date: "", startTime: "", endTime: ""))
+        PartyView(group: Group(groupName: "", groupImage: "", host: "", code: "", userList: [], promiseList: []))
     }
 }

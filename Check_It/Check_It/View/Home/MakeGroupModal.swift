@@ -17,6 +17,7 @@ struct MakeGroupModal: View {
     @State var pickedImage: UIImage?
     @StateObject var groupStore: GroupStore = GroupStore()
     
+    
     var body: some View {
         VStack(alignment: .leading) {
             if pickedImage == nil{

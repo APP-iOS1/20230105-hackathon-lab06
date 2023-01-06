@@ -9,11 +9,13 @@ import SwiftUI
 
 struct AttendanceMainView: View {
     @StateObject var promiseStore: PromiseStore = PromiseStore()
+    @StateObject var groupStore: GroupStore = GroupStore()
+
     var body: some View {
         ScrollView {
             VStack{
-                ForEach (promiseStore.promise) { promise in
-                    NavigationLink(destination: MainDetailView(promise: promise)) {
+                ForEach (groupStore.groups) { group in
+                    NavigationLink(destination: MainDetailView(group:group)) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(.lightGray)
@@ -62,6 +64,7 @@ struct AttendanceMainView: View {
         }
         .navigationTitle("출석부")
         .onAppear{
+            groupStore.fetchGroup()
             promiseStore.fetchPromise()
         }
         

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MainDetailView: View {
     @StateObject var promiseStore: PromiseStore = PromiseStore()
-    var promise: Promise
+//    var promise: Promise
+    var group: Group
 
     var code = "234dd"
     var body: some View {
@@ -21,7 +22,7 @@ struct MainDetailView: View {
                         ddayFrame(day: "D-day") // 디데이 라벨
                             .padding(.bottom)
                         //notTodayFrame(day: "D-32")
-                        Text("\(promise.promiseName)") // 동아리 이름
+                        Text("\(group.groupName)") // 동아리 이름
                             .font(.title3.bold())
                             .padding(.bottom)
                         Image("")               // 동아리 이미지
@@ -118,7 +119,7 @@ struct MainDetailView: View {
 struct MainDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            MainDetailView(promise: Promise(promiseName: "허미니의 또구 동아리", limit: "", lateLimit: "", date: "", startTime: "", endTime: ""))
+            MainDetailView(group: Group(groupName: "", groupImage: "", host: "", code: "", userList: [], promiseList: []))
         }
     }
 }
