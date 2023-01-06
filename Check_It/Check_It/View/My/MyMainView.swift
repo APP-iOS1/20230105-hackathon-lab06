@@ -34,7 +34,7 @@ struct MyMainView: View {
                     .padding(.bottom, 10)
                 
                 // MARK: - 사용자 이메일 데이터 받아오기
-                Text("text@naver")
+                Text("\("text@naver.com")")
                     .font(.body)
                     .foregroundColor(.black)
                 

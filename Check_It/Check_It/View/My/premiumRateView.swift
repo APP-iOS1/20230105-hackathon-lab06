@@ -9,6 +9,7 @@ import SwiftUI
 
 struct premiumRateView: View {
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 20) {
             Spacer()
             
@@ -29,7 +30,7 @@ struct premiumRateView: View {
                 Text("동아리 최대 인원 수의 제한 해제,\n광고 제거, Custom QR Code,\nCustom MapPin, 등의 서비스를 제공합니다.")
                     .font(.title2)
             }
-            .padding(.bottom, 15)
+            .padding(5)
             
             VStack(alignment: .leading, spacing: 5) {
                 Text("최대 인원 8명")
