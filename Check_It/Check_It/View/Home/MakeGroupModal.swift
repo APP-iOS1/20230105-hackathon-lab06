@@ -6,25 +6,39 @@
 //
 
 import SwiftUI
-
+import UIKit
 
 struct MakeGroupModal: View {
     @Environment(\.dismiss) var dismiss
+    @ObservedObject var storage = StorageViewModel()
+    @State var isShowImagePicker = false
     @State var groupName: String = ""
     @State var host: String = ""
+    @State var pickedImage: UIImage?
     @StateObject var groupStore: GroupStore = GroupStore()
     
     var body: some View {
         VStack(alignment: .leading) {
+            if pickedImage == nil{
             RoundedRectangle(cornerRadius: 10)
                 .fill(.gray)
                 .frame(width: .infinity, height: 100)
                 .overlay {
-                    Button(action: {}){
+                    Button(action: {
+                        isShowImagePicker.toggle()
+                    }){
                         Text("그룹 이미지를 선택하세요")
                             .foregroundColor(.white)
                     }
                 }
+            }
+            
+            if let pickedImage = pickedImage {
+                Image(uiImage: pickedImage).resizable()
+                .frame(width: 100, height: 100)
+                
+            }
+            
             Spacer().frame(height: 20)
             
             ZStack {
@@ -86,7 +100,23 @@ struct MakeGroupModal: View {
                 Button(action: {
                     let codes: String = String(Int.random(in: 100000..<1000000))
                     groupStore.addGroup(newGroup: Group(groupName: groupName, groupImage: "이미지", host: host, code: codes, userList: [], promiseList: []))
+                    
+                    //비동기 구현 필요
+                    storage.uploadImageToStorage(userId: "test", image: pickedImage){url, err in
+                        if let err = err {
+                            print(err)
+                            return
+                        }
+                        print(url)
+                        
+                        
+                    }
+//                    Task{
+//                        await storage.downloadImageURL(userId: "test")
+//                    }
+//                    print("\(storage.url)")
                     dismiss()
+                    
                 }){
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color("melon"))
@@ -100,6 +130,11 @@ struct MakeGroupModal: View {
                 }
             }
             
+        } // - VStack
+        .sheet(isPresented: $isShowImagePicker) {
+            ImagePicker(sourceType: .photoLibrary){ image in
+                self.pickedImage = image
+            }
         }
         .presentationDragIndicator(.visible)
         .padding(.horizontal, 30)

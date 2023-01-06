@@ -11,36 +11,46 @@ import FirebaseStorage
 
 class StorageViewModel: ObservableObject {
     let storage = Storage.storage()
-    @Published var uesrImageURL: String = ""
+    @Published var userImageURL: String = ""
     
-    func uploadImageToStorage(userId: String, image: UIImage?) {
+    func uploadImageToStorage(userId: String, image: UIImage?, completion: @escaping (String?, Error?) -> ()) {
         let ref = storage.reference(withPath: "\(userId)")
         guard let imageData = image?.jpegData(compressionQuality: 0.5) else {return}
-        ref.putData(imageData, metadata: nil){ metadata, err in
+        ref.putData(imageData, metadata: nil){ (_, err) in
+            
             if let err = err {
-                print("업로드 실패")
-                return
-            }
-            print("업로드 성공")
-        }
-        
-    }
-    
-    func downloadImageURL(userId: String) {
-        let ref = storage.reference(withPath: "\(userId)")
-        ref.downloadURL { url, err in
-            if let err = err{
-                print("다운로드 실패")
-                print(err.localizedDescription)
+                print("\(err)")
                 return
             }
             
-            if let url = url {
-                self.uesrImageURL = url.absoluteString
-                print(url.absoluteString)
+            ref.downloadURL { url, err in
+                completion(url?.absoluteString, err)
             }
+            
         }
+        
+        
     }
+    
+//    func uploadImageToStorage(userId: String, image: UIImage?,  completion: @escaping (String?, Error?) -> ()) {
+//        let ref = storage.reference(withPath: "\(userId)")
+//        guard let imageData = image?.jpegData(compressionQuality: 0.5) else {return}
+////        ref.putData(imageData, metadata: nil){ metadata, err in
+////            completion(url, err)
+////        }
+//
+//    }
+    
+//    func downloadImageURL(userId: String, completion: @escaping (String?, Error?) -> ())  {
+//        let ref = storage.reference(withPath: "\(userId)")
+//        let url: URL?
+//        ref.downloadURL() { url, err in
+//            completion(url, err)
+//        }
+            
+            
+        
+//    }
     
     
     
