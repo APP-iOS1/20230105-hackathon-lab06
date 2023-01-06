@@ -30,6 +30,7 @@ class GroupStore: ObservableObject {
                       "code" : newGroup.code,
                       "userList" : newGroup.userList,
                       "promiseList" : newGroup.promiseList
+                      
             ])
     }
     

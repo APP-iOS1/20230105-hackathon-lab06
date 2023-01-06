@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainDetailView: View {
     @StateObject var promiseStore: PromiseStore = PromiseStore()
-    var promise: Promise
+    var promise: String
 
     var code = "234dd"
     var body: some View {
@@ -21,7 +21,7 @@ struct MainDetailView: View {
                         ddayFrame(day: "D-day") // 디데이 라벨
                             .padding(.bottom)
                         //notTodayFrame(day: "D-32")
-                        Text("\(promise.promiseName)") // 동아리 이름
+                        Text("\(promiseStore.database.collection("Promise").document(promise).promiseName)") // 동아리 이름
                             .font(.title3.bold())
                             .padding(.bottom)
                         Image("")               // 동아리 이미지
@@ -68,13 +68,13 @@ struct MainDetailView: View {
                                     }
                                 HStack{
                                     Image(systemName: "calendar")
-                                    Text("\(promise.date)")              //날짜
+                                    Text("\(promiseStore.database.collection("Promise").document(promise).date)")              //날짜
                                 }
                                 .padding(.top, 5)
 
                                 HStack{
                                     Image(systemName: "clock")
-                                    Text("\(promise.startTime) ~ \(promise.endTime)")  //시간
+                                    Text("\(promiseStore.database.collection("Promise").document(promise).startTime) ~ \(promiseStore.database.collection("Promise").document(promise).endTime)")  //시간
                                 }
                                 .padding(.vertical, 5)
 

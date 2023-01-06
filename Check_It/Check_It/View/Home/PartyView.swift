@@ -9,7 +9,8 @@ import SwiftUI
 
 struct PartyView: View {
     @State var isChecked: Bool = false
-    var promise: Promise
+    @StateObject var prom: PromiseStore = PromiseStore()
+    var promise: String
 //    var group: Group
     
     var body: some View {
@@ -17,7 +18,7 @@ struct PartyView: View {
             VStack(alignment: .leading) {
                 ddayFrame(day: "D-day")
                     .padding(.bottom, 10)
-                
+                Text(promise)
                 Text("group.groupName")
                     .foregroundColor(.black)
                     .font(.title)
@@ -34,14 +35,16 @@ struct PartyView: View {
                 HStack {
                     Image(systemName: "calendar")
                         .foregroundColor(.black)
-                    Text(promise.date)
+                    Text("\(prom.database.collection("Promise").document(promise).date)")
+                    //Text(promise.date)
+                    //Text("\(prom.database)")
                         .foregroundColor(.black)
                 }
                 .padding(.bottom, 5)
                 HStack {
                     Image(systemName: "clock")
                         .foregroundColor(.black)
-                    Text("\(promise.startTime) ~ \(promise.endTime)")
+                    //Text("\(prom.database.collection("Promise").document("\(promise)").startTime) ~ \(prom.database.collection("Promise").document(promise).endTime)")
                         .foregroundColor(.black)
                 }
                 .padding(.bottom, 10)

@@ -7,15 +7,18 @@
 
 import SwiftUI
 import UIKit
+import Firebase
 
 struct MakeGroupModal: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject private var userObj: SignUpViewModel
     @ObservedObject var storage = StorageViewModel()
     @State var isShowImagePicker = false
     @State var groupName: String = ""
     @State var host: String = ""
     @State var pickedImage: UIImage?
     @StateObject var groupStore: GroupStore = GroupStore()
+    let nowUser = Auth.auth()
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -99,7 +102,16 @@ struct MakeGroupModal: View {
                 
                 Button(action: {
                     let codes: String = String(Int.random(in: 100000..<1000000))
-                    groupStore.addGroup(newGroup: Group(groupName: groupName, groupImage: "이미지", host: host, code: codes, userList: [], promiseList: []))
+                    let tmpGroup = Group(groupName: groupName, groupImage: "이미지", host: host, code: codes, userList: [], promiseList: [])
+                    let target = tmpGroup.id
+                    let userIds = nowUser.currentUser?.uid
+                    
+                    
+                    userObj.updateUserId(groupName: target, user: userObj.currentUser ?? User(id: "", userEmail: "", userImg: "", userName: "", groups: [""], promises: [""]), id: userIds ?? "")
+ 
+                    print(userObj.currentUser?.groups)
+
+                    
                     
                     //비동기 구현 필요
                     storage.uploadImageToStorage(userId: "test", image: pickedImage){url, err in
@@ -141,8 +153,8 @@ struct MakeGroupModal: View {
     }
 }
 
-struct MakeGroupModal_Previews: PreviewProvider {
-    static var previews: some View {
-        MakeGroupModal(groupName: "", groupStore: GroupStore())
-    }
-}
+//struct MakeGroupModal_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MakeGroupModal(groupName: "", groupStore: GroupStore())
+//    }
+//}

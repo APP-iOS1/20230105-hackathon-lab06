@@ -82,7 +82,9 @@ class SignUpViewModel: ObservableObject {
             .setData([
                 "id" : uid,
                 "userEmail" : email,
-                "userName" : name
+                "userName" : name,
+                "groups" : [],
+                "userImg" : ""
             ])
     }
     
@@ -137,8 +139,9 @@ class SignUpViewModel: ObservableObject {
             let userName = await requestUserName(uid: authentification.currentUser?.uid ?? "")
             let userImg = ""
             let groups = [""]
+            let promises = [""]
             
-            self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: email, userImg: userImg, userName: userName, groups: groups )
+            self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: email, userImg: userImg, userName: userName, groups: groups, promises: promises )
             print("userName: \(userName)")
         } catch {
             loginRequestState = .notLoggedIn
@@ -186,7 +189,8 @@ class SignUpViewModel: ObservableObject {
     /// uid 값을 통해 database의 특정 uid에 저장된 id(유저의 uid)를 요청합니다.
     ///  - Parameter uid : currentUser의 UID
     ///  - Returns : currentUser의 id
-    private func requestUserId(uid: String) async -> String {
+    func requestUserId(uid: String) async -> String {
+        //uid: String
         var retValue = ""
         
         return await withCheckedContinuation({ continuation in
@@ -217,11 +221,63 @@ func updateUserInfo(userName: String, user: User) {
                 print("회원정보 수정 오류: \(err)")
             } else {
                 print("회원정보 수정 완료")
-                self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: user.userEmail, userImg: user.userImg, userName: user.userName, groups: user.groups)
+                self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: user.userEmail, userImg: user.userImg, userName: user.userName, groups: user.groups, promises: user.promises)
             }
         }
 }
 
+    
+    // MARK: - 회원정보 업데이트 (그룹추가)
+    ///  - Parameter user : 로그인한 유저의 객체 (User)
+    ///  - firestore 반영: updateData 메소드를 이용하여 firestore에 정보를 업데이트한다.
+    ///  - 로컬반영: 로컬에 있는 currentUser 객체를 재생성(초기화)하여 정보를 업데이트함
+    func updateUserId(groupName: String, user: User, id: String) {
+        var tmp = user.groups
+        print(tmp)
+        if tmp == [""] {
+            tmp = []
+        }
+        tmp.append(groupName)
+        print(tmp)
+        print(id)
+        database.collection("User")
+            .document("\(id)").updateData([
+                "groups" : tmp
+            ]) { err in
+                if let err = err {
+                    print("회원정보 수정 오류: \(err)")
+                } else {
+                    print("회원정보 수정 완료")
+                    self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: user.userEmail, userImg: user.userImg, userName: user.userName, groups: tmp, promises: user.promises)
+                }
+            }
+    }
+    
+    // MARK: - 회원정보 업데이트 (그룹추가)
+    ///  - Parameter user : 로그인한 유저의 객체 (User)
+    ///  - firestore 반영: updateData 메소드를 이용하여 firestore에 정보를 업데이트한다.
+    ///  - 로컬반영: 로컬에 있는 currentUser 객체를 재생성(초기화)하여 정보를 업데이트함
+    func updatePromises(promiseName: String, user: User, id: String) {
+        var tmp = user.promises
+        print(tmp)
+        if tmp == [""] {
+            tmp = []
+        }
+        tmp.append(promiseName)
+        print(tmp)
+        print(id)
+        database.collection("User")
+            .document("\(id)").updateData([
+                "promises" : tmp
+            ]) { err in
+                if let err = err {
+                    print("회원정보 수정 오류: \(err)")
+                } else {
+                    print("회원정보 수정 완료")
+                    self.currentUser = User(id: self.authentification.currentUser?.uid ?? "", userEmail: user.userEmail, userImg: user.userImg, userName: user.userName, groups: tmp, promises: user.promises)
+                }
+            }
+    }
 
 
 // MARK: - FireStore의 유저정보 fetch
@@ -241,9 +297,10 @@ func fetchUserInfo(user: User) {
                     let userEmail: String = docData["userEmail"] as? String ?? ""
                     let userImg: String = docData["userImg"] as? String ?? ""
                     let groups: [String] = docData["groups"] as? [String] ?? []
+                    let promises: [String] = docData["promises"] as? [String] ?? []
                     
                     
-                    self.currentUser = User(id: id, userEmail: userEmail, userImg: userImg, userName: userName, groups: groups)
+                    self.currentUser = User(id: id, userEmail: userEmail, userImg: userImg, userName: userName, groups: groups, promises: promises)
                     print(self.currentUser!)
                 }
             }
@@ -251,6 +308,10 @@ func fetchUserInfo(user: User) {
         }
     }
 }
+    
+
+    
+    
 // MARK: - 비밀번호 업데이트
 ///  - Parameter password : 변경하려는 비밀번호
 ///  - Auth에 접근하여 비밀번호를 업데이트한다

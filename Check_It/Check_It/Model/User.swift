@@ -13,4 +13,5 @@ struct User: Identifiable, Hashable, Codable {
     var userImg: String //유저 이미지
     var userName: String //유저 이름
     var groups: [String] //유저가 속한 그룹명
+    var promises: [String] 
 }

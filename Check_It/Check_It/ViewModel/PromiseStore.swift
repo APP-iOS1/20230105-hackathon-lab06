@@ -63,5 +63,4 @@ class PromiseStore: ObservableObject {
                      ])
         fetchPromise()
     }
-    
 }

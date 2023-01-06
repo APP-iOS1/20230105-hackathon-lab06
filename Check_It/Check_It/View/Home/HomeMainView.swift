@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct HomeMainView: View {
     
@@ -15,6 +16,8 @@ struct HomeMainView: View {
     
     @StateObject var promiseStore: PromiseStore = PromiseStore()
     @StateObject var groupStore: GroupStore = GroupStore()
+    //let target = promiseStore.database.collection("Promise").document(
+    let now = Auth.auth()
     
     var body: some View {
         NavigationStack {
@@ -61,7 +64,7 @@ struct HomeMainView: View {
                 TabView {
                     ForEach (promiseStore.promise) { promise in
                         PartyView(promise: promise)
-                    }
+
                 }
                 .tabViewStyle(.page)
                 .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))

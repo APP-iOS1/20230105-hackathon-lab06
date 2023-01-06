@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct AddScheduleView: View {
     @State var promiseName: String = ""
@@ -20,6 +21,9 @@ struct AddScheduleView: View {
     @State var lateMin: String = ""
     
     @StateObject var promiseStore: PromiseStore = PromiseStore()
+    @EnvironmentObject var userObj: SignUpViewModel
+    
+    let nowUser = Auth.auth()
 
     var body: some View {
         ScrollView {
@@ -186,7 +190,12 @@ struct AddScheduleView: View {
                 // 일정 만들기 버튼
                 Button {
                     // 일정 만들기
-                    promiseStore.addPromise(Promise(promiseName: promiseName, limit: absentMin, lateLimit: lateMin, rangeLimit: rangeLimit, location: location, date: date, startTime: startTime, endTime: endTime))
+                    let tmp = Promise(promiseName: promiseName, limit: absentMin, lateLimit: lateMin, rangeLimit: rangeLimit, location: location, date: date, startTime: startTime, endTime: endTime)
+                    let userIds = nowUser.currentUser?.uid
+                    
+                    promiseStore.addPromise(tmp)
+                    
+                    userObj.updatePromises(promiseName: tmp.id, user: userObj.currentUser ?? User(id: "", userEmail: "", userImg: "", userName: "", groups: [""], promises: [""]), id: userIds ?? "")
                     
                 } label: {
                     ZStack{
