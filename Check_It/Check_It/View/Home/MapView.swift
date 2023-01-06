@@ -10,18 +10,20 @@ import MapKit
 
 struct MapView: View {
     @EnvironmentObject var locationViewModel: LocationViewModel
+    @StateObject var locationStores = LocationStores()
     
     @State private var isQrcode: Bool = false // 바코드 유무
     // promisse안에 location id들이 존재한다.
     // 그래서 promisse location을 fetch를 해야함
-//    var promisse: Promise = Promise(promiseName: "혀미니의 또구",
-//                                    limit: "30",
-//                                    lateLimit: "5",
-//                                    date: "1월6일",
-//                                    startTime: "오후 1시",
-//                                    endTime: "오후 5시")
     
-//    var locationData: Location = Location(id: <#T##arg#>, locationName: <#T##String#>, address: <#T##String#>, detailAddress: <#T##String#>, geoPoint: <#T##Coordinates#>)
+    var promisse: Promise = Promise(promiseName: "",
+                                    limit: "",
+                                    lateLimit: "",
+                                    rangeLimit: 0,
+                                    location: "UXr8dT6TP9YTYw1UCn65",
+                                    date: "",
+                                    startTime: "",
+                                    endTime: "")
     
     // 임시로 만든 위치(실제로는 모임장소의 위도 경도가 들어감)
     var sampleLocation: CLLocationCoordinate2D =  CLLocationCoordinate2D(latitude: 37.478846, longitude: 126.620930)
@@ -62,6 +64,11 @@ struct MapView: View {
             }
             
             Spacer()
+        }
+        .onAppear {
+            Task {
+                await locationStores.fetchLocation(promisse.location)
+            }
         }
         
         .edgesIgnoringSafeArea([.top, .leading, .trailing])

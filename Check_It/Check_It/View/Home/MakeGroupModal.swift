@@ -20,6 +20,7 @@ struct MakeGroupModal: View {
     @StateObject var groupStore: GroupStore = GroupStore()
     let nowUser = Auth.auth()
     
+    
     var body: some View {
         VStack(alignment: .leading) {
             if pickedImage == nil{

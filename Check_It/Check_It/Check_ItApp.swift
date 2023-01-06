@@ -31,8 +31,13 @@ struct Check_ItApp: App {
         WindowGroup {
                 ContentView()
                 .environmentObject(LocationViewModel())
+
                 .environmentObject(SignUpViewModel())
 //            HomeMainView()
+
+//            LoginView()
+                .environmentObject(SignUpViewModel())
+
         }
     }
 }
