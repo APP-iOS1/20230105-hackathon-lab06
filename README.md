@@ -1,5 +1,5 @@
 # Check It! (체킷)
-<img width="300" alt="CheckItLogo" src="https://user-images.githubusercontent.com/114602459/210921638-7eb149fa-224c-4754-bff9-44514c573262.png">
+<img width="459" alt="CheckItLogo" src="https://user-images.githubusercontent.com/114602459/210968115-d4692300-2897-43ac-bb95-94cbdf4f8bf9.png">
 
 ## ADS 및 페르소나
 ```markdown
