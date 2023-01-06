@@ -111,10 +111,12 @@ struct SignUpView: View {
                             .foregroundColor(.gray)
                             .cornerRadius(10)
                             .opacity(0.1)
-                            .frame(width: 280, height: 50)
+                            .frame(width: 300, height: 50)
                             .overlay(
                                 HStack {
                                     TextField("이메일 (\("checkit@email.com"))", text: $email)
+                                        .disableAutocorrection(true)
+                                        .textInputAutocapitalization(.never)
                                         .padding()
                                 }
                             )
@@ -135,24 +137,25 @@ struct SignUpView: View {
                                         )
                                         .background(Color.white)
                                 }
+                                .frame(width: 30, height: 50)
                             } else if signUpViewModel.emailDuplicationState == .checking {
                                 ProgressView()
                                     .progressViewStyle(CircularProgressViewStyle(tint: .black))
-                                    .frame(height: 40)
-                                    .padding(5)
+                                    .frame(height: 50)
+                                    .padding(.leading, 5)
                             } else {
                                 Image(systemName: "checkmark")
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
-                                    .frame(width: 20.5)
+                                    .frame(width: 25)
                                     .foregroundColor(.accentColor)
                             } // else
                         } // if
                         
                         Spacer()
                     } // HStack
-                    .frame(height: 30)
-                    .padding(.trailing, 20)
+                    //.frame(height: 30)
+                    //.padding(.trailing, 20)
                     
                     if !email.isEmpty && !verifyEmailType(string: email) {
                         HStack(alignment: .center, spacing: 5) {
@@ -193,16 +196,20 @@ struct SignUpView: View {
                             .foregroundColor(.gray)
                             .cornerRadius(10)
                             .opacity(0.1)
-                            .frame(width: 280, height: 50)
+                            .frame(width: 300, height: 50)
                             .overlay(
                                 
                                 HStack {
                                     
                                     if isSecuredPassword {
                                         SecureField("비밀번호를 입력해주세요", text: $password)
+                                            .disableAutocorrection(true)
+                                            .textInputAutocapitalization(.never)
                                             .padding()
                                     } else {
                                         TextField("비밀번호를 입력해주세요", text: $password)
+                                            .disableAutocorrection(true)
+                                            .textInputAutocapitalization(.never)
                                             .padding()
                                     }
                                     
@@ -232,7 +239,7 @@ struct SignUpView: View {
                     } // HStack
                     
                     if !password.isEmpty && !verifyPasswordType(password: password) {
-                        HStack(alignment: .center, spacing: 5) {
+                        HStack {
                             Text("영문, 숫자, 특수문자를 포함하여 8~20자로 작성해주세요")
                             Spacer()
                         }
@@ -240,9 +247,12 @@ struct SignUpView: View {
                         .font(.caption)
                         .padding(.top, 3)
                     } else {
-                        Text("")
-                            .font(.caption)
-                            .padding(.top, 3)
+                        
+                        HStack {
+                            Text("")
+                                .font(.caption)
+                        }
+                        .padding(.top, 3)
                     }
                     
                     HStack() {
@@ -251,15 +261,19 @@ struct SignUpView: View {
                             .foregroundColor(.gray)
                             .cornerRadius(10)
                             .opacity(0.1)
-                            .frame(width: 280, height: 50)
+                            .frame(width: 300, height: 50)
                             .overlay(
                                 HStack {
                                     
                                     if isSecuredPasswordCheck {
-                                        SecureField("비밀번호를 한 번 더 입력해주세요", text: $passwordCheck)
+                                        SecureField("한 번 더 입력해주세요", text: $passwordCheck)
+                                            .disableAutocorrection(true)
+                                            .textInputAutocapitalization(.never)
                                             .padding()
                                     } else {
-                                        TextField("비밀번호를 한 번 더 입력해주세요", text: $passwordCheck)
+                                        TextField("한 번 더 입력해주세요", text: $passwordCheck)
+                                            .disableAutocorrection(true)
+                                            .textInputAutocapitalization(.never)
                                             .padding()
                                     }
                                     
@@ -324,10 +338,12 @@ struct SignUpView: View {
                             .foregroundColor(.gray)
                             .cornerRadius(10)
                             .opacity(0.1)
-                            .frame(width: 280, height: 50)
+                            .frame(width: 300, height: 50)
                             .overlay(
                                 HStack {
                                     TextField("이름을 입력해주세요", text: $name)
+                                        .disableAutocorrection(true)
+                                        .textInputAutocapitalization(.never)
                                         .padding()
                                 }
                             )
@@ -343,7 +359,6 @@ struct SignUpView: View {
                 
                 Spacer()
                 Spacer()
-                
                 
                 
             } // ScrollView
@@ -366,7 +381,7 @@ struct SignUpView: View {
                         .progressViewStyle(CircularProgressViewStyle(tint: .black))
                         .frame(height: 40)
                 } else {
-                    Text("회 원 가 입")
+                    Text("회원가입")
                         .font(.title2)
                         .bold()
                         .foregroundColor(.white)
