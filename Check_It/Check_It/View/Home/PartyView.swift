@@ -4,7 +4,6 @@
 //
 //  Created by 조현호 on 2023/01/05.
 //
-
 import SwiftUI
 
 struct PartyView: View {
@@ -12,11 +11,23 @@ struct PartyView: View {
     var promise: Promise
 //    var group: Group
     
+    let todayDateValue = Date().toString().toDate()
+    let dateFormatter = DateFormatter()
+    
+//    let interval = promise.date.toDate()?.timeIntervalSince(todayDateValue ?? Date())
+//    let days = Int((interval ?? 0) / 86400)
+    
     var body: some View {
         NavigationLink(destination: MainDetailView(promise: promise)) {
             VStack(alignment: .leading) {
-                ddayFrame(day: "D-day")
-                    .padding(.bottom, 10)
+                if Int((promise.date.toDate()?.timeIntervalSince(todayDateValue ?? Date()) ?? 0) / 86400) == 0 {
+                    ddayFrame(day: "D-day")
+                        .padding(.bottom, 10)
+                } else {
+                    notTodayFrame(day: "D-\(Int(promise.date.toDate()?.timeIntervalSince(todayDateValue ?? Date()) ?? 0) / 86400)")
+                        .padding(.bottom, 10)
+                }
+            
                 
                 Text("group.groupName")
                     .foregroundColor(.black)
