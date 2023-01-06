@@ -11,6 +11,7 @@ struct MainDetailView: View {
     @StateObject var promiseStore: PromiseStore = PromiseStore()
     var promise: Promise
 
+    var code = "234dd"
     var body: some View {
         ScrollView {
             VStack{
@@ -98,13 +99,17 @@ struct MainDetailView: View {
         }
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    // 참여코드 공유
-                } label: {
-                    Text("초대하기")
-                        .font(.headline)
-                        .foregroundColor(.black)
+                ShareLink(item: code){
+                    Label("초대하기", systemImage: "square.and.arrow.up")
                 }
+//                Button {
+//                    // 참여코드 공유
+//                    ShareLink(item: code)
+//                } label: {
+//                    Text("초대하기")
+//                        .font(.headline)
+//                        .foregroundColor(.black)
+//                }
             }
         }
     }
