@@ -121,3 +121,24 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 }
 
+////https://www.youtube.com/watch?v=2Jk58S6FiZw
+//@State private var isLoadingIndicator : Bool = false
+//var body: some View {
+//    ZStack {
+//        //필요한 기존 ui
+//        Text("ㅇㅇ")
+//
+//        if isLoadingIndicator {
+//            ZStack {
+//                Color(.systemBackground)
+//                    .ignoresSafeArea()
+//
+//                //indicator
+//                ProgressView()
+//                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
+//                    .scaleEffect(3)
+//            }
+//        }
+//    }
+//    .onAppear { startIndicator() }
+//
