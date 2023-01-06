@@ -24,6 +24,7 @@ struct AttendanceMainView: View {
                                         .font(.headline)
                                         .foregroundColor(.black)
                                         .padding(.bottom, 10)
+                                        .padding(.top)
                                     HStack{
                                         HStack {
                                             Text("출석")
@@ -49,12 +50,13 @@ struct AttendanceMainView: View {
                                                 .bold()
                                         }
                                     }
+                                    .padding(.bottom)
                                 }
                                 Spacer()
                             }
                             .padding(.leading, 20)
                         }
-                        .padding(.vertical,10)
+                        .padding(.vertical,5)
                     }
                 }
             }

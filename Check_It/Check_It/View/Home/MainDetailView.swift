@@ -24,12 +24,14 @@ struct MainDetailView: View {
                         Text("\(promise.promiseName)") // 동아리 이름
                             .font(.title3.bold())
                             .padding(.bottom)
-                        Image("")               // 동아리 이미지
-                            .padding(.bottom)
+                     
                     }
                     Spacer()
                 }
-                
+                Image("baseball")               // 동아리 이미지
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    .padding(.bottom)
                 Divider()   // 동아리 이미지 넣어보고 이상하면 빼기
                     .padding(.bottom)
                 
