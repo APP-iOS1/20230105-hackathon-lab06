@@ -16,6 +16,7 @@ class PromiseStore: ObservableObject {
     var promiseId: String = ""
     @Published var promise: [Promise]
     
+    
     init() {
         promise = []
     }
