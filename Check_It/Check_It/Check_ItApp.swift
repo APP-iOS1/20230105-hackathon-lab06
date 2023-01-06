@@ -29,11 +29,10 @@ struct Check_ItApp: App {
     
     var body: some Scene {
         WindowGroup {
-//                ContentView()
-//                .environmentObject(LocationViewModel())
-////            LoginView()
-//                .environmentObject(SignUpViewModel())
-            HomeMainView()
+                ContentView()
+                .environmentObject(LocationViewModel())
+                .environmentObject(SignUpViewModel())
+//            HomeMainView()
         }
     }
 }
