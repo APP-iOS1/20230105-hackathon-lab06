@@ -13,6 +13,7 @@
 		287680DD2967025300DC35CF /* AttendanceModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DC2967025300DC35CF /* AttendanceModalView.swift */; };
 		287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680DE2967069400DC35CF /* LocationViewModel.swift */; };
 		287680E32967207700DC35CF /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E22967207700DC35CF /* MapView.swift */; };
+		287680E5296775EF00DC35CF /* LocationStores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287680E4296775EE00DC35CF /* LocationStores.swift */; };
 		2B8379C5296721BC007ABABE /* UseAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C4296721BC007ABABE /* UseAgreementView.swift */; };
 		2B8379C729673775007ABABE /* premiumRateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8379C629673775007ABABE /* premiumRateView.swift */; };
 		34E66AF529666D2B005F19FC /* HomeMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E66AF429666D2B005F19FC /* HomeMainView.swift */; };
@@ -72,6 +73,7 @@
 		287680DC2967025300DC35CF /* AttendanceModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceModalView.swift; sourceTree = "<group>"; };
 		287680DE2967069400DC35CF /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		287680E22967207700DC35CF /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		287680E4296775EE00DC35CF /* LocationStores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStores.swift; sourceTree = "<group>"; };
 		2B8379C4296721BC007ABABE /* UseAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseAgreementView.swift; sourceTree = "<group>"; };
 		2B8379C629673775007ABABE /* premiumRateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = premiumRateView.swift; sourceTree = "<group>"; };
 		34E66AF429666D2B005F19FC /* HomeMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainView.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				34E66AFC29666D72005F19FC /* GroupStore.swift */,
 				FD6A2E41296760D4006E1C10 /* TestDevice.swift */,
 				F480D42F29674B71005CB779 /* UserStore.swift */,
+				287680E4296775EE00DC35CF /* LocationStores.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				287680DF2967069400DC35CF /* LocationViewModel.swift in Sources */,
 				7944E32E2966C54000ADFED6 /* MainDetailView.swift in Sources */,
 				34E66AF929666D53005F19FC /* MyMainView.swift in Sources */,
+				287680E5296775EF00DC35CF /* LocationStores.swift in Sources */,
 				F480D42A2967032C005CB779 /* MakeGroupModal.swift in Sources */,
 				F480D4242966EF2E005CB779 /* Group.swift in Sources */,
 				7944E3362967022B00ADFED6 /* AddScheduleView.swift in Sources */,
@@ -569,7 +573,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Check_It/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 856Q6QA7Z9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근하려고 합니다.";
@@ -603,7 +607,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Check_It/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 856Q6QA7Z9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근하려고 합니다.";

@@ -84,7 +84,7 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         }
     }
     
-    func calcDistance(lan1: Double, lng1: Double, lan2: Double, lng2: Double) -> Double {
+    func calcDistance(lan1: Double, lng1: Double, lan2: Double, lng2: Double) -> Int {
         var distance: Double
         var radius: Double = 6371.0
         var radin = Double.pi / 180
@@ -101,7 +101,9 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         /// distance 결과는 km단위로 나옴
         distance = 2.0 * radius * asin(squareRoot)
         
-        return distance * 1000
+        return Int(distance * 1000)
+        
+        //return Int(distance * 1000)
         
 //        if distance > 1 {
 //            let strings = String(distance)

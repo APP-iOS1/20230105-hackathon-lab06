@@ -11,16 +11,41 @@ import MapKit
 struct MapView: View {
     @EnvironmentObject var locationViewModel: LocationViewModel
     
-    @State private var isQrcode: Bool = false
+    @State private var isQrcode: Bool = false // 바코드 유무
+    // promisse안에 location id들이 존재한다.
+    // 그래서 promisse location을 fetch를 해야함
+//    var promisse: Promise = Promise(promiseName: "혀미니의 또구",
+//                                    limit: "30",
+//                                    lateLimit: "5",
+//                                    date: "1월6일",
+//                                    startTime: "오후 1시",
+//                                    endTime: "오후 5시")
     
-    var sampleLocation: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 37.478846, longitude: 126.620930)
+//    var locationData: Location = Location(id: <#T##arg#>, locationName: <#T##String#>, address: <#T##String#>, detailAddress: <#T##String#>, geoPoint: <#T##Coordinates#>)
     
-    var distance: Double {
-        locationViewModel.calcDistance(
+    // 임시로 만든 위치(실제로는 모임장소의 위도 경도가 들어감)
+    var sampleLocation: CLLocationCoordinate2D =  CLLocationCoordinate2D(latitude: 37.478846, longitude: 126.620930)
+    
+    var sampleLimitDis: Int = 10 // 임시로 만든 제한 거리 단위는 m
+    
+    var distance: Int { // 두 지점사이의 거리를 나타냄
+        let dis = locationViewModel.calcDistance(
             lan1: sampleLocation.latitude,
             lng1: sampleLocation.longitude,
             lan2: locationViewModel.region.center.latitude,
             lng2: locationViewModel.region.center.longitude)
+        return dis
+    }
+    
+    var stringsDis: String {
+        if distance > 1 { // 1보다 크면 km단위
+            let strings = String(distance)
+            let distanceStr = strings.components(separatedBy: ".")
+            let km = distanceStr.first ?? "0"
+            return "\(km)"
+        } else { // Meter 단위
+            return "\(distance)"
+        }
     }
     
     var body: some View {
@@ -30,21 +55,13 @@ struct MapView: View {
             
             Spacer()
             
-            Button(action: {
-                //
-                print("\(distance)m 떨어져 있습니다.")
-            }, label: {
-                ZStack {
-                    Rectangle()
-                        .foregroundColor(Color("melon"))
-                        .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 50)
-                        .cornerRadius(10)
-                    Text("출석하기")
-                        .foregroundColor(.white)
-                        .bold()
-                }
-            })
-            .padding(.horizontal, 30)
+            if sampleLimitDis < distance {
+                notPossibleButton
+            } else {
+                possibleButton
+            }
+            
+            Spacer()
         }
         
         .edgesIgnoringSafeArea([.top, .leading, .trailing])
@@ -73,6 +90,41 @@ struct MapView: View {
                 }
             }
         }
+    }
+    
+    private var notPossibleButton: some View {
+        Button(action: {
+            // no to do
+        }, label: {
+            ZStack {
+                Rectangle()
+                    .foregroundColor(Color.lightGray)
+                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 50)
+                    .cornerRadius(10)
+                Text("\(distance)m 떨어져 있습니다.")
+                    .foregroundColor(.white)
+                    .bold()
+            }
+        })
+        .disabled(true)
+        .padding(.horizontal, 30)
+    }
+    
+    private var possibleButton: some View {
+        Button(action: {
+            // 출석하기 버튼 동작 수행
+        }, label: {
+            ZStack {
+                Rectangle()
+                    .foregroundColor(Color("melon"))
+                    .frame(maxWidth: UIScreen.main.bounds.width, maxHeight: 50)
+                    .cornerRadius(10)
+                Text("출석하기")
+                    .foregroundColor(.white)
+                    .bold()
+            }
+        })
+        .padding(.horizontal, 30)
     }
 }
 
