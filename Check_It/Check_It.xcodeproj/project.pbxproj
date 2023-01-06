@@ -64,6 +64,7 @@
 		FD6A2E3E29674B04006E1C10 /* StorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E3D29674B04006E1C10 /* StorageViewModel.swift */; };
 		FD6A2E4029674B3F006E1C10 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E3F29674B3F006E1C10 /* ImagePicker.swift */; };
 		FD6A2E42296760D4006E1C10 /* TestDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD6A2E41296760D4006E1C10 /* TestDevice.swift */; };
+		FD9C0DB02967AA9C008AEE0F /* AddressConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C0DAF2967AA9C008AEE0F /* AddressConvert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +114,7 @@
 		FD6A2E3D29674B04006E1C10 /* StorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewModel.swift; sourceTree = "<group>"; };
 		FD6A2E3F29674B3F006E1C10 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FD6A2E41296760D4006E1C10 /* TestDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDevice.swift; sourceTree = "<group>"; };
+		FD9C0DAF2967AA9C008AEE0F /* AddressConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressConvert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,6 +299,7 @@
 				FD6A2E3829674787006E1C10 /* WebView */,
 				FD6A2E1E2966FDE9006E1C10 /* NaverKeys.swift */,
 				A525D9CD296701CF00BC6C53 /* GeoCodingService.swift */,
+				FD9C0DAF2967AA9C008AEE0F /* AddressConvert.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				287680E5296775EF00DC35CF /* LocationStores.swift in Sources */,
 				F480D42A2967032C005CB779 /* MakeGroupModal.swift in Sources */,
 				F480D4242966EF2E005CB779 /* Group.swift in Sources */,
+				FD9C0DB02967AA9C008AEE0F /* AddressConvert.swift in Sources */,
 				7944E3362967022B00ADFED6 /* AddScheduleView.swift in Sources */,
 				287680E32967207700DC35CF /* MapView.swift in Sources */,
 				34E66AFB29666D61005F19FC /* User.swift in Sources */,

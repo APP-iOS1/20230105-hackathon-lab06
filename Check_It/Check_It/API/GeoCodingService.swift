@@ -10,6 +10,7 @@ import Alamofire
 
 class GeoCodingService {
     func getCoding(address : String, completion : @escaping ([String]) -> ()) {
+        print("geoCoding \(address)")
         let url = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode"
         let headers : HTTPHeaders = [
             "X-NCP-APIGW-API-KEY-ID" : "653hfg2t7w",
