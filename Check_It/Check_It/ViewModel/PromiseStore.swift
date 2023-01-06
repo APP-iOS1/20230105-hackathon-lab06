@@ -17,6 +17,7 @@ class PromiseStore: ObservableObject {
     @Published var promises: [Promise] = []
     @Published var promise: Promise?
     
+    
     init() {
         promises = []
     }

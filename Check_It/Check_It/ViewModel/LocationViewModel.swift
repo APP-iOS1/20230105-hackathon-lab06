@@ -103,44 +103,5 @@ class LocationViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         
         return Int(distance * 1000)
         
-        //return Int(distance * 1000)
-        
-//        if distance > 1 {
-//            let strings = String(distance)
-//            let distanceStr = strings.components(separatedBy: ".")
-//            let km = distanceStr.first ?? "0"
-//            print("km: \(km)")
-//
-//            return "\(km)km"
-//
-//        } else {
-//            let newDistance = Int(round(distance * 1000))
-//            let strings = "\(newDistance)m"
-//            print("m: \(strings)")
-//
-//            return strings
-//        }
     }
 }
-
-////https://www.youtube.com/watch?v=2Jk58S6FiZw
-//@State private var isLoadingIndicator : Bool = false
-//var body: some View {
-//    ZStack {
-//        //필요한 기존 ui
-//        Text("ㅇㅇ")
-//
-//        if isLoadingIndicator {
-//            ZStack {
-//                Color(.systemBackground)
-//                    .ignoresSafeArea()
-//
-//                //indicator
-//                ProgressView()
-//                    .progressViewStyle(CircularProgressViewStyle(tint: .blue))
-//                    .scaleEffect(3)
-//            }
-//        }
-//    }
-//    .onAppear { startIndicator() }
-//
