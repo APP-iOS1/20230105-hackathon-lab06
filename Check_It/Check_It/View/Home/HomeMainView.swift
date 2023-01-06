@@ -59,8 +59,8 @@ struct HomeMainView: View {
                 .offset(y:20)
                 
                 TabView {
-                    ForEach (promiseStore.promise) { promise in
-                        PartyView(promise: promise)
+                    ForEach (groupStore.groups) { group in
+                        PartyView(group: group)
                     }
                 }
                 .tabViewStyle(.page)
@@ -69,6 +69,7 @@ struct HomeMainView: View {
             Spacer()
         }
         .onAppear{
+            groupStore.fetchGroup()
             promiseStore.fetchPromise()
         }
     }

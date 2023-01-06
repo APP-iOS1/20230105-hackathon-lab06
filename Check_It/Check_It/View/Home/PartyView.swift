@@ -9,6 +9,12 @@ import SwiftUI
 
 struct PartyView: View {
     @State var isChecked: Bool = false
+
+//    var promise: Promise
+    var group: Group
+    @StateObject var promise: PromiseStore = PromiseStore()
+    @State var promiseID: String = ""
+
     var promise: Promise
 //    var group: Group
     
@@ -18,8 +24,9 @@ struct PartyView: View {
 //    let interval = promise.date.toDate()?.timeIntervalSince(todayDateValue ?? Date())
 //    let days = Int((interval ?? 0) / 86400)
     
+
     var body: some View {
-        NavigationLink(destination: MainDetailView(promise: promise)) {
+        NavigationLink(destination: MainDetailView(group: group)) {
             VStack(alignment: .leading) {
                 if Int((promise.date.toDate()?.timeIntervalSince(todayDateValue ?? Date()) ?? 0) / 86400) == 0 {
                     ddayFrame(day: "D-day")
@@ -30,33 +37,36 @@ struct PartyView: View {
                 }
             
                 
-                Text("group.groupName")
+                Text(group.groupName)
                     .foregroundColor(.black)
                     .font(.title)
                     .bold()
                     .padding(.bottom, 10)
                 
-                HStack {
-                    Image(systemName: "mappin.and.ellipse")
-                        .foregroundColor(.black)
-                    Text("location.address")
-                        .foregroundColor(.black)
+                if group.promiseList.count > 0 {
+                    HStack {
+                        Image(systemName: "mappin.and.ellipse")
+                            .foregroundColor(.black)
+                        Text("location.address")
+                            .foregroundColor(.black)
+                    }
+                    .padding(.bottom, 5)
+                    HStack {
+                        Image(systemName: "calendar")
+                            .foregroundColor(.black)
+                        
+                        Text("\(promise.promise?.date ?? "오류")")
+                            .foregroundColor(.black)
+                    }
+                    .padding(.bottom, 5)
+                    HStack {
+                        Image(systemName: "clock")
+                            .foregroundColor(.black)
+//                        Text("\(group.promiseList[0].startTime) ~ \(group.promiseList[0].endTime)")
+                            .foregroundColor(.black)
+                    }
+                    .padding(.bottom, 10)
                 }
-                .padding(.bottom, 5)
-                HStack {
-                    Image(systemName: "calendar")
-                        .foregroundColor(.black)
-                    Text(promise.date)
-                        .foregroundColor(.black)
-                }
-                .padding(.bottom, 5)
-                HStack {
-                    Image(systemName: "clock")
-                        .foregroundColor(.black)
-                    Text("\(promise.startTime) ~ \(promise.endTime)")
-                        .foregroundColor(.black)
-                }
-                .padding(.bottom, 10)
                 
                 Image("baseball")
                     .resizable()
@@ -81,8 +91,12 @@ struct PartyView: View {
             .cornerRadius(10)
             .padding(.bottom, 40)
         }
+        .onAppear {
+            promise.fetchPromiseDocument(promiseID: "\(promiseID)")
+        }
     }
 }
+
 
 //struct PartyView_Previews: PreviewProvider {
 //    static var previews: some View {

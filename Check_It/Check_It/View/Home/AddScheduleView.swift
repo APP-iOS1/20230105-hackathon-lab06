@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct AddScheduleView: View {
+
+    var group: Group
     @State var isShowingWebView: Bool = false
+
     @State var promiseName: String = ""
     @State var date: String = ""
     @State var startTime: String = ""
@@ -195,6 +198,8 @@ struct AddScheduleView: View {
                 
                 // 일정 만들기 버튼
                 Button {
+                    // 일정 만들기
+                    promiseStore.addPromise(Promise(id: UUID().uuidString, promiseName: promiseName, limit: absentMin, lateLimit: lateMin, rangeLimit: rangeLimit, location: location, date: date, startTime: startTime, endTime: endTime), group: group)
                     print(viewModel.result)
                     GeoCodingService().getCoding(address: "\(viewModel.result ?? "")") { location in
                         
@@ -231,10 +236,10 @@ struct AddScheduleView: View {
     }
 }
 
-struct AddScheduleView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack{
-            AddScheduleView()
-        }
-    }
-}
+//struct AddScheduleView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack{
+//            AddScheduleView()
+//        }
+//    }
+//}
