@@ -12,13 +12,14 @@ struct Location: Identifiable, Hashable, Codable {
     var locationName: String // 약속장소명
     var address: String //주소
     var detailAddress: String //상세주소
-    
-    var geoPoint: Coordinates // 좌표값(위도, 경도)
-
-    struct Coordinates: Hashable, Codable {
-        var latitude: Double
-        var longitude: Double
-    }
+    var latitude: Double
+    var longitude: Double
+//    var geoPoint: Coordinates // 좌표값(위도, 경도)
+//
+//    struct Coordinates: Hashable, Codable {
+//        var latitude: Double
+//        var longitude: Double
+//    }
 }
 
 

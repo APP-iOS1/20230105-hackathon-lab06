@@ -13,6 +13,8 @@ struct AddScheduleView: View {
     @State var startTime: String = ""
     @State var endTime: String = ""
     @State var place: String = ""
+    @State var rangeLimit: Int = 0
+    @State var location: String = ""
     
     @State var absentMin: String = ""
     @State var lateMin: String = ""
@@ -184,7 +186,7 @@ struct AddScheduleView: View {
                 // 일정 만들기 버튼
                 Button {
                     // 일정 만들기
-                     promiseStore.addPromise(Promise(promiseName: promiseName, limit: absentMin, lateLimit: lateMin, date: date, startTime: startTime, endTime: endTime))
+                    promiseStore.addPromise(Promise(promiseName: promiseName, limit: absentMin, lateLimit: lateMin, rangeLimit: rangeLimit, location: location, date: date, startTime: startTime, endTime: endTime))
                     
                 } label: {
                     ZStack{

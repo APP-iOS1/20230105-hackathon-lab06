@@ -72,8 +72,9 @@ struct PartyView: View {
     }
 }
 
-struct PartyView_Previews: PreviewProvider {
-    static var previews: some View {
-        PartyView(group: Group(groupName: "", groupImage: "", host: "", code: "", userList: [], promiseList: []))
-    }
-}
+
+//struct PartyView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        PartyView(promise: Promise(promiseName: "", limit: "", lateLimit: "", date: "", startTime: "", endTime: ""))
+//    }
+//}
