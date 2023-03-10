@@ -76,3 +76,7 @@ ex) `dev_LoginSignUp_HanHo`
 | 📎차소민<br/> [@chasomin](https://github.com/chasomin)<br/> |  📎이학진<br/> [@LEEHAKJIN-VV](https://github.com/LEEHAKJIN-VV)<br/> | 📎김응관<br/> [@alpha-kwhn](https://github.com/alpha-kwhn)<br/> | 📎조현호<br/> [@HHCHO0220](https://github.com/HHCHO0220)<br/> |
 | :---------------------------------------------: | :-------------------------------------------------: | :----------------------------------------------------------: | :---------------------------------------------: |
 | <img src="https://avatars.githubusercontent.com/u/114223423?v=4" width=200>  | <img src="https://avatars.githubusercontent.com/u/52197436?v=4" width=200> | <img src="https://avatars.githubusercontent.com/u/40496065?v=4" width=200> | <img src="https://avatars.githubusercontent.com/u/109830398?v=4" width=200> |
+
+## 라이센스
+MIT License
+Copyright (c) 2023 Check-it 
