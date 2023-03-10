@@ -12,8 +12,8 @@ class GeoCodingService {
     func getCoding(address : String, completion : @escaping ([String]) -> ()) {
         let url = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode"
         let headers : HTTPHeaders = [
-            "X-NCP-APIGW-API-KEY-ID" : "653hfg2t7w",
-            "X-NCP-APIGW-API-KEY" : "p82MjTygQ4l3okUqMkII6xkMIzvYE4msD19Gtm1e"
+            "X-NCP-APIGW-API-KEY-ID" : "",
+            "X-NCP-APIGW-API-KEY" : ""
         ]
         let parameters : Parameters = [
             "query" : "\(address)"
